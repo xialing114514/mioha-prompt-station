@@ -1,0 +1,21 @@
+name: 功能建议
+description: 描述希望解决的创作或管理问题
+title: "[建议] "
+body:
+  - type: textarea
+    id: scenario
+    attributes:
+      label: 使用场景与当前困难
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 希望实现的行为
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 目前的替代方案或参考
+      description: 如有截图或项目链接，请说明参考的具体功能，并移除私人信息

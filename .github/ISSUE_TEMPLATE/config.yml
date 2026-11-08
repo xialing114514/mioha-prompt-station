@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 使用手册与常见问题
+    url: https://github.com/xialing114514/mioha-prompt-station/blob/main/docs/README.md
+    about: 安装、内置 AI、模型、WD14 与 Agent 接入指南

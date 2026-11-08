@@ -6,7 +6,7 @@
 
 外部 Agent 负责创意设计，软件内置 AI 负责按当前绘图模型和 Skill 转换表达。原始方案、版本和转换结果分开保存。外部 Agent 不需要维护所有绘图模型的专属语法，也不应另外建立重复推理服务。
 
-流程：查询能力 → 创建会话 → 提交原始设计 → 请求转换 → 查询／订阅任务 → 回答追问或提出反馈 → 获取结果 → 申请应用到编辑器 → 用户确认 → 按权限申请生图。
+流程：查询能力 → 创建会话 → 提交原始设计 → 请求转换 → 查询／订阅任务 → 回答追问或提出反馈 → 获取结果 → 配置实际资源 → 申请应用／生图 → 按权限自主确认或用户确认 → 获取执行回执。
 
 软件界面需保持运行，才能领取转换任务、执行编辑器应用和返回回执。HTTP 在线与转换可领取是两个状态。
 
@@ -55,10 +55,10 @@
 | convert | 请求内置 AI 转换与反馈 |
 | resources | 查询资源与画师信息 |
 | skills / models | 请求管理对应资源 |
-| generate | 请求生图 |
+| generate | 配置底模、LoRA、参数及工作流，申请生图 |
 | delete | 请求删除资源 |
 
-资源删除、覆盖提示词和最终生图按业务要求由用户确认。外部 Agent 没有任意文件、系统命令或数据库直连入口，也不能解除全局内容模式。
+资源删除、覆盖提示词和最终生图仍经过业务确认。默认允许 Agent 确认自己已授权的请求；用户可在身份列表切换为始终由用户确认。确认生图可能使用自己的付费服务，请按需授予 generate 权限。外部 Agent 没有任意文件、系统命令或数据库直连入口，也不能解除全局内容模式。
 
 ## 任务状态
 
@@ -67,7 +67,7 @@
 | queued | 已保存并排队 |
 | running | 已领取／执行；应用任务还可能在等编辑器回执 |
 | awaiting_input | 需要回答补充问题，可沿用原任务恢复 |
-| awaiting_confirmation | 等待用户审阅 |
+| awaiting_confirmation | 待确认；按权限调用 confirm_job，或等待用户审阅 |
 | success | 当前操作已完成；应用提示词以编辑器回执为准 |
 | error / cancelled | 失败或已取消，查看错误与已有结果后再决定是否重试 |
 
@@ -82,14 +82,57 @@
 转换任务优先于尚未执行的生图，但不会抢占已经运行的任务。会话上下文与任务按 Agent 隔离。
 
 
+## 生图资源、LoRA 与工作流控制
+
+先用 `list_resources` 读取稳定资源 ID，`list_workflows` 读取工作流 ID；可用 `get_generation_settings` 查询已应用配置。读取完整工作流需要 resources 权限，改变生图配置需要 generate 权限。
+
+调用 `configure_generation`，其 value 示例如下（替换为真实 ID）：
+
+```json
+{
+  "modelId": "model_anima",
+  "provider": "comfy",
+  "checkpointResourceId": "CHECKPOINT_RESOURCE_ID",
+  "workflowId": "WORKFLOW_ID",
+  "loras": [
+    {"resourceId": "LORA_A_ID", "weight": 0.85, "clipWeight": 0.6, "triggerEnabled": true},
+    {"resourceId": "LORA_B_ID", "weight": 1.1, "triggerEnabled": false}
+  ],
+  "parameters": {"width": 832, "height": 1216, "steps": 24},
+  "requestId": "UNIQUE_CONFIGURATION_REQUEST"
+}
+```
+
+返回配置任务，success 才表示界面已经应用。配置本身不生图，`loras: []` 清空列表。生成请求使用本 Agent 的配置快照，避免其他 Agent 或界面改变当前设置后串用资源。
+
+## 自主确认与页面帮助
+
+用 `confirm_job` 确认自己提交的待确认请求。不能跨 Agent、绕过 Token 权限或资源引用保护；被设为用户确认模式时自确认返回403。全局内容模式不对外部 Agent 开放。
+
+先读取 capabilities 中的 `selfConfirmationAllowed`、`confirmationMode` 和新能力。1.2 保留旧的 `*RequiresUserConfirmation` 兼容字段，新客户端不能再把它理解为只允许人工点击。
+
+`list_pages`／`get_page_help` 提供界面问号中同一份功能说明。分类管理也有独立资源分类工具，删除分类保留磁盘权重。更新软件后请重连外部 MCP 进程，旧进程不会自动加载新增工具。
+
+
 ## 工具与接口索引
 
-### MCP 工具（27项）
+### MCP 工具（38项）
 
 | 工具 | 用途 |
 | --- | --- |
 | `workspace_status` | 查询当前绘图模型、Skill、界面心跳与队列状态。converterReady 只在工作进程在线且可领取转换时为真；队列阻塞不等于任务失败。 |
 | `workspace_capabilities` | 查询应用版本、协议能力、权限、完整 REST 路由、数据库诊断和队列状态。先调用此工具了解当前软件支持范围。 |
+| `list_pages` | 列出全部软件页面及作用、操作步骤与输出，先了解软件再操作。 |
+| `get_page_help` | 读取指定页面的功能介绍。id 来自 list_pages，不依赖界面截图。 |
+| `get_generation_settings` | 读取当前或本 Agent 最近成功应用的生图配置，包含引擎、底模、LoRA 与工作流。 |
+| `configure_generation` | 配置生图但不执行绘图，需 generate 权限。value 支持 modelId、provider(neo/comfy/nai)、checkpointResourceId、workflowId、loras:[{resourceId,weight,clipWeight,triggerEnabled}]、parameters 与 requestId。先用 list_resources 查询实际 LoRA ID；返回任务 ID，success 才表示界面应用完成。loras:[] 清空所选 LoRA。 |
+| `list_workflows` | 列出 ComfyUI 文件夹中的工作流及可用状态；API 格式可直接读取，普通 UI 格式需连接 ComfyUI 获取节点定义。 |
+| `get_workflow` | 读取所选工作流及 sha256，需要 resources 权限。常规 UI 格式结合已连接 ComfyUI 的节点定义转换；旁路等不确定格式要求导出 API，避免改变工作流含义。 |
+| `confirm_job` | 确认自己提交的待确认任务，包括应用、生图及管理操作。遵守原权限、会话及资源引用限制；Agent 被设为用户确认模式时返回403。确认生图可能使用已配置的付费服务。 |
+| `list_resource_categories` | 读取用户自定义资源分类和计数；分类独立于引擎归属及模型适配。需要 resources 权限。 |
+| `save_resource_category` | 请求创建或重命名分类。value={name,可选id}。需要 resources 权限，随后用 confirm_job 确认自己的任务。 |
+| `assign_resource_categories` | 请求归类。value={resourceIds:[资源ID],categoryIds:[分类ID]}；空分类列表移至未分类。确认后生效，权重文件不移动。 |
+| `delete_resource_category` | 请求删除分类关系；确认后执行，资源记录与磁盘文件保留，需要 resources 与 delete 权限。 |
 | `list_models` | 分页列出可用绘图模型定义及稳定 ID，供选择设计方案转换目标；不会加载或下载权重。 |
 | `list_skills` | 分页查询模型专属 Skill 规则与元数据，modelId 可过滤；切换模型时应选择兼容规则。 |
 | `list_resources` | 分页查询 LoRA、真实触发词及模型兼容性。默认隐藏本机绝对路径；只有明确需要诊断时才传 paths=true。 |
@@ -101,19 +144,19 @@
 | `submit_design` | 提交与绘图模型无关的完整创意设计，支持自然语言或结构化对象。sessionId 必填；id 用于更新，requestId 用于安全重试。 |
 | `convert_design` | 请求软件现有内置 AI 将指定设计版本转换为目标模型提示词，不另建推理系统。返回任务，需用 get_job 查询；requestId 可幂等重试。 |
 | `resume_job` | 回答 awaiting_input 转换任务的追问，feedback 写完整补充内容。沿用相同任务 ID 和设计版本重新排队，requestId 用于幂等重试。 |
-| `get_job` | 查询本 Agent 单条任务、错误、追问、排队位置和转换结果 ID。生图或应用提示词处于 awaiting_confirmation 时须等待用户在软件确认。 |
+| `get_job` | 查询本 Agent 单条任务、错误、追问、排队位置、生成进度和转换结果 ID。awaiting_confirmation 时按 capabilities 的 selfConfirmationAllowed 判断：可自主确认则调用 confirm_job，否则等待用户确认。 |
 | `get_design` | 读取本 Agent 设计原文和版本记录；不将转换提示词当作原始设计。 |
 | `get_prompt` | 读取本 Agent 转换后的正负提示词、目标模型、Skill 快照和审阅信息。 |
-| `apply_prompt` | 请求把转换结果应用到编辑器，会覆盖现有正负提示词并可能切换模型。仅创建待确认任务，用户批准前不会修改编辑框。 |
-| `request_generation` | 提交本会话已转换 Prompt ID 的生图请求，返回待用户批准任务。不能绕过确认，也不能直接提交任意系统命令或文件路径。 |
+| `apply_prompt` | 请求把转换结果应用到编辑器，会覆盖现有正负提示词并可能切换模型。返回待确认任务，按权限调用 confirm_job 自主确认，或由用户确认；确认成功后执行并回执。 |
+| `request_generation` | 提交本会话已转换 Prompt ID 的生图请求，返回待确认任务。先用 configure_generation 选择实际底模、LoRA 和权重；按权限用 confirm_job 确认自己的任务，或等待用户确认。不能提交任意系统命令或文件路径。 |
 | `cancel_job` | 取消本 Agent 尚未运行、待确认或待补充的任务；正在执行的上游任务不保证能中断。 |
 | `generation_history` | 分页查看本 Agent 的生成结果与实际请求记录，可按会话恢复历史。 |
-| `save_model` | 请求创建或编辑模型定义，value 为现有业务模型对象。需要 models 权限并由用户审阅批准后执行。 |
-| `save_skill` | 请求创建或编辑模型 Skill，value 含 modelId、名称与规则内容。需要 skills 权限，用户确认后才保存。 |
-| `save_artist` | 请求创建或编辑画师资源，value 含 modelId 与画师串。需要 resources 权限，用户确认后保存。 |
-| `delete_model` | 提交模型删除请求，需 models/delete 权限；用户批准前不删除任何记录或文件。 |
+| `save_model` | 请求创建或编辑模型定义，value 为现有业务模型对象。需要 models 权限，确认后执行；允许自主确认的 Agent 可用 confirm_job 确认自己的任务。 |
+| `save_skill` | 请求创建或编辑模型 Skill，value 含 modelId、名称与规则内容。需要 skills 权限，确认后保存，可由已授权 Agent 自行确认。 |
+| `save_artist` | 请求创建或编辑画师资源，value 含 modelId 与画师串。需要 resources 权限，确认后保存。 |
+| `delete_model` | 提交模型删除请求，需 models/delete 权限；确认前不删除记录或文件；已授权 Agent 可确认自己的请求。 |
 | `delete_skill` | 提交 Skill 删除请求，需 skills/delete 权限；遵守引用和内置资源保护。 |
-| `delete_artist` | 提交画师删除请求，需 resources/delete 权限，仍须用户确认。 |
+| `delete_artist` | 提交画师删除请求，需 resources/delete 权限，仍须确认，可由已授权 Agent 自行确认。 |
 | `delete_resource` | 提交资源记录删除请求，需 resources/delete 权限，不提供任意文件删除入口。 |
 
 ### REST 路由
@@ -122,6 +165,16 @@
 | --- | --- | --- |
 | GET | `/capabilities` | 能力、版本、就绪与队列状态 |
 | GET | `/state` | 当前模型、Skill 与队列状态 |
+| GET | `/pages` | 页面列表与功能介绍 |
+| GET | `/pages/{id}/help` | 指定页面的可读取功能帮助 |
+| GET | `/generation-settings` | 查询生图配置与实际资源选择 |
+| POST | `/generation-settings` | 配置底模、LoRA／权重与工作流，需 generate 权限 |
+| GET | `/workflows` | 列出个人 ComfyUI 工作流 |
+| GET | `/workflows/{id}` | 读取工作流图与校验值 |
+| GET | `/resource-categories` | 自定义资源分类 |
+| POST | `/resource-categories` | 创建／重命名分类，需确认 |
+| POST | `/resource-categories/assign` | 按资源 ID 归类，需确认 |
+| DELETE | `/resource-categories/{id}` | 删除分类关系并保留资源，需确认 |
 | GET | `/models` | 绘图模型列表 |
 | GET | `/skills?modelId=` | 模型 Skill 列表 |
 | GET | `/resources?paths=0` | 资源；默认隐藏绝对路径 |
@@ -137,10 +190,11 @@
 | GET | `/jobs/{id}` | 单个任务 |
 | POST | `/jobs/{id}/resume` | 回答追问并沿用原任务继续转换 |
 | POST | `/jobs/{id}/cancel` | 取消待执行／待补充任务 |
+| POST | `/jobs/{id}/confirm` | 确认本 Agent 的已授权任务；用户确认模式下不允许自确认 |
 | GET | `/prompts/{id}` | 转换结果 |
-| POST | `/prompts/{id}/apply` | 请求覆盖编辑器，须用户确认 |
-| POST | `/generations` | 请求生图，须用户确认 |
+| POST | `/prompts/{id}/apply` | 请求覆盖编辑器，按权限自主确认或由用户确认 |
+| POST | `/generations` | 请求生图，按权限自主确认或由用户确认 |
 | GET | `/generation-history` | 本 Agent 生成历史 |
 | GET | `/events?sessionId=&after=&timeout=90` | SSE；支持 Last-Event-ID 与 retry，按游标续传 |
-| POST | `/models ／ /skills ／ /artists` | 管理操作请求，须用户确认 |
-| DELETE | `/models/{id} ／ /skills/{id} ／ /artists/{id} ／ /resources/{id}` | 删除请求，须用户确认 |
+| POST | `/models ／ /skills ／ /artists` | 管理操作请求，按权限自主确认或由用户确认 |
+| DELETE | `/models/{id} ／ /skills/{id} ／ /artists/{id} ／ /resources/{id}` | 删除请求，检查权限及引用后确认执行 |

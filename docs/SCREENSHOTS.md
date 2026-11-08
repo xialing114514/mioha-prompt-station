@@ -57,3 +57,16 @@
 元数据优先、本地 WD14 与模型扫描入口。
 
 ![图片反推](../assets/screenshots/image-inspection.png)
+
+
+## 页面帮助
+
+右上角问号可打开可读取的功能说明，Agent 也可通过接口读取同一内容。
+
+![页面帮助](../assets/screenshots/page-help.png)
+
+## 工作流文件夹
+
+通过文件夹列表选择工作流。截图使用未执行的演示文件，路径为隐私已遮挡。
+
+![工作流选择](../assets/screenshots/workflow-picker.png)

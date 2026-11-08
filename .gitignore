@@ -1,0 +1,5 @@
+*.exe
+*.sqlite3*
+token.json
+mcp.json
+.env

@@ -1,0 +1,50 @@
+{
+  "pack": "mioha-model-skills",
+  "revision": "2026-11-08-v4",
+  "version": "2.0",
+  "entries": [
+    {
+      "family": "anima",
+      "key": "default",
+      "file": "Anima.md",
+      "name": "Anima Base 模型规范",
+      "version": "2.0",
+      "sha256": "a1230694877a1f8791658694f7b08e04a54a8ed86866e7da9dcd3221a28fd123"
+    },
+    {
+      "family": "anima",
+      "key": "aesthetic",
+      "file": "AnimaAesthetic.md",
+      "name": "Anima Aesthetic 差异规范",
+      "version": "2.0",
+      "sha256": "00f09d35629d6cf15abd1bae0eb6860524fdbc73cbdc4bb10289117e645963ed"
+    },
+    {
+      "family": "moss",
+      "key": "default",
+      "file": "MOSS.md",
+      "name": "MOSS-Image 模型规范",
+      "version": "2.0",
+      "sha256": "031ca6bd9b4e1993c6c49385e6d5e30ca7f5d8176dabb93c9d2b6bd2cb4bd4c1"
+    },
+    {
+      "family": "illustrious",
+      "key": "default",
+      "file": "Illustrious.md",
+      "name": "光辉 Illustrious 模型规范",
+      "version": "2.0",
+      "sha256": "d997ae1d1934b91c4a96e7e734be2a88c92318a5120245ce4e16a5fa19c46398"
+    },
+    {
+      "family": "nai",
+      "key": "default",
+      "file": "NAI.md",
+      "name": "NovelAI 模型规范",
+      "version": "2.0",
+      "sha256": "207cb6b5a5bb6aac4cc3fd61a00e8c9bdb56083fc934862ee0cdc4f816e9e886"
+    }
+  ],
+  "changes": [
+    "Anima 示例使用明确成年原创角色，来源说明按公开发行整理；规则来自维护者提供的 v4 文件。"
+  ]
+}

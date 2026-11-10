@@ -84,3 +84,9 @@
 通过文件夹列表选择工作流。截图使用未执行的演示文件，路径为隐私已遮挡。
 
 ![工作流选择](../assets/screenshots/workflow-picker.png)
+
+## 可视化世界树
+
+在世界书编辑器内管理分类、触发词和条目内容，截图使用本地演示资料。
+
+![可视化世界树](../assets/screenshots/world-tree.png)

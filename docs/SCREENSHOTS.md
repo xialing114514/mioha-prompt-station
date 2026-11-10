@@ -2,7 +2,21 @@
 
 [项目主页](../README.md) · [手册目录](README.md)
 
-截图从实际程序界面拍摄，使用独立演示资料，不包含私人会话、凭据或个人模型库。AI 图展示配置入口，生图图展示未连接外部引擎时的配置状态。
+截图从实际程序界面拍摄，使用独立演示资料。图像工作台与图库的茶壶示例来自本机 ComfyUI 的 MOSS-Image 验收。
+
+## 0.3.0 创作工作台
+
+分镜项目的画面列表、全局设定与独立提示词。
+
+![分镜项目](../assets/screenshots/storyboard.png)
+
+图像工作台保留原图，并把编辑结果保存为关联副本。
+
+![图像工作流编辑](../assets/screenshots/image-workflow.png)
+
+无边图像浏览的高级筛选与生成组标记。
+
+![图库高级筛选](../assets/screenshots/gallery-filters.png)
 
 ## 提示词工作区
 

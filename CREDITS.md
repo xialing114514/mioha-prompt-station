@@ -79,3 +79,5 @@
 感谢所有开源项目作者、数据维护者及社区贡献者。
 
 **感谢每一位为开源社区与 AI 绘画生态作出贡献的人。**
+
+- **[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)**：对话循环和内部 Agent 组合机制参考，移植提示词投影、请求头规范化与工具中断恢复代码。Copyright (c) 2026 DeepSeek，MIT 许可证；发行包保留原许可。

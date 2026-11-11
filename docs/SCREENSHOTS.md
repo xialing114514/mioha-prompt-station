@@ -112,3 +112,9 @@ Neo 实时预览没有可用首帧时显示等待占位；测试使用中立风�
 ![自定义接口获取可用模型](../assets/screenshots/custom-model-discovery.png)
 
 展示从 OpenCode 公开接口实际读取的清单；未使用个人 Key 或调用推理。正式对话需自己的 Key，并核对提供方允许的使用范围。
+
+## 自定义 AI 思考强度（0.3.5）
+
+![自定义模型思考强度与紧凑配置](../assets/screenshots/custom-ai-reasoning.png)
+
+界面示例使用中性测试占位内容，不含真实密钥或原预设正文。收起配置后仍可切换思考强度。

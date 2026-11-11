@@ -100,3 +100,9 @@
 Neo 文本编码器和 VAE 逐项勾选，保留其他选择，无需 Ctrl。
 
 ![Neo 模块多选](../assets/screenshots/neo-module-multiselect.png)
+
+## 0.3.3 首帧预览等待
+
+Neo 实时预览没有可用首帧时显示等待占位；测试使用中立风景提示词和受控引擎响应。图片加载成功后才出现，不显示破图图标。
+
+![等待首张实时预览](../assets/screenshots/preview-waiting.png)

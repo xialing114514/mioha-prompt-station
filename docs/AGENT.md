@@ -272,3 +272,9 @@
 | GET | `/events?sessionId=&after=&timeout=90` | SSE；支持 Last-Event-ID 与 retry，按游标续传 |
 | POST | `/models ／ /skills ／ /artists` | 管理操作请求，按权限自主确认或由用户确认 |
 | DELETE | `/models/{id} ／ /skills/{id} ／ /artists/{id} ／ /resources/{id}` | 删除请求，检查权限及引用后确认执行 |
+
+### 0.3.3 生图配置边界
+
+`configure_generation` 的 `modelId` 关联提示词来源，实际执行由 `provider`、底模资源、LoRA、工作流和参数决定。切换写词规范不会自动切换生图后端，也不应为执行生图而改动写词规范。`parameters.naiModel` 可指定实际 NovelAI 生图模型 ID。底模与 LoRA 的明确元数据冲突、引擎位置及文件校验继续生效。
+
+Neo 高清参数可放入 `parameters`：`hrCfg`、`hrDistilledCfg`、`distilledCfg`、`hrSteps`、`hrScale`、`denoisingStrength`、`hrUpscaler`、`hrResizeX`／`hrResizeY`、`hrPrompt`、`hrNegative`、`hrCheckpoint`、`hrModules`、`hrSampler`、`hrScheduler`。高清 CFG 和 Shift 的 `null` 表示继承，模型、模块及采样器名称必须来自所选 Neo 的实际清单，不能用任意系统路径。

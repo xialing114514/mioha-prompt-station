@@ -106,3 +106,9 @@ Neo 文本编码器和 VAE 逐项勾选，保留其他选择，无需 Ctrl。
 Neo 实时预览没有可用首帧时显示等待占位；测试使用中立风景提示词和受控引擎响应。图片加载成功后才出现，不显示破图图标。
 
 ![等待首张实时预览](../assets/screenshots/preview-waiting.png)
+
+## 自定义接口模型获取（0.3.4）
+
+![自定义接口获取可用模型](../assets/screenshots/custom-model-discovery.png)
+
+展示从 OpenCode 公开接口实际读取的清单；未使用个人 Key 或调用推理。正式对话需自己的 Key，并核对提供方允许的使用范围。

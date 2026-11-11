@@ -90,3 +90,13 @@
 在世界书编辑器内管理分类、触发词和条目内容，截图使用本地演示资料。
 
 ![可视化世界树](../assets/screenshots/world-tree.png)
+
+## 0.3.2 配方与模块操作
+
+配方工具栏增加手动上传，容量不足也保留本地内容。截图使用独立测试角色，空间不足提示为模拟场景。
+
+![本地角色配方与手动上传](../assets/screenshots/recipe-local-manual.png)
+
+Neo 文本编码器和 VAE 逐项勾选，保留其他选择，无需 Ctrl。
+
+![Neo 模块多选](../assets/screenshots/neo-module-multiselect.png)

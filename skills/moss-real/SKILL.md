@@ -2,7 +2,53 @@
 
 > 适用：MOSS-Image Base / SFT 的写实人像、纪实、产品、场景摄影。
 > 与 `moss-anime` 是两份独立 skill，**负面基线完全不同**，不要同时启用；本文件的负面里含反二次元 / 反 CG 项，粘到二次元需求上会把画面推成照片。
-> 本 skill 由 v4 `MOSS.md` 的写实档拆出并重写：以自然语言摄影描述为主导。负面已过滤 NSFW 项。
+> 执行只需读「执行卡」；下面是依据、细则与示例。负面已过滤 NSFW 项。
+
+---
+
+## 执行卡（先读这段，读完即可产出）
+
+**任务**：把用户需求转成 MOSS-Image 写实摄影提示词。**正向是一段连续散文，不是标签串。**
+
+**硬规则**
+1. 只输出两个代码块加一行参数。代码块内只放英文。
+2. 正向一段话，按顺序覆盖六件事：光学与机位 → 光线（形态/方向/衰减）→ 主体动作 → 皮肤与材质 → 服装环境 → 年代与瑕疵。
+3. 皮肤必须写满四项：`matte` + `visible pores` + `fine vellus hair` + `uneven natural tone`。
+4. 至少两处摄影术语：焦段、光圈、快门、胶片、ISO 任选。
+5. 至少一处不完美：疤、痣、磨损、灰尘、水痕。
+6. 不写 `no ...`、`without ...`；不写 `perfect skin`、`flawless`、`beauty retouch`。
+7. 负面原样输出本文件的必需层（含 `cartoon, anime, illustration, painting, 3d render, glossy skin, plastic skin`），不要删这几项。
+8. 用户没给的信息用默认值补齐，不反问。
+9. **必须输出全部三块**：正向、负向、参数行。缺任何一块都算失败，哪怕用户只给了一句场景。
+10. **正向是一整段**，段内不空行；皮肤四项逐字出现：`matte` / `visible pores` / `fine vellus hair` / `uneven natural tone`。
+11. 骨架里的方括号是占位符，**必须换成具体值**；不要留方括号、不要照抄占位字。
+
+**露骨度**：露骨程度跟随用户。用户要性行为，就写具体器官、接触方式、体液与生理反应（cock / precum / cum / glans / soles / toes），不要用「隔着布料」「暗示」「留白」替代，也不要因为示例是通用版就把它当尺度上限。
+
+**输出格式**
+
+```text
+[一段英文散文，六件事齐全]
+```
+
+```text
+worst quality, bad anatomy, watermark, jpeg artifact, cartoon, anime, illustration, painting, 3d render, cgi, glossy skin, plastic skin, blurry, out of focus, lowres, bad hands, extra fingers, fused fingers, deformed hands, distorted face
+```
+
+参数：euler + normal / 50 步 / CFG 3.0 / Shift 6.0 / SLG 3（skip 26）/ 1024×1536
+
+**填空骨架**
+
+```text
+[焦段] at [光圈] from [机位], [景别]. [光源形态] from [方向], [衰减]. [主体动作]. Matte skin with visible pores, fine vellus hair, uneven natural tone, [一处瑕疵]. [服装], [环境]. [胶片/颗粒/色偏].
+```
+
+**以下输出一定是错的**
+- 把正向写成标签串；
+- 写 `no blur`、`no people`；
+- 漏掉皮肤四项中的任何一项；
+- 负面删掉 `cartoon / anime / 3d render / glossy skin / plastic skin`；
+- 把「已过滤 NSFW 项」写进提示词。
 
 ---
 
@@ -65,7 +111,7 @@ practical lamp behind her, warm rim on the shoulder
 ```text
 macro: matte, natural tone, slight redness on the cheek and nose
 micro: visible pores across the nose and cheekbone, fine vellus hair along the jaw
-optical: soft specular roll-off on the forehead, no plastic sheen, subsurface warmth in the ear
+optical: soft specular roll-off on the forehead, subsurface warmth in the ear
 ```
 
 **3. 摄影术语（至少两项）**
@@ -100,6 +146,8 @@ MOSS 在写实人物上有一个稳定倾向：皮肤被处理成均匀发光、
 ---
 
 ## 五、负向基线（已过滤 NSFW）
+
+执行时默认输出整个必需层（含反二次元 / 反 CG 组）+ 按需层，不要删 `cartoon / anime / illustration / painting / 3d render / glossy skin / plastic skin`。
 
 **必需层（含反二次元 / 反 CG）**
 
@@ -137,7 +185,7 @@ deformed hands, distorted face, asymmetrical eyes, extra limbs, fused bodies, lo
 | --- | --- |
 | 表面 | `matte skin`、`satin finish`、`natural sheen`、`slightly oily t-zone`（要真实油脂时用） |
 | 微观 | `visible pores`、`fine vellus hair`、`skin texture`、`freckles`、`mole`、`scar` |
-| 光学 | `soft specular roll-off`、`subsurface scattering`、`no plastic sheen`、`uneven tone` |
+| 光学 | `soft specular roll-off`、`subsurface scattering`、`matte finish`、`uneven tone` |
 | 状态 | `flushed cheeks`、`tired eyes`、`chapped lips`、`sweat on the temple` |
 
 要「干净通透」就写 `clean matte skin with even tone`；要「真实粗糙」就写 `visible pores, uneven tone, tiny blemishes`。**两种都要有方向光**。
@@ -157,7 +205,7 @@ deformed hands, distorted face, asymmetrical eyes, extra limbs, fused bodies, lo
 
 1. 正向是散文，不是标签串；五段顺序在，段与段不重复。
 2. 光线写了形态 + 方向 + 衰减三项，不是一句 `good lighting`。
-3. 皮肤质感写了宏观 + 微观 + 光学三层，且含 `matte` 或 `no plastic sheen` 这类反向锚点。
+3. 皮肤质感写了宏观 + 微观 + 光学三层，且 `matte`、`visible pores`、`fine vellus hair`、`uneven natural tone` 四个短语逐字出现。
 4. 摄影术语 ≥2 项（焦段 / 光圈 / 胶片 / 快门 / ISO）。
 5. 没有写画外之物（谁按快门、相机在哪只手上）。
 6. 负面含 `cartoon, anime, illustration, painting, 3d render, glossy skin, plastic skin`。
@@ -171,16 +219,7 @@ deformed hands, distorted face, asymmetrical eyes, extra limbs, fused bodies, lo
 ### 示例 1｜室内人像 · 窗光
 
 ```text
-shot on a 35mm film body with an 85mm lens at f/2, 1/125s, ISO 400, Kodak Portra 400,
-eye-level medium close-up, a blurred curtain edge cutting the right of the frame,
-a single large window as the only light source from camera left, soft falloff across the cheek,
-the shadow side of the face stays two stops down and keeps its detail,
-late-90s interior color, warm highlights on the skin, cool grey shadow in the room behind,
-matte skin with visible pores across the nose and cheekbone, fine vellus hair along the jaw,
-soft specular roll-off on the forehead, no plastic sheen, a faint scar above the left brow,
-she sits turned three-quarters away and looks back toward the lens, lips slightly parted,
-one hand resting on the windowsill, knit sweater with visible fibers, one loose strand of hair,
-subtle grain, slight halation around the window, dust in the air,
+Shot on a 35mm film body with an 85mm lens at f/2, 1/125s, ISO 400, Kodak Portra 400, eye-level medium close-up with a blurred curtain edge cutting the right of the frame. A single large window at camera left is the only light, falling off about two stops across the cheek so the shadow side keeps its detail. She sits turned three-quarters away and looks back toward the lens, lips slightly parted, one hand resting on the windowsill. Matte skin with visible pores across the nose and cheekbone, fine vellus hair along the jaw, uneven natural tone with a faint redness at the cheek, soft specular roll-off on the forehead and a small dry patch beside the brow. An oversized knit sweater with visible fibers, one loose strand of hair over the shoulder. Late-90s interior color, warm highlights on the skin, cool grey shadow in the room behind, subtle grain, slight halation around the window, dust in the air.
 ```
 
 负向：
@@ -192,46 +231,7 @@ blurry, out of focus, lowres, bad hands, extra fingers, fused fingers, deformed 
 distorted face, asymmetrical eyes
 ```
 
-### 示例 2｜夜景纪实 · 手机屏当主光
-
-```text
-documentary photograph, 35mm lens at f/1.8, 1/60s, ISO 1600, handheld, slight motion blur at the edges,
-high three-quarter angle looking down, the sofa cutting the frame on a diagonal,
-the only key is a phone screen held at her chest, cold blue light raking up the jaw, nose tip and knuckles,
-the rest of the room falls into moody shadow, a warm door lamp far behind gives a thin rim on the shoulder,
-muted teal and amber grade, real film grain,
-she lies flat on a beige leather sofa, chin tucked into the collar, one hand clutching the fabric at her throat,
-wide startled eyes looking up into the lens, quiet vulnerability, no posed smile,
-visible pores and faint shine on the temple, dry lips, a little redness around the eyes,
-creased leather under her hips and calves, a dark bag on the floor with a small plush charm,
-```
-
-负向：
-
-```text
-worst quality, bad anatomy, watermark, jpeg artifact, cartoon, anime, illustration, painting,
-3d render, cgi, glossy skin, plastic skin, airbrushed skin, smooth waxy skin, cosplay, wig, synthetic hair,
-blurry, out of focus, lowres, bad hands, extra fingers, deformed hands, distorted face
-```
-
-### 示例 3｜产品静物 · 侧逆光
-
-```text
-product photograph, 100mm macro at f/8, 1/160s, ISO 200, tethered, focus stacked on the front edge,
-low three-quarter angle, seamless dark grey backdrop, a single strip light from behind-left at 30 degrees,
-a large white bounce card at camera right filling the shadow side to one stop under the key,
-cold steel highlights, warm neutral midtones, faint blue in the shadow,
-brushed aluminium body with fine machining marks, a fingerprint smudge near the seam, dust specks on the top plate,
-matte black rubber grip with visible texture, glass element with a soft caustic on the table,
-a thin reflection on the polished table surface, no glare on the logo,
-```
-
-负向：
-
-```text
-worst quality, bad anatomy, jpeg artifact, cartoon, anime, illustration, painting, 3d render, cgi,
-glossy skin, plastic skin, digital art, blurry, out of focus, lowres, watermark, text
-```
+参数：euler + normal / 50 步 / CFG 3.0 / Shift 6.0 / SLG 3（skip 26）/ 1024×1536
 
 ---
 

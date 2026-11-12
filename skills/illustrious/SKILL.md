@@ -1,12 +1,51 @@
 # 光辉系 · Illustrious XL 提示词 SKILL v5
 
 > 适用：Illustrious XL / 其衍生 merge（NoobAI 等按各自模型卡微调参数）。面向 SDXL 架构、Danbooru2023 语料训练的标签型模型。
-> 本文件由 v4 `Illustrious.md` 升级而来，新增画师串管理模块、权重语法边界、负面三层结构。负面已过滤 NSFW 项。
+> 执行只需读「执行卡」；下面是依据、细则与示例。负面已过滤 NSFW 项。
 > **权重语法只有一套：括号族 `(tag:1.2)`。`{}`、`[]` 之外的 NAI 写法（`N::tag::`、`artist:`）在这里全部无效。**
 
-## v5.1 修正（2026-11-12）
+## 执行卡（先读这段，读完即可产出）
 
-v5 初版第六节把 NAI 的 `1.2::artist:name::` 列为「跨前端可选写法」，这是错的：**Illustrious 本体不支持 `N::tag::`，也不支持 `{}`**。群聊里那些带 `1.45::artist:x::` 的串全是 NAI 语境，搬到光辉里只会被当文字编码。本次已改写 §6.2、§6.3、§十、§八，并补「不要照抄 NAI 画师串」的改写示例。
+**任务**：把用户需求转成 Illustrious XL 的正向 / 负向提示词与一行参数。
+
+**硬规则**
+1. 只输出两个代码块（正向、负向）加一行参数，顺序固定；代码块外最多一句中文说明。
+2. 代码块内只放英文标签，不放中文、不放表头、不放解释、不换行成表格。
+3. 标签全小写，逗号后留一个空格，下划线换成空格。
+4. 角色名与画师名的圆括号必须转义：`frieren \(sousou no frieren\)`、`ask \(askzy\)`。
+5. 画师写纯名，不加 `artist:`、不加 `@`；权重只用 `(名字:1.2)`。禁止 `{}`、`N::tag::`、`[tag]` 之外的写法。
+6. 质量词只写一档：`best quality, masterpiece`。
+7. 景别、视角、透视各只写一个。
+8. 用户没给的信息用常见默认值补齐，不要反问、不要留占位符。
+10. **必须输出全部块**：正向、负向、参数行，缺一块即失败。
+9. 骨架里的方括号是占位符，**必须换成具体值**；用户没指定画师时用 `ciloranko`，不要留方括号、不要照抄 `artist name` 这种占位字。
+
+**露骨度**：露骨程度跟随用户。用户要性行为，就写具体器官、接触方式、体液与生理反应（cock / precum / cum / glans / soles / toes），不要用「隔着布料」「暗示」「留白」替代，也不要因为示例是通用版就把它当尺度上限。
+
+**输出格式**
+
+```text
+[正向：质量档, 人数, 角色, 外观, 服装, 动作, 表情, 镜头, 场景与光, 画师串, 风格词]
+```
+
+```text
+[负向：必需层 + 按需层，按需层固定带上 bad anatomy / bad hands / extra digits / watermark / signature]
+```
+
+参数：Euler a / 24 步 / CFG 5.5 / 832×1216
+
+**填空骨架**（方括号逐个替换，逗号保留）
+
+```text
+best quality, masterpiece, [人数], [角色名 \(作品名\)], [发长], [发色], [瞳色], [服装], [动作], [表情], [景别], [视角], [场景], [光源方向], [色调], ([画师]:1.2), ([画师]:0.8), [风格词]
+```
+
+**以下输出一定是错的**
+- 输出表格、解释段落、中文标签；
+- 写 `1.2::artist:x::`、`{artist:x}`、`artist:x`；
+- 画师超过 6 位，或质量词堆 4 个以上；
+- 同时写 `close-up` 与 `full body`；
+- 角色名里的括号没转义。
 
 ---
 
@@ -137,11 +176,11 @@ v5 初版第六节把 NAI 的 `1.2::artist:name::` 列为「跨前端可选写�
 
 | 写法 | 语义 | 生效 |
 | --- | --- | --- |
-| `(artist name:1.2)` | 精确权重，1.2 倍 | 是 |
-| `(artist name)` | 默认 ×1.1 | 是 |
-| `((artist name))` | 嵌套 ×1.21（每层 ×1.1） | 是 |
-| `[artist name]` | ÷1.1，约 0.91 倍 | 是 |
-| `(artist name:0.8)` | 降到 0.8 倍（推荐用这个，比 `[]` 好控制） | 是 |
+| `(ciloranko:1.2)` | 精确权重，1.2 倍 | 是 |
+| `(ciloranko)` | 默认 ×1.1 | 是 |
+| `((ciloranko))` | 嵌套 ×1.21（每层 ×1.1） | 是 |
+| `[ciloranko]` | ÷1.1，约 0.91 倍 | 是 |
+| `(ciloranko:0.8)` | 降到 0.8 倍（推荐用这个，比 `[]` 好控制） | 是 |
 
 **以下写法在光辉里一律无效，写了等于没写：**
 
@@ -163,25 +202,17 @@ v5 初版第六节把 NAI 的 `1.2::artist:name::` 列为「跨前端可选写�
 - 探索期可以前置（先定画风再想内容），定稿后挪回角色之后，便于复现。
 - 画师名写**纯名**，括号转义：`(ciloranko:1.2)`、`(ask \(askzy\):1.0)`。不加 `@`，不加 `artist:`。
 
-### 6.4 四个可直接用的稳定块
+### 6.4 两个可直接用的配方
 
 ```text
-# 稳定块 1：清透水感（不挑题材）
-(artist name:1.3), (artist name:0.9), (artist name:0.8), (artist name:0.6)
+# 配方 1：清透水感（不挑题材）
+(ciloranko:1.3), (yoneyama mai:0.9), (quasarcake:0.8)
 
-# 稳定块 2：厚涂高细节（主视觉）
-(artist name:1.2), (artist name:0.7), (thick paint:0.6), (visible brushstrokes:0.5)
-
-# 稳定块 3：压低副画师（防拼贴）
-(artist name:1.1), (artist name:0.5), (artist name:0.3)
-# 配套负面：artist collaboration, multiple views
-
-# 稳定块 4：平涂被带厚涂时（压不想要的方向，靠负面，不靠负权重）
-(artist name:1.0), (clean lineart:0.8)
-# 配套负面：flat color, cel shading
+# 配方 2：厚涂高细节（主视觉，配负面 artist collaboration）
+(ciloranko:1.2), (yoneyama mai:0.7), (thick paint:0.6), (visible brushstrokes:0.5)
 ```
 
-**注意**：正向里没有负权重。`(tag:-1.5)` 是 NAI 的写法，光辉系前端不解析，写了只是一串字符。要压某个方向，把它写进负向（`flat color, cel shading`），或在正向里用低权重形容词替换（`clean lineart:0.8`）。
+配方里的画师名可替换，权重带不动；不要原样照抄到别的底模上。
 
 风格描述词作为画师名的替代/补充（模型没收录的画师，用这些顶上）：
 
@@ -208,7 +239,7 @@ v5 初版第六节把 NAI 的 `1.2::artist:name::` 列为「跨前端可选写�
 
 ## 七、负面基线（已过滤 NSFW）
 
-三层取用，不要全塞。
+执行时默认输出「必需层 + 按需层」；可选层只在用户明确提到对应场景（黑白稿、漫画、线稿等）时加。
 
 **必需层（永远写）**
 
@@ -264,7 +295,7 @@ standing behind counter, one hand on the register, looking at viewer, tired smil
 upper body, eye-level, slightly off-center,
 convenience store interior at night, fluorescent light from above, cold green-white cast,
 rain streaks on the glass door behind her, blurred street lights outside,
-(artist name:1.2), (artist name:0.7), (clean lineart:0.6), (cinematic lighting:0.5)
+(ciloranko:1.2), (yoneyama mai:0.7), (clean lineart:0.6), (cinematic lighting:0.5)
 ```
 
 负向：
@@ -275,47 +306,7 @@ jpeg artifacts, displeasing, very displeasing, bad proportions, fused fingers, w
 signature, logo, multiple views, artist collaboration
 ```
 
-### 示例 2｜天台逆光（单人 · 全身 · 强画风）
-
-正向：
-
-```text
-masterpiece, best quality, 1girl, solo, long silver hair, hair blowing, red eyes,
-white sailor dress, black ribbon, thighhighs, loose socks,
-standing on rooftop, hand on railing, turning head, looking back, calm expression,
-full body, from below, dutch angle,
-rooftop at sunset, chain-link fence, water tank, city skyline, strong backlight, rim light,
-orange haze, lens flare, film grain,
-(artist name:1.3), (artist name:0.8), (artist name:0.6), (painterly:0.5)
-```
-
-负向：
-
-```text
-worst quality, low quality, lowres, bad anatomy, bad hands, extra digits, fewer digits,
-jpeg artifacts, displeasing, very displeasing, bad proportions, cropped, out of focus,
-watermark, signature, text, multiple views, monochrome, greyscale
-```
-
-### 示例 3｜双人对话（2 人 · 分区）
-
-正向：
-
-```text
-best quality, masterpiece, 2girls, upper body, eye-level, from side,
-girl A on the left, long black hair, glasses, cardigan, holding a book, talking,
-girl B on the right, short blonde hair, hoodie, listening, hand on chin, smiling,
-classroom after school, window light from the left, dust in the air, warm afternoon,
-(artist name:1.1), (artist name:0.7), (soft shading:0.6)
-```
-
-负向：
-
-```text
-worst quality, low quality, lowres, bad anatomy, bad hands, extra digits, fewer digits,
-jpeg artifacts, displeasing, very displeasing, bad proportions, fused fingers, extra limbs,
-watermark, signature, logo, multiple views, artist collaboration
-```
+参数：Euler a / 24 步 / CFG 5.5 / 832×1216
 
 ---
 

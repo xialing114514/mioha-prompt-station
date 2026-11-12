@@ -1,7 +1,7 @@
 {
   "pack": "mioha-model-skills",
-  "revision": "2026-11-12-v7",
-  "version": "5.0",
+  "revision": "2026-11-12-v11",
+  "version": "9.0",
   "structure": "directory/SKILL.md",
   "entries": [
     {
@@ -11,7 +11,7 @@
       "file": "illustrious/SKILL.md",
       "name": "光辉 Illustrious XL · 标签与画师串",
       "version": "5.2",
-      "sha256": "940e7cb0b3a4f408952d40151147e8caf10f5b7732507805097e56da7e16a27e"
+      "sha256": "513041730a860388d59cf259e1883df939045ab9646a0a89281c8d9929a77616"
     },
     {
       "family": "noob",
@@ -20,7 +20,7 @@
       "file": "noob/SKILL.md",
       "name": "NoobAI-XL · eps 与 v-pred 双版本",
       "version": "1.1",
-      "sha256": "a10e3341cb01211e2df9dd08408a58c7c010f1b43ebe53bc8cfa3bb256836b32"
+      "sha256": "943782902aa9ef9e1870affda96ca155c99d59c2914b40e8581c4837f8bd0be4"
     },
     {
       "family": "nai",
@@ -29,7 +29,7 @@
       "file": "nai/SKILL.md",
       "name": "NovelAI V5 · 多角色与分镜",
       "version": "5.1",
-      "sha256": "5e3db158c2af48902f552fee92d46ae990f2808ca8f2b097341fc285616cfa98"
+      "sha256": "fd5160331f486f9dfcc1d77bc8e8f61ef3fa5dadc9fad8dc31fbdbfff609b989"
     },
     {
       "family": "anima",
@@ -38,7 +38,7 @@
       "file": "anima/SKILL.md",
       "name": "Anima Base · Hybrid 混合写法",
       "version": "5.2",
-      "sha256": "306f9677166ebdc29ed6578550d080c6d79d202cdc240fb4ac6d832a0a1f01cb"
+      "sha256": "9499e62a72a9578b8265fb188bc24dbff738e116f07c629f968cd8733d169eaa"
     },
     {
       "family": "moss",
@@ -47,7 +47,7 @@
       "file": "moss-anime/SKILL.md",
       "name": "MOSS-Image · 二次元通道",
       "version": "5.1",
-      "sha256": "5167a259aa36cb3bd72a8fc11fc197d6b150572dd24800f0f32942cf581883e7"
+      "sha256": "f76a76d85fc22b5e07f8ee07e1fd9837b67eb33e6dabf3de026453196247d8ad"
     },
     {
       "family": "moss",
@@ -56,7 +56,7 @@
       "file": "moss-real/SKILL.md",
       "name": "MOSS-Image · 真人摄影通道",
       "version": "5.1",
-      "sha256": "bdf2b9e94da8acf91d12321abbdd776eddecb014d4c4f0be3ddead5b8189540c"
+      "sha256": "d1ee33848c359b7c375293c0ee4c0cfb8957063820b1366f7955819b6e2a107d"
     },
     {
       "family": "krea",
@@ -65,7 +65,7 @@
       "file": "krea-anime/SKILL.md",
       "name": "Krea 2 · 二次元（风格 LoRA 主导）",
       "version": "1.0",
-      "sha256": "93ab17acfcfe768baf946c2830f21d42d292d4346dddaacc24683d2c0791e84c"
+      "sha256": "f07acda0ac1991953edf435a3d6b80006ed9e37bca9f09680b9bb83487bf635e"
     },
     {
       "family": "krea",
@@ -74,10 +74,14 @@
       "file": "krea-real/SKILL.md",
       "name": "Krea 2 · 真人摄影",
       "version": "1.0",
-      "sha256": "fac09fb1f8443cf542909a471f12cd68d99c71109c035c23b1529e21d3285528"
+      "sha256": "71b168953e51d1b2da310ba99ab1580c2c12f4421585b97503a5c1fc9d5c65ea"
     }
   ],
   "changes": [
+    "v11：八份执行卡新增「露骨度跟随用户」——要性行为就写具体器官、动作与体液，不用布料/暗示替代，示例不是尺度上限。",
+    "v10：每份示例从 3 个减到 1 个，示例内补参数行；光辉配方从 4 个减到 2 个；修掉 NAI 示例负向里的负权重。示例只留一个最标准的，避免模型照抄变体。",
+    "v9：按实样复盘修 moss-real——示例里的 `no plastic sheen` 等否定句全部改正面、皮肤四项补齐、示例改为单段；八份统一加「必须输出全部块」与「占位符必须替换」；示例中的 `artist name` 占位全部换真实画师名。",
+    "v8：八份文件各加一段「执行卡」（任务、硬规则、输出格式、填空骨架、错误输出），并修掉示例与规则的冲突；解决「别的 AI 照着写就崩」的形态问题。",
     "v7：Krea 2 按动画 / 真人拆成两份独立 skill；krea-anime 以风格 LoRA 为主控。",
     "Anima 补：逗号后空格影响 token 化、括号必须转义、@ 放在权重括号内、堆叠多个画师不融合。",
     "光辉与 NoobAI 补：逗号后空格的 token 化理由。",

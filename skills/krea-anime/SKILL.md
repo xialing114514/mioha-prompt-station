@@ -6,6 +6,43 @@
 
 ---
 
+## 执行卡（先读这段，读完即可产出）
+
+**任务**：把用户需求转成 Krea 2 的二次元提示词。**正向是一段连续英文散文；不要输出负面块。**
+
+**硬规则**
+1. 只输出一个代码块（正向散文）加一行参数。不要输出负面、不要输出标签表。
+2. 散文按顺序覆盖：主体动作 → 外观服装 → 构图机位 → 场景 → 光色 → 画面语言（线条/上色/眼睛）。
+3. 画面语言必须写：至少一项线条词、一项上色词、一项眼睛词（`clean lineart` / `cel shading` / `detailed eyes`）。
+4. 不写画师名、不写 `artist:`、不写 `@名字`、不写质量词、不写权重、不写 `no ...`。
+5. LoRA 触发词整段照抄，放在散文最后一句。
+6. 用户没给的信息用默认值补齐，不反问。
+7. 骨架里的方括号是占位符，**必须换成具体值**；用户没指定画师时用 `ciloranko`，不要留方括号、不要照抄占位字。
+
+**露骨度**：露骨程度跟随用户。用户要性行为，就写具体器官、接触方式、体液与生理反应（cock / precum / cum / glans / soles / toes），不要用「隔着布料」「暗示」「留白」替代，也不要因为示例是通用版就把它当尺度上限。
+
+**输出格式**
+
+```text
+[一段英文散文，末句放 LoRA 触发词（若有）]
+```
+
+参数：Krea 2 Medium / creativity medium / 1024×1024 / LoRA: retroanime（权重 0.8，在节点里设）
+
+**填空骨架**
+
+```text
+A [主体] [动作], [外观与服装], [景别] from [机位], [场景], [光]. [线条词], [上色词], [眼睛词]. [LoRA 触发词]
+```
+
+**以下输出一定是错的**
+- 输出负面块（Krea 2 没有这个字段）；
+- 写 `artist:wlop`、`@名字`、`masterpiece`；
+- 把 LoRA 权重写成 `(x:0.8)` 塞进正文；
+- 漏掉画面语言段，出来是「插画风的动漫角色」而不是动画感。
+
+---
+
 ## 一、模型与参数
 
 | 项 | 值 | 说明 |
@@ -77,6 +114,8 @@
 
 Krea 2 无负面通道，按三层写正面：
 
+> 这些句子是**写进正向散文的素材**，不是单独的负面块；Krea 2 没有负面字段。
+
 **必需层（防糊防脏）**
 
 ```text
@@ -135,19 +174,7 @@ one clear subject, correct hand anatomy, uncluttered background
 A girl in a navy sailor uniform runs along a coastal road at sunset, one hand holding her hat, the other stretched back, hair and skirt pulled by the wind. Short black bob, blunt bangs, amber eyes, red neckerchief fluttering. Wide shot from a low angle, the road curving toward the sea on the right. Telephone poles and a low sea wall on the left, the ocean glowing under a heavy orange sky. Strong backlight from the horizon, long shadows on the asphalt, warm rim light on her hair and shoulders. Clean lineart, crisp cel shading with hard-edged shadows, limited warm palette, detailed eyes with bright highlights. Purple retro anime style
 ```
 
-### 示例 2｜现代动画质感（无触发词型 LoRA）
-
-```text
-A close-up of a girl with messy silver hair leaning against a vending machine at night, a can of coffee held to her cheek, eyes half closed, tired smile. Oversized hoodie with the sleeves pulled over her hands, a small star-shaped hairpin on the left side. Medium close-up at eye level, shallow depth of field, the vending machine glowing behind her. Wet street, neon reflections, cold blue and pink light mixing on her face. Clean lineart with thin colored strokes, crisp cel shading, two-tone shadows, vibrant but controlled palette, detailed eyes. anime key visual
-```
-
-### 示例 3｜用滑块把写实底图推向动画
-
-```text
-A young woman standing in a rainy alley, looking up at the sky, hands in the pockets of a long coat. Short wet hair, pale skin, dark coat, a single earring. Medium shot from a slightly low angle, the alley receding into soft grey rain. Cold overcast light, muted palette, wet asphalt reflections. Stylized illustration with flat color areas and visible line work.
-```
-
-参数：双向滑块 LoRA 权重 **−0.5**（在 LoRA 节点里设，不写进提示词），creativity `medium`。
+参数：Krea 2 Medium / creativity medium / 1024×1024 / LoRA: retroanime（权重 0.8，在节点里设）
 
 ---
 

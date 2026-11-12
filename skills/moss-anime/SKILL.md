@@ -2,7 +2,59 @@
 
 > 适用：MOSS-Image Base / SFT 的插画、赛璐璐、厚涂、水彩、海报型二次元需求。
 > 与 `moss-real` 是两份独立 skill，**共用负面会互相打架**，不要同时启用。
-> 本 skill 由 v4 `MOSS.md` 拆出并重写：轻画师标签，重标签结构 + 自然语言氛围句。负面已过滤 NSFW 项。
+> 执行只需读「执行卡」；下面是依据、细则与示例。负面已过滤 NSFW 项。
+
+---
+
+## 执行卡（先读这段，读完即可产出）
+
+**任务**：把用户需求转成 MOSS-Image 二次元提示词，正向是一段「标签结构段 + 散文氛围段」，不是纯标签串。
+
+**硬规则**
+1. 只输出两个代码块加一行参数。代码块内只放英文。
+2. 正向分三段，段间空行：① 结构段 25–60 个标签（逗号分隔，最后不带句号）；② 氛围段 2–4 句英文（句号结尾）；③ 收尾 ≤2 个短语。
+3. 结构段第一项必须是媒介/画风词（`painterly anime illustration` / `cel shading` / `watercolor` 之类）。
+4. 氛围段写「光怎么落 → 空气里有什么 → 主体反应」，不写负面句、不写相机。
+5. 画师 `@名字` ≤2；没有就省略。禁止 `N::tag::`、`{}`。
+6. 负面原样输出本文件的必需层 + 按需层 + 一套风格封印（见第六节），不要自己扩写、不要精简成 3 个词。
+7. 用户没给的信息用默认值补齐，不反问。
+8. **必须输出全部三个块**：正向、负向、参数行，缺一块即失败。
+9. 骨架里的方括号是占位符，**必须换成具体值**；用户没指定画师时用 `ciloranko`，不要留方括号、不要照抄占位字。
+
+**露骨度**：露骨程度跟随用户。用户要性行为，就写具体器官、接触方式、体液与生理反应（cock / precum / cum / glans / soles / toes），不要用「隔着布料」「暗示」「留白」替代，也不要因为示例是通用版就把它当尺度上限。
+
+**输出格式**
+
+```text
+[结构段 25–60 标签]
+
+[氛围段 2–4 句英文]
+
+[收尾 1–2 项]
+```
+
+```text
+worst quality, bad anatomy, jpeg artifact, blurry, out of focus, lowres, bad hands, extra fingers, fused fingers, deformed hands, distorted face, asymmetrical eyes, photorealistic, photograph, live action, 3d render, cgi, plastic skin
+```
+
+参数：euler + normal / 50 步 / CFG 3.0 / Shift 5.0 / SLG 3（skip 22）/ 1024×1024
+
+**填空骨架**
+
+```text
+[媒介词], [人数], [外观], [服装], [动作], [表情], [景别], [机位], [场景], [光]
+
+[光从哪来、落在哪]。[空气里有什么]。[主体此刻在做什么]。
+
+[材质词], [完成度词]
+```
+
+**以下输出一定是错的**
+- 三段全写成标签堆，或全写成散文；
+- 氛围段写中文、写负面句、写「相机在我手里」；
+- 负面只剩 `worst quality` 三个词；
+- 步数写成 30、CFG 写成 7；
+- 把「已过滤 NSFW 项」这类说明写进提示词。
 
 ---
 
@@ -101,6 +153,8 @@ She keeps her eyes down on the page, one hand resting flat on the paper.
 
 ## 六、负面基线（已过滤 NSFW）
 
+执行时默认输出「必需层 + 按需层 + 一套风格封印（二次元通道）」，共 20 项左右，不要精简成 3–5 个词。
+
 **必需层**
 
 ```text
@@ -178,50 +232,7 @@ worst quality, bad anatomy, jpeg artifact, blurry, out of focus, lowres, bad han
 fused fingers, deformed hands, distorted face, asymmetrical eyes, photorealistic, photograph, 3d render, cgi
 ```
 
-### 示例 2｜双人 · 雨夜天台
-
-```text
-anime key visual, thick paint, visible brushstrokes, high contrast,
-2girls, one on the left, one on the right, facing each other, wet hair, school uniforms, soaked shirts,
-hands clasped, looking at each other, tense expressions,
-cowboy shot, from side, dutch angle, rooftop at night, chain-link fence, city lights below, heavy rain,
-cyan and magenta neon reflections on the wet floor,
-
-Rain falls in visible sheets between them and the city glows far below the fence line.
-Neon from a sign behind the camera throws cyan on one face and magenta on the other.
-Water runs off their sleeves and drips from their clasped hands onto the concrete.
-Neither of them looks away.
-
-intricate details, cinematic composition
-```
-
-负向：
-
-```text
-worst quality, bad anatomy, jpeg artifact, blurry, lowres, bad hands, extra fingers, deformed hands,
-distorted face, extra limbs, photorealistic, photograph, live action, cgi, plastic skin
-```
-
-### 示例 3｜场景主导 · 无人神社
-
-```text
-anime scenery illustration, gouache texture, paper grain, muted palette,
-no humans, wide shot, from below, stone torii gate, long stone steps, overgrown lanterns,
-cedar forest, morning mist, low sun behind the gate, god rays between trunks, fallen leaves,
-
-Morning mist sits low between the cedars and the sun breaks behind the torii in thin rays.
-The stone steps climb into the fog and disappear, moss creeping over the lantern bases.
-A few leaves drift down and settle on the wet stone without a sound.
-
-detailed background, cinematic composition
-```
-
-负向：
-
-```text
-worst quality, bad anatomy, jpeg artifact, blurry, lowres, out of focus, photorealistic, photograph,
-live action, 3d render, cgi, watermark
-```
+参数：euler + normal / 50 步 / CFG 3.0 / Shift 5.0 / SLG 3（skip 22）/ 1024×1024
 
 ---
 

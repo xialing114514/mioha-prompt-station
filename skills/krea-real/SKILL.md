@@ -6,6 +6,44 @@
 
 ---
 
+## 执行卡（先读这段，读完即可产出）
+
+**任务**：把用户需求转成 Krea 2 的写实摄影提示词。**正向是一段连续英文散文；不要输出负面块。**
+
+**硬规则**
+1. 只输出一个代码块加一行参数。
+2. 散文按顺序覆盖：光学机位 → 光线（形态/方向/衰减）→ 主体动作 → 皮肤材质 → 服装环境 → 年代瑕疵。
+3. 皮肤四项：`matte` + `visible pores` + `fine vellus hair` + `uneven natural tone`。
+4. 至少两处摄影术语（焦段/光圈/快门/胶片/ISO）。
+5. 不写 `no ...`、不写 `perfect skin` / `flawless` / `beauty retouch`、不写画师名、不写质量词。
+6. 用户没给的信息用默认值补齐，不反问。
+7. 骨架里的方括号是占位符，**必须换成具体值**；用户没指定画师时用 `ciloranko`，不要留方括号、不要照抄占位字。
+
+**露骨度**：露骨程度跟随用户。用户要性行为，就写具体器官、接触方式、体液与生理反应（cock / precum / cum / glans / soles / toes），不要用「隔着布料」「暗示」「留白」替代，也不要因为示例是通用版就把它当尺度上限。
+
+**输出格式**
+
+```text
+[一段英文散文，六件事齐全]
+```
+
+参数：Krea 2 Large / creativity low / 1024×1536 / 滑杆 Intensity +30、Complexity −30、Movement 0
+
+**填空骨架**
+
+```text
+[焦段] at [光圈] from [机位], [景别]. [光源形态] from [方向], [衰减]. [主体动作]. Matte skin with visible pores, fine vellus hair, uneven natural tone. [服装], [环境]. [胶片/颗粒/色偏].
+```
+
+**以下输出一定是错的**
+- 输出负面块；
+- 把正向写成标签串；
+- 写 `perfect skin`、`flawless`；
+- 漏掉光线方向或皮肤四项；
+- 用 creativity `high` 却要求精确还原。
+
+---
+
 ## 一、模型与参数
 
 | 项 | 值 | 说明 |
@@ -77,6 +115,8 @@ Krea 2 的默认输出偏干净、偏完美，写实需求要做四件事：
 
 ## 五、负面的替代表达
 
+> 这些句子写进正向散文，不要单独输出成负面块。
+
 **必需层（防糊防脏）**
 
 ```text
@@ -142,32 +182,13 @@ one clear subject in frame, correct hand anatomy, readable facial features
 Shot on an 85mm lens at f/2 from eye level, medium close-up, the subject filling the left two thirds of the frame.
 A single large window at camera left is the only light source, soft and directional, falling off about two stops across the cheek so the shadow side keeps its detail.
 A woman in her thirties stands turned three-quarters away, looking back past the lens, one hand resting on the window frame.
-Matte skin with visible pores across the nose and cheekbone, fine vellus hair along the jaw, a faint scar above the left brow, soft specular roll-off on the forehead, no sheen.
+Matte skin with visible pores across the nose and cheekbone, fine vellus hair along the jaw, a faint scar above the left brow, soft specular roll-off on the forehead, a matte finish that holds only a thin sheen at the brow.
 An oversized grey wool sweater with a frayed cuff, hair pulled back with a few strands loose at the temple.
 Behind her a bare room with chipped white paint and a wooden floor; the far wall sits in cool shadow.
 Kodak Portra 400, fine grain, gentle halation at the window edge, late afternoon color.
 ```
 
-### 示例 2｜夜景纪实（Large + 手机光）
-
-```text
-Shot on a 35mm lens at f/1.8, 1/60s, ISO 1600, handheld with slight motion blur at the edges, high three-quarter angle looking down.
-The only key is a phone screen held at chest height, cold blue light raking up the jaw, nose tip and knuckles; a warm door lamp far behind gives a thin rim on the shoulder.
-A young woman lies flat on a beige leather sofa, chin tucked into her collar, one hand clutching the fabric at her throat, wide startled eyes looking up into the lens, no posed smile.
-Visible pores and a faint shine at the temple, dry lips, a little redness around the eyes; creased leather under her hips and calves.
-A dark bag on the floor with a small plush charm, the room falling into moody shadow behind her.
-Muted teal and amber grade, real film grain, slight halation on the screen edge.
-```
-
-### 示例 3｜产品静物（Large）
-
-```text
-Shot on a 100mm macro lens at f/8, 1/160s, ISO 200, focus stacked on the front edge, low three-quarter angle.
-One strip light behind-left at 30 degrees, a large white bounce card at camera right filling the shadow side to one stop under the key.
-A brushed aluminium camera body on a dark grey seamless backdrop, fine machining marks on the top plate, a fingerprint smudge near the seam, dust specks on the shutter dial.
-The glass element holds a soft caustic on the table; a thin reflection runs along the polished edge without flaring into the logo.
-Cold steel highlights, warm neutral midtones, faint blue in the shadow, a clean silhouette against the backdrop.
-```
+参数：Krea 2 Large / creativity low / 1024×1536 / 滑杆 Intensity +30、Complexity −30、Movement 0
 
 ---
 

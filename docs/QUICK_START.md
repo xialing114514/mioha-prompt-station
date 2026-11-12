@@ -4,7 +4,7 @@
 
 ## 下载与安装
 
-从 [最新 Release](https://github.com/xialing114514/mioha-prompt-station/releases/latest) 下载 `Mioha-Prompt-Station-版本号-Setup.exe`。`mioha-model-skills-v7.zip` 是独立规则包，不是软件安装器，也不是 WD14 权重。
+从 [最新 Release](https://github.com/xialing114514/mioha-prompt-station/releases/latest) 下载 `Mioha-Prompt-Station-版本号-Setup.exe`。`mioha-model-skills-v11.zip` 是独立规则包，不是软件安装器，也不是 WD14 权重。
 
 运行安装器，选择安装目录，按需创建桌面快捷方式。需要 Windows 10/11 x64 与 Microsoft Edge WebView2 Runtime。程序自带必要运行组件，普通用户不用安装 Python、Node.js，也不用打开命令行。
 

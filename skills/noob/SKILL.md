@@ -6,6 +6,51 @@
 
 ---
 
+## 执行卡（先读这段，读完即可产出）
+
+**任务**：把用户需求转成 NoobAI-XL 的提示词。**先判断版本**：用户没说是 v-pred 就按 1.1（eps）写。
+
+**硬规则**
+1. 只输出两个代码块加一行参数；代码块内只放英文。
+2. 正向必须以官方起手串开头：`masterpiece, best quality, newest, absurdres, highres, safe`。
+3. 全小写，逗号后留空格；角色名与画师名括号转义 `\(...\)`。
+4. 画师用纯名或 `artist:名字`，权重只用 `(名字:1.2)`；禁止 `{}`、`N::tag::`。
+5. 日期标签与用户想要的年代一致：90 年代写 `old` 或 `early`，不要写 `newest`。
+6. 画人类时负面带上兽人排除层；画兽人时删掉这层。
+7. 用户没给的信息用默认值补齐，不反问。
+9. **必须输出全部块**：正向、负向、参数行，缺一块即失败。
+8. 骨架里的方括号是占位符，**必须换成具体值**；用户没指定画师时用 `ciloranko`，不要留方括号、不要照抄 `artist name` 这种占位字。
+
+**露骨度**：露骨程度跟随用户。用户要性行为，就写具体器官、接触方式、体液与生理反应（cock / precum / cum / glans / soles / toes），不要用「隔着布料」「暗示」「留白」替代，也不要因为示例是通用版就把它当尺度上限。
+
+**输出格式**
+
+```text
+[正向：起手串, 日期, 人数, 角色, 外观, 服装, 动作, 表情, 镜头, 场景与光, 画师, 风格]
+```
+
+```text
+[负向：worst quality, old, early, low quality, lowres, signature, username, logo, bad hands, mutated hands, bad anatomy, extra fingers, watermark, text, multiple views, mammal, anthro, furry, ambiguous form, feral, semi-anthro]
+```
+
+参数：eps 1.1 / Euler a / 27 步 / CFG 5.5 / 832×1216
+参数：V-Pred 1.0 / Euler / 32 步 / CFG 4.5 / 832×1216 / v_prediction + zsnr
+
+**填空骨架**
+
+```text
+masterpiece, best quality, newest, absurdres, highres, safe, [日期], [人数], [角色名 \(作品名\)], [外观], [服装], [动作], [表情], [景别], [视角], [场景], [光], ([画师]:1.0), [风格词]
+```
+
+**以下输出一定是错的**
+- v-pred 用 Euler a 或 CFG 5.5 以上；
+- 起手串缺项或顺序打乱；
+- 画古早风却写 `newest`；
+- 画兽人还留着 `anthro, furry` 负面；
+- 用 NAI 的 `{}` / `N::`。
+
+---
+
 ## 一、版本与参数（三个版本，三套参数）
 
 | 项 | 1.0 / 1.1（eps） | V-Pred 1.0 |
@@ -127,6 +172,8 @@ talking, looking at each other, afternoon window light,
 
 ## 八、负面基线（已过滤 NSFW）
 
+执行时默认输出「必需层 + 按需层 + 兽人排除层（画人类时）」；画兽人时删掉兽人排除层。
+
 **必需层（模型卡原串去掉首项）**
 
 ```text
@@ -190,42 +237,7 @@ mutated hands, bad anatomy, extra fingers, watermark, text, multiple views,
 mammal, anthro, furry, ambiguous form, feral, semi-anthro
 ```
 
-### 示例 2｜双人 · eps 1.1
-
-```text
-masterpiece, best quality, newest, absurdres, highres, safe,
-2girls, upper body, from side, classroom,
-girl A on the left, long black hair, glasses, cardigan, holding a book, talking,
-girl B on the right, short blonde hair, hoodie, hand on chin, listening, smiling,
-afternoon, window light from the left, dust in the air,
-(artist name:1.0), (artist name:0.6), soft shading
-```
-
-负向：
-
-```text
-worst quality, old, early, low quality, lowres, signature, username, logo, bad hands,
-mutated hands, extra fingers, extra limbs, deformed, cropped, multiple views
-```
-
-### 示例 3｜v-pred 1.0 · 夜景（参数另写）
-
-```text
-masterpiece, best quality, newest, absurdres, highres, safe,
-no humans, wide shot, from above, night city, wet street, neon signs,
-rain, puddle reflection, light trails, deep blue and magenta palette,
-cinematic lighting, high contrast, film grain,
-(artist name:0.9), detailed background
-```
-
-负向：
-
-```text
-worst quality, old, early, low quality, lowres, signature, username, logo, bad hands,
-mutated hands, watermark, text
-```
-
-参数：`Steps 32, CFG 4.5, Sampler Euler, v_prediction + zsnr, 832×1216`。
+参数：eps 1.1 / Euler a / 27 步 / CFG 5.5 / 832×1216
 
 ---
 

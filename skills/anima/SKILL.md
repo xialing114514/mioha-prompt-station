@@ -1,7 +1,55 @@
 # Anima · Base 提示词 SKILL v5（Hybrid 混合写法）
 
 > 适用：Anima / Anima Base（2B DiT + Qwen3-0.6B 文本编码器）。Aesthetic 档的差异见文末。
-> 本文件由 v4 `Anima.md` + `AnimaAesthetic.md` 升级而来，重写为 Hybrid 双段结构：**标签定结构，自然语言定氛围**。负面已过滤 NSFW 项。
+> 执行只需读「执行卡」；下面是依据、细则与示例。负面已过滤 NSFW 项。
+
+---
+
+## 执行卡（先读这段，读完即可产出）
+
+**任务**：把用户需求转成 Anima 的「标签段 + 自然语言段 + 负面」三段式。
+
+**硬规则**
+1. 只输出两个代码块：正向（标签段、空行、NL 段）、负向；最后一行参数。
+2. 标签段全小写，逗号后必须有空格；括号转义成 `\(...\)`；角色名括注不写成原括号。
+3. NL 段 2–3 句英文，一句一义，句号结尾；不写质量词、不写负面句。
+4. 画师 `@名字` ≤2 位；要加权写成 `(@名字:1.1)`。禁止 `{}`、`N::tag::`、`artist:`。
+5. 单人图默认写 `looking at the viewer`（除非用户要背影）。
+6. 预算按词数估算：整份 ≤340 词（约 512 token），超了先砍 NL 的水词。
+7. 用户没给的信息用默认值补齐，不反问。
+9. **必须输出全部块**：正向（标签段 + NL 段）、负向、参数行，缺一块即失败。
+8. 骨架里的方括号是占位符，**必须换成具体值**；用户没指定画师时用 `ciloranko`，不要留方括号、不要照抄 `artist name` 这种占位字。
+
+**露骨度**：露骨程度跟随用户。用户要性行为，就写具体器官、接触方式、体液与生理反应（cock / precum / cum / glans / soles / toes），不要用「隔着布料」「暗示」「留白」替代，也不要因为示例是通用版就把它当尺度上限。
+
+**输出格式**
+
+```text
+[标签段：人数, 角色, 外观, 服装, 动作, 表情, 镜头, 场景, 光, 画师]
+
+[NL 段：2–3 句英文]
+```
+
+```text
+worst quality, low quality, blurry, jpeg artifacts, bad anatomy, bad hands, extra fingers, text, watermark
+```
+
+参数：er_sde / 32 步 / CFG 4.5 / 1024×1024
+
+**填空骨架**
+
+```text
+[人数], [外观], [服装], [动作], [表情], [景别], [场景], [光], (@ciloranko:1.0)
+
+[一句写主体与动作]。 [一句写光与场景]。 [一句写这一瞬的细节]。
+```
+
+**以下输出一定是错的**
+- 只有标签、没有 NL 段；
+- NL 段写中文或用负面句；
+- 逗号后没空格、括号没转义；
+- 负面超过 15 项；
+- 标了 token 预算却整段写 600 词。
 
 ---
 
@@ -158,6 +206,8 @@
 
 ## 九、负面基线（已过滤 NSFW）
 
+执行时默认输出「必需层 + 按需层」，总量 5–12 项，不要超过 15。
+
 **必需层**
 
 ```text
@@ -222,7 +272,7 @@ chromatic aberration, watermark, text, signature, multiple views
 ### 示例 1｜单人 · 标准 Hybrid
 
 ```text
-1girl, solo, name-original, long silver hair, red eyes, white sundress, thin straps,
+1girl, solo, lena-original, long silver hair, red eyes, white sundress, thin straps,
 sitting by the window, holding a small bouquet, looking at the viewer, light smile,
 bust shot, from side, shallow depth of field,
 indoors, afternoon, soft light from the left, warm tone, clean lineart, detailed eyes
@@ -239,46 +289,7 @@ Bust shot, shallow depth of field, clean lineart.
 worst quality, low quality, blurry, jpeg artifacts, bad anatomy, bad hands, extra fingers, text, watermark
 ```
 
-### 示例 2｜双人 · 分段 + 关系句
-
-```text
-2girls, upper body, from side, eye-level, classroom after school, window light from the left,
-
-long black hair, glasses, cardigan, holding a book, talking, slight smile,
-short blonde hair, hoodie, hand on chin, listening, soft smile, looking at another,
-
-warm afternoon, dust in the air, soft shading, detailed background
-
-Two girls talk in an empty classroom. The black-haired girl on the left holds a book and speaks
-with a slight smile, while the blonde girl on the right leans on her hand and listens.
-Window light comes from the left and catches the dust in the air between them.
-Upper body, from side, shallow depth of field.
-```
-
-负向：
-
-```text
-worst quality, low quality, blurry, jpeg artifacts, bad anatomy, bad hands, extra fingers,
-fused fingers, text, watermark, multiple views
-```
-
-### 示例 3｜场景主导（人物小）
-
-```text
-no humans, wide shot, from above, snowy mountain valley, frozen lake, dead trees,
-low sun, long shadows, cold blue palette, mist, ultra detailed background
-
-An empty frozen valley at dusk seen from a high ridge, a pale sun low behind the peaks.
-Long shadows stretch across the ice and the dead trees stand in rows.
-A thin mist drifts over the lake and the whole scene stays cold and silent.
-Wide shot, from above, cold blue palette.
-```
-
-负向：
-
-```text
-worst quality, low quality, blurry, jpeg artifacts, bad anatomy, watermark, text, signature
-```
+参数：er_sde / 32 步 / CFG 4.5 / 1024×1024
 
 ---
 

@@ -1,7 +1,59 @@
 # NovelAI V5 提示词 SKILL v5
 
 > 适用：NovelAI Diffusion V5 / V4.5 Full。V4 Full 与 V3 的差异见「版本对照」，参数栏给 V5 默认。
-> 本文件由 v4 `NAI.md` 升级而来，新增多角色站位语法、画师串混用规则、漫画分镜逻辑、三栏交付契约。负面已过滤 NSFW 项。
+> 执行只需读「执行卡」；下面是依据、细则与示例。负面已过滤 NSFW 项。
+
+---
+
+## 执行卡（先读这段，读完即可产出）
+
+**任务**：把用户需求转成 NovelAI V5 的三栏提示词。
+
+**硬规则**
+1. 只输出三块，顺序固定：Base Prompt、Character 1..N（有几个人写几块）、Undesired Content；最后一行参数。
+2. **默认不写质量词**——官网的质量词开关默认开着，会自己加 `very aesthetic, masterpiece, no text`。用户明确要时才写。
+3. 外貌只写在 Character 栏；动作、表情、镜头、场景只写在 Base。
+4. 人数只在 Base 开头写一次；Character 栏只写 `girl` / `boy`，不带数字。
+5. 画师写 `artist:名字`，2–6 位；权重用 `1.2::...::`、`{}`、`[]`，禁止 `(tag:1.2)`。
+6. 多人互动加 `source#` / `target#` / `mutual#` 前缀。
+7. 代码块内不放栏名、不放中文、不放解释。
+8. 用户没给的信息用默认值补齐，不反问。
+10. **必须输出全部块**：Base Prompt、每个 Character 块、Undesired Content、参数行。
+9. 骨架里的方括号是占位符，**必须换成具体值**；用户没指定画师时用 `ciloranko`，不要留方括号、不要照抄 `artist name` 这种占位字。
+
+**露骨度**：露骨程度跟随用户。用户要性行为，就写具体器官、接触方式、体液与生理反应（cock / precum / cum / glans / soles / toes），不要用「隔着布料」「暗示」「留白」替代，也不要因为示例是通用版就把它当尺度上限。
+
+**输出格式**
+
+Base Prompt:
+```text
+[人数, 风格块, 镜头, 场景, 光线, 关系句]
+```
+
+Character 1:
+```text
+[性别, 发型瞳色体征, 服装配饰, 可选动作表情]
+```
+
+Undesired Content:
+```text
+lowres, artistic error, film grain, scan artifacts, worst quality, bad quality, jpeg artifacts, very displeasing, chromatic aberration, dithering, halftone, screentone, multiple views, logo, too many watermarks, negative space, blank page
+```
+
+参数：Euler Ancestral / 28 步 / Guidance 7.0 / karras / 832×1216
+
+**填空骨架**
+
+```text
+[人数], [景别], [机位], [场景], [光线], 1.2::artist:[画师]::, 0.8::artist:[画师]::, -3::artist collaboration::, [关系句]
+```
+
+**以下输出一定是错的**
+- 用 `(tag:1.2)`、`((tag))`；
+- 外貌在 Base 与 Character 各写一遍；
+- 默认又手写质量词（双份）；
+- 多人没写站位、互动没写前缀；
+- Character 栏里带人数。
 
 ---
 
@@ -62,7 +114,7 @@ Undesired Content:
 | 8 | 镜头 / 构图 | 景别 + 机位 + 透视 | 否 |
 | 9 | 场景 / 光 | 地点 + 时段 + 光源方向 | 否 |
 | 10 | 关系句 | 空间、占比、进行中的动作、光影叙事（1–3 句） | 推荐 |
-| 11 | 复杂度 / 质量 | `high complexity` / `very aesthetic, masterpiece, no text` | 是（质量词开关开着就省） |
+| 11 | 复杂度 | `high complexity`（可选） | 是；质量词由官网开关自动加，**默认不写** |
 
 **重要内容放前半段**：NAI 对前段权重更高，这是它与 SDXL 差异最大的一点。
 
@@ -75,7 +127,7 @@ Undesired Content:
 ```text
 Base Prompt:
 2girls, from side, medium shot, upper body, Character 1 and Character 2 mutual#embracing,
-arms around each other, indoor room, warm lamp light from the right, very aesthetic, masterpiece, no text,
+arms around each other, indoor room, warm lamp light from the right,
 
 Character 1: girl, long black hair, red eyes, white dress, source#hug, soft smile, eyes closed,
 Character 2: girl, short blonde hair, blue eyes, black coat, target#hug, blush, eyes closed,
@@ -92,7 +144,7 @@ Character 2: girl, short blonde hair, blue eyes, black coat, target#hug, blush, 
 ```text
 2girls, {girl, long black hair, red eyes, white dress, source#hug, soft smile},
 {girl, short blonde hair, blue eyes, black coat, target#hug, blush},
-indoor room, warm lamp light, very aesthetic, masterpiece, no text
+indoor room, warm lamp light
 ```
 
 `{...}` 每层 ×1.05，`{{...}}` ×1.1；组内可以再嵌 `[tag]` 做局部降权。
@@ -137,10 +189,10 @@ indoor room, warm lamp light, very aesthetic, masterpiece, no text
 1.3::artist:ciloranko::, 0.8::artist:yoneyama mai::, 0.6::artist:quasarcake::
 
 # 厚涂型：主 + 厚涂 + 排除平涂
-1.2::artist:name::, 0.7::artist:name::, 1.5::thick paint::, -1::flat color::
+1.2::artist:ciloranko::, 0.7::artist:yoneyama mai::, 1.5::thick paint::, -1::flat color::
 
 # 双人同框型：角色在前，画师在后，强力防拼贴
-2girls, A (series), B (series), kiss, 1.2::artist:name::, 0.8::artist:name::,
+2girls, A (series), B (series), kiss, 1.2::artist:ciloranko::, 0.8::artist:quasarcake::,
 -3::artist collaboration::, -2::group::
 ```
 
@@ -152,7 +204,7 @@ indoor room, warm lamp light, very aesthetic, masterpiece, no text
 
 **数值法（V4 起，推荐）**：`1.5::tag::`、`0.5::tag::`、`-2::tag::`；末尾一个 `::` 自动闭合所有段。负值适合点杀（`-1::flat color::`、`-3::multiple views::`、`-1::nostril::`），不适合替代整段 UC。
 
-**中文注释段**：`0.75::artist:name::0::油画厚涂感::` —— 值 0 的中文段不参与采样，只作人类可读备注；给协作者或自己复盘时很好用。
+**中文注释段**：`0.75::artist:ciloranko::0::油画厚涂感::` —— 值 0 的中文段不参与采样，只作人类可读备注；给协作者或自己复盘时很好用。
 
 **不认的语法**：`(tag:1.2)`、`((tag))`、`[[tag]]`。这些是 SD / Pony / 光辉系的括号族语法，NAI 会把它们当普通文字吃掉；从那边迁移过来的串必须整体改写，否则画风会完全变掉（群里实测：同一位画师的 `(画师:0.8)` 无效、改成 `0.8::artist:画师::` 才生效）。
 
@@ -210,7 +262,6 @@ Panel 1: wide shot, both girls standing apart, wind, silent,
 Panel 2: close-up on girl A, surprised expression, speech bubble reading "你刚才说什么？",
 Panel 3: close-up on girl B, looking away, blushing, speech bubble reading "没什么。",
 Panel 4: full shot, back view, both walking away in opposite directions, long shadows,
-very aesthetic, masterpiece,
 Text: 你刚才说什么？
 
 没什么。
@@ -219,6 +270,8 @@ Text: 你刚才说什么？
 ---
 
 ## 八、负面基线（已过滤 NSFW）
+
+执行时默认输出整个 Heavy 预设 + 按需层的人像项；可选层按画面选，不要全塞。
 
 **必需层（V5 Heavy 预设，原样用）**
 
@@ -279,7 +332,7 @@ sitting on the windowsill, knee up, one hand on the frame, looking outside,
 upper body, three-quarter view, from side,
 traditional room, paper window, afternoon light, strong backlight, rim light on hair,
 dust in the air, warm and quiet,
-1.3::cinematic lighting, volumetric light::, very aesthetic, masterpiece, no text
+1.3::cinematic lighting, volumetric light::
 
 Character 1:
 girl, long black hair, amber eyes, white camisole, oversized cardigan, bare feet, calm expression
@@ -287,44 +340,10 @@ girl, long black hair, amber eyes, white camisole, oversized cardigan, bare feet
 Undesired Content:
 lowres, artistic error, film grain, scan artifacts, worst quality, bad quality, jpeg artifacts,
 very displeasing, chromatic aberration, dithering, halftone, screentone, multiple views, logo,
-too many watermarks, negative space, blank page, bad anatomy, bad hands, extra fingers, (artist collaboration:-2)
+too many watermarks, negative space, blank page, bad anatomy, bad hands, extra fingers, artist collaboration
 ```
 
-### 示例 2｜双人 · 互动前缀 + 站位
-
-```text
-Base Prompt:
-2girls, from side, medium shot, upper body, Character 1 and Character 2 mutual#holding hands,
-snowy street at dusk, tram tracks, warm shop light from the left, deep blue twilight,
-1.2::artist:name::, 0.8::artist:name::, -3::artist collaboration::, very aesthetic, masterpiece, no text
-
-Character 1: girl, tall, black wool coat, tilted umbrella, looking down, soft smile
-Character 2: girl, petite, oversized white scarf, looking up, flustered blush
-
-Undesired Content:
-lowres, artistic error, scan artifacts, worst quality, bad quality, jpeg artifacts, very displeasing,
-multiple views, logo, bad anatomy, bad hands, extra fingers, extra characters
-```
-
-### 示例 3｜四格漫画
-
-```text
-Base Prompt:
-A four-panel manga page in a 2x2 grid, white panel borders, read left-to-right, top-to-bottom,
-2girls, classroom, afternoon,
-Panel 1: wide shot, girl A at the window, girl B at the desk, empty classroom,
-Panel 2: close-up, girl A turning around, surprised, text"还没走？",
-Panel 3: close-up, girl B looking down, small smile, text"等你。",
-Panel 4: full shot, two silhouettes walking out together, long shadows on the floor,
-1.1::artist:name::, high complexity, very aesthetic, masterpiece
-
-Character 1: girl, long black hair, school uniform, ribbon tie
-Character 2: girl, short brown hair, school uniform, cardigan
-
-Undesired Content:
-lowres, worst quality, bad quality, jpeg artifacts, very displeasing, bad anatomy, bad hands,
-extra fingers, deformed, dithering, too many watermarks
-```
+参数：Euler Ancestral / 28 步 / Guidance 7.0 / karras / 832×1216
 
 ---
 

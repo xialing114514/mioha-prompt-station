@@ -4,7 +4,7 @@
 
 ## 下载与安装
 
-从 [最新 Release](https://github.com/xialing114514/mioha-prompt-station/releases/latest) 下载 `Mioha-Prompt-Station-版本号-Setup.exe`。`mioha-model-skills-v4.zip` 是独立规则包，不是软件安装器，也不是 WD14 权重。
+从 [最新 Release](https://github.com/xialing114514/mioha-prompt-station/releases/latest) 下载 `Mioha-Prompt-Station-版本号-Setup.exe`。`mioha-model-skills-v7.zip` 是独立规则包，不是软件安装器，也不是 WD14 权重。
 
 运行安装器，选择安装目录，按需创建桌面快捷方式。需要 Windows 10/11 x64 与 Microsoft Edge WebView2 Runtime。程序自带必要运行组件，普通用户不用安装 Python、Node.js，也不用打开命令行。
 
@@ -61,3 +61,7 @@ NeoForge、ComfyUI 需要你先启动对应服务，并在软件中填写其本�
 设置中查看版本、检查更新和打开 GitHub。启动时每天最多自动检查一次，也可以关闭自动检查。更新包需由用户安装。
 
 个人数据位于 `%USERPROFILE%/.mioha-prompt-forge`。升级前建议导出备份，卸载不会主动删除该用户数据目录。
+
+### 从服务器下载角色配方
+
+在同一服务器连接下，点击角色配方工具栏的「从服务器下载」。软件下载已完成的备份，校验全部正文后合并到本地；同名角色和已有修改优先使用本地版本，下载不会自动上传。损坏、不完整或超过服务器 1 GB 总容量的备份不会替换本地资料。导入后关闭页面或重启仍可读取。

@@ -6,7 +6,7 @@
 
 | 对象 | 示例 | 负责什么 |
 | --- | --- | --- |
-| 绘图模型规范 | Anima、MOSS、光辉 Illustrious、NAI、自定义 | 提示词格式、权重和画师语法、Skill |
+| 绘图模型规范 | Anima、MOSS、Krea 2、NoobAI、光辉 Illustrious、NAI、自定义 | 提示词格式、权重和画师语法、Skill |
 | 生图引擎 | NeoForge、ComfyUI、NovelAI API | 实际加载权重并执行绘图 |
 | 本地权重资源 | Checkpoint、Diffusion／UNET、LoRA | 模型文件、预览、触发词与兼容性 |
 

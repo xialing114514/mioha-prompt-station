@@ -1,50 +1,87 @@
 {
   "pack": "mioha-model-skills",
-  "revision": "2026-11-08-v4",
-  "version": "2.0",
+  "revision": "2026-11-12-v7",
+  "version": "5.0",
+  "structure": "directory/SKILL.md",
   "entries": [
-    {
-      "family": "anima",
-      "key": "default",
-      "file": "Anima.md",
-      "name": "Anima Base 模型规范",
-      "version": "2.0",
-      "sha256": "a1230694877a1f8791658694f7b08e04a54a8ed86866e7da9dcd3221a28fd123"
-    },
-    {
-      "family": "anima",
-      "key": "aesthetic",
-      "file": "AnimaAesthetic.md",
-      "name": "Anima Aesthetic 差异规范",
-      "version": "2.0",
-      "sha256": "00f09d35629d6cf15abd1bae0eb6860524fdbc73cbdc4bb10289117e645963ed"
-    },
-    {
-      "family": "moss",
-      "key": "default",
-      "file": "MOSS.md",
-      "name": "MOSS-Image 模型规范",
-      "version": "2.0",
-      "sha256": "031ca6bd9b4e1993c6c49385e6d5e30ca7f5d8176dabb93c9d2b6bd2cb4bd4c1"
-    },
     {
       "family": "illustrious",
       "key": "default",
-      "file": "Illustrious.md",
-      "name": "光辉 Illustrious 模型规范",
-      "version": "2.0",
-      "sha256": "d997ae1d1934b91c4a96e7e734be2a88c92318a5120245ce4e16a5fa19c46398"
+      "dir": "illustrious",
+      "file": "illustrious/SKILL.md",
+      "name": "光辉 Illustrious XL · 标签与画师串",
+      "version": "5.2",
+      "sha256": "940e7cb0b3a4f408952d40151147e8caf10f5b7732507805097e56da7e16a27e"
+    },
+    {
+      "family": "noob",
+      "key": "default",
+      "dir": "noob",
+      "file": "noob/SKILL.md",
+      "name": "NoobAI-XL · eps 与 v-pred 双版本",
+      "version": "1.1",
+      "sha256": "a10e3341cb01211e2df9dd08408a58c7c010f1b43ebe53bc8cfa3bb256836b32"
     },
     {
       "family": "nai",
       "key": "default",
-      "file": "NAI.md",
-      "name": "NovelAI 模型规范",
-      "version": "2.0",
-      "sha256": "207cb6b5a5bb6aac4cc3fd61a00e8c9bdb56083fc934862ee0cdc4f816e9e886"
+      "dir": "nai",
+      "file": "nai/SKILL.md",
+      "name": "NovelAI V5 · 多角色与分镜",
+      "version": "5.1",
+      "sha256": "5e3db158c2af48902f552fee92d46ae990f2808ca8f2b097341fc285616cfa98"
+    },
+    {
+      "family": "anima",
+      "key": "hybrid",
+      "dir": "anima",
+      "file": "anima/SKILL.md",
+      "name": "Anima Base · Hybrid 混合写法",
+      "version": "5.2",
+      "sha256": "306f9677166ebdc29ed6578550d080c6d79d202cdc240fb4ac6d832a0a1f01cb"
+    },
+    {
+      "family": "moss",
+      "key": "anime",
+      "dir": "moss-anime",
+      "file": "moss-anime/SKILL.md",
+      "name": "MOSS-Image · 二次元通道",
+      "version": "5.1",
+      "sha256": "5167a259aa36cb3bd72a8fc11fc197d6b150572dd24800f0f32942cf581883e7"
+    },
+    {
+      "family": "moss",
+      "key": "real",
+      "dir": "moss-real",
+      "file": "moss-real/SKILL.md",
+      "name": "MOSS-Image · 真人摄影通道",
+      "version": "5.1",
+      "sha256": "bdf2b9e94da8acf91d12321abbdd776eddecb014d4c4f0be3ddead5b8189540c"
+    },
+    {
+      "family": "krea",
+      "key": "anime",
+      "dir": "krea-anime",
+      "file": "krea-anime/SKILL.md",
+      "name": "Krea 2 · 二次元（风格 LoRA 主导）",
+      "version": "1.0",
+      "sha256": "93ab17acfcfe768baf946c2830f21d42d292d4346dddaacc24683d2c0791e84c"
+    },
+    {
+      "family": "krea",
+      "key": "real",
+      "dir": "krea-real",
+      "file": "krea-real/SKILL.md",
+      "name": "Krea 2 · 真人摄影",
+      "version": "1.0",
+      "sha256": "fac09fb1f8443cf542909a471f12cd68d99c71109c035c23b1529e21d3285528"
     }
   ],
   "changes": [
-    "Anima 示例使用明确成年原创角色，来源说明按公开发行整理；规则来自维护者提供的 v4 文件。"
+    "v7：Krea 2 按动画 / 真人拆成两份独立 skill；krea-anime 以风格 LoRA 为主控。",
+    "Anima 补：逗号后空格影响 token 化、括号必须转义、@ 放在权重括号内、堆叠多个画师不融合。",
+    "光辉与 NoobAI 补：逗号后空格的 token 化理由。",
+    "Krea 两份都去掉伪权重写法：LoRA 权重在节点/滑块里设，不写进提示词。",
+    "四族 skill 的负面基线全部剔除 NSFW 词条，Krea 无负面通道改用三层正向替代。"
   ]
 }

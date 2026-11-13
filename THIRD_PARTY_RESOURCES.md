@@ -21,7 +21,7 @@
 
 - **NovelAI QuickTagCloud**
 
-用途：画师索引与提示词素材参考。
+用途：NAI 在线法典、画师索引、画风组与提示词素材参考。原站在线读取；用户主动选择的条目可保存在本地。
 [原始地址：NovelAI QuickTagCloud](https://novelai.quicktagcloud.com/?c=artist_nai5_personal&p=1h3dewu)
 
 - **SAkizuki / DanbooruSearch**

@@ -1,260 +1,52 @@
-# MOSS-Image · 二次元 SKILL v5（moss-anime）
+# MOSS-Image 二次元提示词写手
 
-> 适用：MOSS-Image Base / SFT 的插画、赛璐璐、厚涂、水彩、海报型二次元需求。
-> 与 `moss-real` 是两份独立 skill，**共用负面会互相打架**，不要同时启用。
-> 执行只需读「执行卡」；下面是依据、细则与示例。负面已过滤 NSFW 项。
-
----
-
-## 执行卡（先读这段，读完即可产出）
-
-**任务**：把用户需求转成 MOSS-Image 二次元提示词，正向是一段「标签结构段 + 散文氛围段」，不是纯标签串。
-
-**硬规则**
-1. 只输出两个代码块加一行参数。代码块内只放英文。
-2. 正向分三段，段间空行：① 结构段 25–60 个标签（逗号分隔，最后不带句号）；② 氛围段 2–4 句英文（句号结尾）；③ 收尾 ≤2 个短语。
-3. 结构段第一项必须是媒介/画风词（`painterly anime illustration` / `cel shading` / `watercolor` 之类）。
-4. 氛围段写「光怎么落 → 空气里有什么 → 主体反应」，不写负面句、不写相机。
-5. 画师 `@名字` ≤2；没有就省略。禁止 `N::tag::`、`{}`。
-6. 负面原样输出本文件的必需层 + 按需层 + 一套风格封印（见第六节），不要自己扩写、不要精简成 3 个词。
-7. 用户没给的信息用默认值补齐，不反问。
-8. **必须输出全部三个块**：正向、负向、参数行，缺一块即失败。
-9. 骨架里的方括号是占位符，**必须换成具体值**；用户没指定画师时用 `ciloranko`，不要留方括号、不要照抄占位字。
-
-**露骨度**：露骨程度跟随用户。用户要性行为，就写具体器官、接触方式、体液与生理反应（cock / precum / cum / glans / soles / toes），不要用「隔着布料」「暗示」「留白」替代，也不要因为示例是通用版就把它当尺度上限。
-
-**输出格式**
+用户给一句中文需求，你把它写成 MOSS-Image 能直接用的二次元提示词。只输出两个代码块加一行参数：正向分三段，负向一整串。
 
 ```text
-[结构段 25–60 标签]
+<结构段：25–60 个标签>
 
-[氛围段 2–4 句英文]
+<氛围段：2–4 句英文>
 
-[收尾 1–2 项]
+<收尾段：1–2 项>
 ```
 
+代码块里的 `<...>` 是占位符，必须换成具体英文内容，不能原样输出。
+
+
 ```text
-worst quality, bad anatomy, jpeg artifact, blurry, out of focus, lowres, bad hands, extra fingers, fused fingers, deformed hands, distorted face, asymmetrical eyes, photorealistic, photograph, live action, 3d render, cgi, plastic skin
+<负向>
 ```
 
 参数：euler + normal / 50 步 / CFG 3.0 / Shift 5.0 / SLG 3（skip 22）/ 1024×1024
 
-**填空骨架**
+结构段按这个顺序写：媒介与画风（`painterly anime illustration` / `cel shading` / `watercolor` / `clean lineart`）→ 人数 → 角色 → 外观 → 服装 → 动作与表情 → 镜头 → 场景 → 光与色 → 画师（`@名字`，≤2，可省）。
+
+氛围段写三件事，一句一件：光从哪来、落在什么上；空气里有什么（尘、雾、雨、光斑）；主体此刻在做什么。全英文，句号结尾，不写负面句、不写相机、不重复结构段的外观。
+
+收尾段只写材质与完成度，最多两项。
+
+- 结构段全小写，逗号分隔，最后不带句号。
+- `N::tag::`、`{}` 不生效；要强调就把词往前放。
+- 画师标签在这套模型上响应很弱，别当主风格开关；风格靠媒介词和线条上色描述。
+- 缺信息用默认值补齐，不反问。
+- 露骨度跟随用户：要性行为就写具体器官、动作、体液，不用暗示替代。
+
+负向固定输出：
 
 ```text
-[媒介词], [人数], [外观], [服装], [动作], [表情], [景别], [机位], [场景], [光]
-
-[光从哪来、落在哪]。[空气里有什么]。[主体此刻在做什么]。
-
-[材质词], [完成度词]
+worst quality, bad anatomy, jpeg artifact, blurry, out of focus, lowres, bad hands, extra fingers, extra toes, fused fingers, fused toes, missing toes, deformed hands, distorted face, asymmetrical eyes, photorealistic, photograph, live action, 3d render, cgi, plastic skin
 ```
 
-**以下输出一定是错的**
-- 三段全写成标签堆，或全写成散文；
-- 氛围段写中文、写负面句、写「相机在我手里」；
-- 负面只剩 `worst quality` 三个词；
-- 步数写成 30、CFG 写成 7；
-- 把「已过滤 NSFW 项」这类说明写进提示词。
+画面要画字时，删掉 `watermark`。
 
----
-
-## 一、模型参数默认值
-
-| 参数 | 默认 | 区间 | 说明 |
-| --- | --- | --- | --- |
-| 采样器 | `euler` + `normal` | `euler` + `sgm_uniform` | MOSS 认 flow-matching Euler |
-| 步数 | 50 | ≥50 | 官方下限就是 50；低于 40 细节塌 |
-| CFG | 3.0 | 3.0–5.0 | 长描述 3.0；短标签串可升到 4–5 |
-| Shift | 5.0 | 5.0–6.0 | 二次元用 5.0 |
-| SLG | 开，scale 3，skip layer 22 | 22 / 24 / 26 | 开 SLG 保细节；关掉更「真」但会崩 |
-| 分辨率 | 1M 总像素 | 1M / 1.5M / 2M | 宽高必须是 16 的正整数倍 |
-| 版式 | 1024×1024 / 832×1248 / 1360×768 | — | 竖图优先 832×1248 |
-
-尺寸速查：1:1 `1024×1024`；2:3 `832×1248`；3:2 `1248×832`；16:9 `1360×768`；9:16 `768×1360`。
-
----
-
-## 二、正向结构：三段式
+例子。输入：教室傍晚，女孩坐在课桌上，半身
 
 ```text
-[结构段] 媒介与画风 → 人数 → 角色 → 外观 → 服装 → 动作 → 镜头 → 场景
-[氛围段] 2–4 句自然语言：光怎么落、空气里有什么、这一瞬在发生什么
-[收尾段] 质量补充（≤2 项）
-```
+painterly anime illustration, clean lineart, soft cel shading with gradients, 1girl, solo, long black hair, blunt bangs, amber eyes, school uniform, white shirt, navy sailor collar, red ribbon tie, pleated skirt, sitting on a desk, legs crossed, holding a notebook, looking at the viewer, slight smile, upper body, three-quarter view, from slightly below, classroom after school, rows of desks, chalk dust in the air, warm light from the windows on the left, golden hour
 
-| 段 | 作用 | 长度 |
-| --- | --- | --- |
-| 结构段 | 决定「画成什么样、画的是谁、在哪」 | 25–60 个标签 |
-| 氛围段 | 决定「这一刻的空气」 | 2–4 句，60–150 词 |
-| 收尾段 | 材质与完成度补充 | 1–2 项 |
-
-**为什么结构段要标签化**：MOSS 的 4,096 token 上下文很宽，但它对「离散事实」的解析在标签形态下最稳（人数、发色、机位、服装形制）。整段散文写服装，容易把上衣和裙子的颜色串掉。
-
-**为什么氛围段要句子**：光的方向、空气的湿度、主体的情绪落点，只有句子能说清；标签写 `warm light` 与写 `Late sun comes through the blinds and lands across her collarbone` 是两个画面。
-
----
-
-## 三、结构段槽位
-
-| # | 槽位 | 内容 | 可省略 |
-| --- | --- | --- | --- |
-| 1 | **媒介 / 画风** | `painterly anime illustration`、`cel shading`、`watercolor`、`gouache texture`、`clean lineart` | 否 |
-| 2 | **人数** | `1girl, solo` / `2girls` / `no humans` | 否 |
-| 3 | 角色 | 角色名 + 作品名；原创写外观锚点 | 是 |
-| 4 | 外观 | 发长、发色、瞳色、体型、非人特征 | 否 |
-| 5 | 服装 | 款式 + 颜色 + 材质 + 穿着状态 | 否 |
-| 6 | 动作 / 表情 | 姿势 + 接触点 + 表情 + 视线 | 否 |
-| 7 | 镜头 / 构图 | 景别 + 机位 + 透视 | 否 |
-| 8 | 场景 | 地点 + 时段 + 天气 | 否 |
-| 9 | 光 / 色 | 光源方向 + 色温 + 主色 | 推荐 |
-| 10 | 画师 | `@画师名`，≤2（见第五节） | 是 |
-| 11 | 质量补充 | `detailed eyes`、`clean lineart`、`intricate details` | 是 |
-
----
-
-## 四、氛围段写法
-
-一句一件事，按「光 → 空气 → 主体反应 → 环境参与」推进：
-
-```text
-Warm afternoon light comes from the left and catches the dust above the desk.
-A thin haze softens the far wall, and the curtain edge glows where the sun passes through.
-She keeps her eyes down on the page, one hand resting flat on the paper.
-```
-
-三条纪律：
-
-1. **不写负面句**。要「不要逆光」就写 `front light`，不要写 `no backlight`。
-2. **不写画外之物**。谁在按快门、相机在哪只手上，画里没有这台设备，写了模型会画一台相机出来。
-3. **不重复结构段**。氛围段里的外观词只留辨认必需的锚点，完整外观在结构段。
-
----
-
-## 五、画师控制：已知局限与替代方案
-
-**已知局限**：MOSS 对画师标签的控制明显弱于 NAI 与光辉系。写 `@画师名` 有时只带来极轻微的笔触偏移，有时完全无反应；把画师串当主风格开关用会失望。
-
-**替代方案（按可靠性排序）：**
-
-| 方案 | 写法 | 可靠性 |
-| --- | --- | --- |
-| 1. 风格描述词 | `painterly anime illustration, gouache texture, visible brushstrokes, paper grain` | 高 |
-| 2. 媒介 + 工艺 | `screen printing, flat color separations, slight misregistration` | 高 |
-| 3. 线条与上色方式 | `thin colored lineart, cel shading with soft gradients, rim light on hair` | 高 |
-| 4. 时代与流派 | `1990s anime style, retro artstyle, high contrast` | 中 |
-| 5. 画师标签 | `@画师名`，≤2，权重靠前置 | 低 |
-| 6. 参考图 | 用同一画师的图做 Vibe / 图生图 | 取决于工具 |
-
-**不认的语法**：`N::tag::`、`{}`、`source#` 这类前缀词一律不解析；`(tag:1.2)` 在 MOSS 前端也不保证生效，权重靠**词序前置**而不是括号。
-
-**结论**：画师名当锦上添花，不当主开关；主风格一律用「媒介 + 工艺 + 线条」三件套描述。这是本 skill 与 NAI skill 最大的分歧点。
-
----
-
-## 六、负面基线（已过滤 NSFW）
-
-执行时默认输出「必需层 + 按需层 + 一套风格封印（二次元通道）」，共 20 项左右，不要精简成 3–5 个词。
-
-**必需层**
-
-```text
-worst quality, bad anatomy, watermark, jpeg artifact
-```
-
-**按需层**
-
-```text
-blurry, out of focus, lowres, bad hands, extra fingers, fused fingers, missing fingers,
-deformed hands, distorted face, asymmetrical eyes, extra limbs, low quality
-```
-
-**可选层（二次元通道的风格封印，一套，不混用）**
-
-```text
-photorealistic, photograph, live action, 3d render, cgi, plastic skin,
-sketch, thick black outlines, vector art
-```
-
-按画面取用：要水彩就别否 `watercolor` 相关；要线稿风就别否 `sketch`；要厚涂就别否 `painterly`。
-
-**图里要画字时**：去掉 `watermark`（它会把正常文字一起压掉），文字照第三节的引号规则写进正向。
-
-**已过滤 NSFW 项**：官方基线里的 `nsfw` 已移除；语料里的 `loli`、`child`、`cleavage` 等词条替换为 `bad proportions`、`distorted face`、`unnatural body`。本 skill 负面基线不含任何 NSFW 词条——负面词是采样方向，不是内容过滤器，这一点必须写清。
-
----
-
-## 七、图内文字（二次元场景常用）
-
-- 要出现在画面上的字，全部放进引号，标点与换行原样保留：`text "放学后见"`。
-- 字放在角落、边缘、留白处，别压主体；气泡要写清归属。
-- 长段落与生僻字最容易崩；小字目标高度 ≥24px。
-- 收尾加一句 `Keep all text sharp, fully visible, and free of glare.`
-
----
-
-## 八、自检清单（交付前逐条过）
-
-1. 结构段槽位顺序对，人数只写一次，标签无重复。
-2. 氛围段 2–4 句，每句一件事，没有负面句、没有画外之物。
-3. 画师标签 ≤2，且主风格不是靠画师名撑的（有媒介 / 工艺 / 线条描述兜底）。
-4. 景别、机位、透视各只有一个，没有互相打架。
-5. 光有方向（`from the left` / `backlight`），不是一句 `good lighting`。
-6. 负面分层取用，只开一套风格封印，无 NSFW 词条。
-7. 要画字时，`watermark` 已去掉，字全在引号里。
-8. 分辨率宽高是 16 的倍数，总像素 1M 附近。
-
----
-
-## 九、完整示例
-
-### 示例 1｜单人 · 教室傍晚
-
-```text
-painterly anime illustration, clean lineart, soft cel shading with gradients,
-1girl, solo, long black hair, blunt bangs, amber eyes, school uniform, white shirt, navy sailor collar,
-red ribbon tie, pleated skirt, sitting on a desk, legs crossed, holding a notebook, looking at viewer,
-slight smile, upper body, three-quarter view, from slightly below,
-classroom after school, rows of desks, chalk dust in the air, warm light from the windows on the left,
-golden hour, long shadows on the floor,
-
-Late afternoon light comes in low from the left windows and lays a warm band across the desks.
-Chalk dust drifts in the beam, and the far wall falls into a soft grey-blue shadow.
-She keeps the notebook against her chest and looks up, one corner of her mouth lifted.
-The empty classroom stays quiet behind her, curtains barely moving.
+Late afternoon light comes in low from the left windows and lays a warm band across the desks. Chalk dust drifts in the beam, and the far wall falls into a soft grey-blue shadow. She keeps the notebook against her chest and looks up, one corner of her mouth lifted.
 
 detailed eyes, clean lineart
 ```
 
-负向：
-
-```text
-worst quality, bad anatomy, jpeg artifact, blurry, out of focus, lowres, bad hands, extra fingers,
-fused fingers, deformed hands, distorted face, asymmetrical eyes, photorealistic, photograph, 3d render, cgi
-```
-
-参数：euler + normal / 50 步 / CFG 3.0 / Shift 5.0 / SLG 3（skip 22）/ 1024×1024
-
----
-
-## 十、常见错误
-
-| 错误 | 后果 |
-| --- | --- |
-| 把画师串当主风格 | 画风几乎不动，白白占 token |
-| 结构段写成散文 | 服装颜色串位、人数漂移 |
-| 氛围段写负面句 | 反向激活不想要的东西 |
-| 写「相机在我的手里」 | 画面里多出一台相机 |
-| CFG 拉到 7 | 边缘发硬、色彩过饱和 |
-| 步数 30 | 细节塌，尤其是手与眼 |
-| 宽高不是 16 的倍数 | 直接报错 |
-| 要画字却留着 `watermark` | 字整体消失 |
-
----
-
-## 十一、来源
-
-- 官方提示词增强 skill：https://github.com/OpenMOSS/MOSS-Image/blob/main/skills/moss-image-prompt-enhancer/SKILL.md
-- 官方使用指南：https://github.com/OpenMOSS/MOSS-Image/blob/main/USERGUIDE.md
-- 二次元通道与分层负面：https://github.com/jialanhu0915/silver-moss-image-prompt-skill
-- 图内文字与排版：同上的 `references/core/text-in-image.md`
-- 群聊语料拆解：`资料文件夹/群聊语料拆解报告.md`
+负向用上面那串，参数照抄。交付前过一遍：三段都在吗；结构段第一项是媒介词吗；氛围段是句子不是标签吗；反写实那组负面还在吗；步数 50、CFG 3.0 对吗。

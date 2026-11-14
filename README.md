@@ -4,9 +4,15 @@
 
 用中文描述画面，让内置 AI 按绘图模型生成提示词；也可以手动选词、整理角色和画师串、管理模型与 LoRA，再连接绘图引擎生成图片。4.0 新增独立手机版：在手机编辑，在自己的电脑执行绘图，按需查看进度和结果。
 
-[下载 Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.0/Mioha-Prompt-Station-4.0.0-Setup.exe) · [下载 Android APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.0/Mioha-Android-4.0.0-arm64.apk) · [快速上手](docs/QUICK_START.md) · [手机连接指南](docs/MOBILE_REMOTE.md) · [全部截图](docs/SCREENSHOTS.md)
+[下载 Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.1/Mioha-Prompt-Station-4.0.1-Setup.exe) · [下载 Android APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.0/Mioha-Android-4.0.0-arm64.apk) · [快速上手](docs/QUICK_START.md) · [手机连接指南](docs/MOBILE_REMOTE.md) · [全部截图](docs/SCREENSHOTS.md)
 
-当前正式版本 **4.0.0**，版本号在设置中查看。本仓库发布安装包、APK、使用指南、公开模型 Skill、第三方资源声明和更新记录；程序源码不在此仓库中。
+Windows 当前正式版本 **4.0.1**；Android 保持 **4.0.0**，版本号在设置中查看。本仓库发布安装包、APK、使用指南、公开模型 Skill、第三方资源声明和更新记录；程序源码不在此仓库中。
+
+## 4.0.1 启动修复
+
+修复 Windows 电脑名含中文或其他 Unicode 字符时，生成远程证书报 `DNSName` / `A-label` 而无法启动的问题。合法名称由程序自动转换，特殊名称保留 IP 与 localhost；不用改电脑名、配置或删除数据。原有电脑身份与手机授权保留。
+
+已经安装 4.0.0 的 Windows 用户请覆盖安装 4.0.1。手机没有此启动问题，本次无需重新安装 APK。
 
 ## 4.0 带来了什么
 
@@ -104,7 +110,7 @@ WD14 需要把 **`model.onnx` 和配套 `selected_tags.csv` 放在同一个模�
 - 软件默认安全模式，按软件说明切换；远程操作受电脑当前内容模式和设备权限约束。
 - Release 提供 SHA256 校验清单、安装包、APK 和可选 Skill 包。截图来自实际界面与隔离演示资料。
 
-[全部发行文件](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.0) · [更新记录](CHANGELOG.md) · [数据与隐私](docs/DATA_AND_PRIVACY.md) · [反馈](CONTRIBUTING.md)
+[全部发行文件](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.1) · [更新记录](CHANGELOG.md) · [数据与隐私](docs/DATA_AND_PRIVACY.md) · [反馈](CONTRIBUTING.md)
 
 ## 致谢与第三方资源
 

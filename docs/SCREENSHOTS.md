@@ -1,5 +1,33 @@
 # 界面截图
 
+[项目主页](../README.md) · [手机连接指南](MOBILE_REMOTE.md)
+
+## 4.0 当前界面
+
+截图来自实际程序，使用隔离演示资料；未展示个人凭据、可用配对码或私人创作内容。
+
+### Windows 提示词与 AI
+
+![提示词工作区](../assets/screenshots/prompt-workspace-4.png)
+
+![内置 AI](../assets/screenshots/built-in-ai-4.png)
+
+### 电脑远程连接与配对确认
+
+![远程连接](../assets/screenshots/remote-connection-4.png)
+
+![配对确认窗口](../assets/screenshots/pairing-confirmation-4.png)
+
+### Android 手机版
+
+<img src="../assets/screenshots/phone-reconnect-4.png" width="360" alt="手机重新连接电脑与管理界面">
+
+## 历史界面
+
+<details>
+<summary>0.3 系列功能截图（点击展开，布局可能与当前版不同）</summary>
+
+
 [项目主页](../README.md) · [手册目录](README.md)
 
 截图从实际程序界面拍摄，使用独立演示资料。图像工作台与图库的茶壶示例来自本机 ComfyUI 的 MOSS-Image 验收。
@@ -132,3 +160,5 @@ Neo 实时预览没有可用首帧时显示等待占位；测试使用中立风�
 取消历史列表和独立新建入口，清空即删除当前内容并重新开始。普通聊天不要求返回绘图提示词。
 
 0.3.9 的 AI 与角色配方截图来自隔离的中性功能测试。模型清单和配方示例用于展示交互，实际模型数量随上游清单变化；未发送真实模型推理请求。
+
+</details>

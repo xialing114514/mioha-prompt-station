@@ -1,37 +1,116 @@
 # 界面截图
 
-[项目主页](../README.md) · [手机连接指南](MOBILE_REMOTE.md)
+[项目主页](../README.md) · [手机连接指南](MOBILE_REMOTE.md) · [使用手册](README.md)
 
-## 4.0.2 当前界面
+## 当前界面 · 4.0.2
 
-截图来自实际程序，使用隔离演示资料；未展示个人凭据、可用配对码或私人创作内容。
+更新于 2026-11-15。下面使用 4.0.2 的实际前端和隔离资料展示界面：电脑为 1440px 窗口，手机版为 390px 触摸布局。没有连接引擎、导入资料或配对时，会保留软件真实的初始状态，不填充虚构的任务和资源。
 
-### Windows 提示词与 AI
+旧版本截图在本页末尾折叠保留。当前截图不展示个人凭据、有效配对码、私人创作内容或 Skill 正文。
 
-![提示词工作区](../assets/screenshots/prompt-workspace-402.png)
+### 提示词编辑
 
-![内置 AI](../assets/screenshots/built-in-ai-402.png)
+正负提示词、权重折叠区和分类检索，侧栏使用新版白色页签。
 
-### 电脑远程连接与配对确认
+![4.0.2 提示词工作区](../assets/screenshots/prompt-workspace-402.png)
 
-![远程连接](../assets/screenshots/remote-connection-4.png)
+### 内置 AI 与结果分栏
 
-![配对确认窗口](../assets/screenshots/pairing-confirmation-4.png)
+左侧讲解设计，右侧显示可用提示词。下图为中性受控响应的交互演示，不代表上游模型质量测试。
 
-### Android 手机版
+![4.0.2 AI 设计说明与正负提示词](../assets/screenshots/built-in-ai-402.png)
 
-<img src="../assets/screenshots/phone-reconnect-4.png" width="360" alt="手机重新连接电脑与管理界面">
+### 连接生图
 
-### 连接生图与手机酒馆
+当前未连接引擎的真实初始界面，参数和生成历史按需展开。
 
-![Neo 内核选项与生图配置](../assets/screenshots/generation-402.png)
+![4.0.2 连接生图](../assets/screenshots/generation-overview-402.png)
 
-<img src="../assets/screenshots/android-tavern-402.png" width="360" alt="Android 酒馆输入与对话界面，中性受控演示">
+<details>
+<summary>查看新版高清参数与工作流管理</summary>
+
+高清阶段的参数、底模、模块和提示词。以下为演示配置，没有提交绘图任务；模型和采样列表以连接后的实际内核为准。
+
+![4.0.2 Neo 高清参数](../assets/screenshots/neo-hires-settings-402.png)
+
+统一的工作流管理入口，截图中尚未导入工作流。
+
+![4.0.2 工作流管理](../assets/screenshots/workflow-center-402.png)
+
+</details>
+
+### 手机连接与电脑审批
+
+远程默认关闭，用户在电脑上手动启用。
+
+![4.0.2 远程连接](../assets/screenshots/remote-connection-402.png)
+
+手机请求到达后，电脑弹出确认窗口。图中使用独立演示设备，没有展示连接码或领取凭据。
+
+![4.0.2 设备配对确认](../assets/screenshots/pairing-confirmation-402.png)
+
+### 手机版的两种管理界面
+
+提示词站模式包含电脑连接和手机直连 NAI；酒馆模式集中管理模型、备份与本地资料。
+
+<table><tr><td align="center"><img src="../assets/screenshots/phone-management-402.png" width="330" alt="4.0.2 提示词站模式的手机管理与配对入口"><br>提示词站模式</td><td align="center"><img src="../assets/screenshots/phone-tavern-management-402.png" width="330" alt="4.0.2 酒馆模式的手机管理与数据备份"><br>酒馆模式</td></tr></table>
+
+### 手机酒馆对话
+
+中性受控对话演示，展示输入区、草稿与发送操作。来自 Android 实际 WebView 验证。
+
+<img src="../assets/screenshots/android-tavern-402.png" width="360" alt="4.0.2 安卓酒馆的对话与输入区">
+
+<details>
+<summary>查看更多当前功能界面：模型、图库、图像处理与 Agent</summary>
+
+#### 模型中心
+
+首次使用时选择自己的引擎或模型目录；截图中尚未读取本地权重。
+
+![4.0.2 模型与资源目录入口](../assets/screenshots/model-center-402.png)
+
+#### 无边图像浏览
+
+目录、生成历史、筛选和结果浏览入口。图中隔离资料没有生成历史。
+
+![4.0.2 图库目录与筛选](../assets/screenshots/gallery-overview-402.png)
+
+#### 图像工作台
+
+导入图片后配置处理步骤，结果另存为副本；截图为未导入状态。
+
+![4.0.2 图像工作台](../assets/screenshots/image-studio-402.png)
+
+#### 提示词工具
+
+识别与中英翻译合为分页。
+
+![4.0.2 提示词工具](../assets/screenshots/prompt-tools-402.png)
+
+#### AI Bridge
+
+Agent、待确认请求与通信记录分别管理；图中没有创建演示 Token。
+
+![4.0.2 AI Bridge](../assets/screenshots/agent-bridge-402.png)
+
+</details>
 
 ## 历史界面
 
 <details>
-<summary>0.3 系列功能截图（点击展开，布局可能与当前版不同）</summary>
+<summary>4.0.1 及以前的连接界面（点击展开，非当前 UI）</summary>
+
+![旧版远程页](../assets/screenshots/remote-connection-4.png)
+
+![旧版配对确认](../assets/screenshots/pairing-confirmation-4.png)
+
+<img src="../assets/screenshots/phone-reconnect-4.png" width="330" alt="旧版手机连接管理">
+
+</details>
+
+<details>
+<summary>0.3 系列功能截图（点击展开，非当前 UI）</summary>
 
 
 [项目主页](../README.md) · [手册目录](README.md)

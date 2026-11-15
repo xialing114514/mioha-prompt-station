@@ -58,7 +58,7 @@ workflows/
 
 API 格式可直接载入。常规 UI 格式会读取已连接 ComfyUI 的节点定义，再转换为 API 图；缺少节点、旁路、PrimitiveNode、复杂组件插槽或无法确定的语义会明确提示导出 API 格式，不猜测转换。载入不会立即生成图片。
 
-![工作流文件选择](../assets/screenshots/workflow-picker.png)
+![4.0.2 工作流管理入口，未导入状态](../assets/screenshots/workflow-center-402.png)
 
 ## 进度与耗时
 
@@ -100,9 +100,9 @@ CFG=1 时 Neo 会跳过该阶段负面提示词。重绘幅度越高，重绘改
 
 高清正负提示词留空时继承主阶段；填写独立正向时，当前已选 LoRA 和触发词也会自动带入。完整参数会保存到生成记录，用于核查实际配置。源模型、LoRA 的内容与实际画面效果仍以其能力为准。
 
-![Neo 高清完整参数](../assets/screenshots/neo-hires-settings.png)
+![4.0.2 高清参数界面，演示配置未提交生成](../assets/screenshots/neo-hires-settings-402.png)
 
-以下是使用本机 Neo、现有 Anima 权重、LoRA 和 4x-UltraSharp 的中立风景实测。PNG 参数确认主图 384×384、高清倍率 1.25、高清 CFG 5.5、Shift 3、12 步及 LoRA 哈希；Neo 按其尺寸对齐规则实际输出 512×512。
+以下保留的是旧版本阶段使用本机 Neo、现有 Anima 权重、LoRA 和 4x-UltraSharp 的中立风景实测；用于说明参数与输出关系，界面布局以当前截图为准。PNG 参数确认主图 384×384、高清倍率 1.25、高清 CFG 5.5、Shift 3、12 步及 LoRA 哈希；Neo 按其尺寸对齐规则实际输出 512×512。
 
 ![本机 Neo 高清双阶段实测](../assets/screenshots/neo-hires-forest.png)
 

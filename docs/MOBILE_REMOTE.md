@@ -12,7 +12,7 @@
 
 手动 P2P 需要把手机生成的回执粘贴到电脑。接收回执只是建立数据通道；手机提交设备请求后，电脑直接弹出「允许这台手机连接？」。核对名称、指纹和权限再允许。稍后处理会保留入口，不会自动同意。
 
-![电脑确认设备](../assets/screenshots/pairing-confirmation-4.png)
+![电脑确认设备](../assets/screenshots/pairing-confirmation-402.png)
 
 ## 再次连接
 

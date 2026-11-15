@@ -28,7 +28,7 @@ Windows 与 Android 当前正式版本均为 **4.0.2**，内置模型 Skill 为 
 - **设备管理**：逐台授权与撤销，已撤销的历史记录可以删除；不会删除角色资料或绘图结果。
 - **延续原有创作能力**：内置 AI、模型专属 Skill、角色配方、本地风格库、NAI 在线法典、多 LoRA、WD14、图库、酒馆、分镜和外部 Agent 继续保留。
 
-![4.0 电脑远程连接页](assets/screenshots/remote-connection-4.png)
+![4.0.2 电脑远程连接页](assets/screenshots/remote-connection-402.png)
 
 ## 选择适合的使用方式
 
@@ -42,7 +42,7 @@ Windows 与 Android 当前正式版本均为 **4.0.2**，内置模型 Skill 为 
 
 ## 内置 AI：从想法到提示词
 
-![4.0 内置 AI 工作区](assets/screenshots/built-in-ai-402.png)
+![4.0.2 内置 AI 工作区](assets/screenshots/built-in-ai-402.png)
 
 内置 AI 接收中文描述，查询本地角色、标签与资源，再按当前绘图模型的 Skill 转换。左侧讲解设计与修改内容，右侧保留可复制、编辑或发送到生图的提示词；正向、负向与设计方案分别管理。
 
@@ -57,7 +57,7 @@ Windows 与 Android 当前正式版本均为 **4.0.2**，内置模型 Skill 为 
 
 ## 提示词、角色与绘图资料
 
-![4.0 提示词工作区](assets/screenshots/prompt-workspace-402.png)
+![4.0.2 提示词工作区](assets/screenshots/prompt-workspace-402.png)
 
 | 模块 | 功能 |
 | --- | --- |
@@ -74,7 +74,7 @@ Windows 与 Android 当前正式版本均为 **4.0.2**，内置模型 Skill 为 
 
 ## 模型、LoRA 与生图
 
-![4.0.2 连接生图与原生列表读取](assets/screenshots/generation-402.png)
+![4.0.2 连接生图工作区](assets/screenshots/generation-overview-402.png)
 
 绘图模型规范负责**怎么写提示词**，NeoForge／ComfyUI／NovelAI API 负责**实际执行绘图**，两者分开选择。
 
@@ -96,7 +96,7 @@ WD14 需要把 **`model.onnx` 和配套 `selected_tags.csv` 放在同一个模�
 4. 手机上修改提示词或选择资源会同步；用户明确点击生成后，任务才进入电脑队列。
 5. 同一局域网可使用「重新连接」恢复原授权；异地没有协调入口时，按提示更换新连接码。
 
-<img src="assets/screenshots/phone-reconnect-4.png" width="360" alt="Android 手机版电脑连接管理">
+<img src="assets/screenshots/phone-management-402.png" width="360" alt="4.0.2 手机版管理与电脑连接入口">
 
 **电脑就是业务服务器**。不传 Windows 桌面视频，不控制系统鼠标键盘。P2P 的 STUN 与可选协调服务只帮助建连，业务与图片走两端加密通道；不配置 TURN 中转。当前不内置公共协调入口，部分 NAT 或运营商网络可能无法穿透。
 
@@ -115,7 +115,7 @@ WD14 需要把 **`model.onnx` 和配套 `selected_tags.csv` 放在同一个模�
 - Windows 安装支持自定义路径和桌面快捷方式；用户资料在安装目录之外，覆盖升级保留数据。
 - Android APK 面向 arm64 设备，覆盖安装保留本地资料；手机授权与凭据由平台安全区保护。Windows 与 Android 的图像资源、个人配置各自管理。
 - 软件默认安全模式，按软件说明切换；远程操作受电脑当前内容模式和设备权限约束。
-- Release 提供 SHA256 校验清单、安装包、APK 和可选 v24 Skill 包。截图来自实际界面与隔离演示资料。
+- Release 提供 SHA256 校验清单、安装包、APK 和可选 v24 Skill 包。当前截图来自 4.0.2 实际界面与隔离演示资料；旧版本图片在截图页中折叠保留。
 
 [全部发行文件](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.2) · [更新记录](CHANGELOG.md) · [数据与隐私](docs/DATA_AND_PRIVACY.md) · [反馈](CONTRIBUTING.md)
 

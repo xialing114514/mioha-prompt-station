@@ -4,15 +4,20 @@
 
 用中文描述画面，让内置 AI 按绘图模型生成提示词；也可以手动选词、整理角色和画师串、管理模型与 LoRA，再连接绘图引擎生成图片。4.0 新增独立手机版：在手机编辑，在自己的电脑执行绘图，按需查看进度和结果。
 
-[下载 Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.1/Mioha-Prompt-Station-4.0.1-Setup.exe) · [下载 Android APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.0/Mioha-Android-4.0.0-arm64.apk) · [快速上手](docs/QUICK_START.md) · [手机连接指南](docs/MOBILE_REMOTE.md) · [全部截图](docs/SCREENSHOTS.md)
+[下载 Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.2/Mioha-Prompt-Station-4.0.2-Setup.exe) · [下载 Android APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.2/Mioha-Android-4.0.2-arm64.apk) · [快速上手](docs/QUICK_START.md) · [手机连接指南](docs/MOBILE_REMOTE.md) · [全部截图](docs/SCREENSHOTS.md)
 
-Windows 当前正式版本 **4.0.1**；Android 保持 **4.0.0**，版本号在设置中查看。本仓库发布安装包、APK、使用指南、公开模型 Skill、第三方资源声明和更新记录；程序源码不在此仓库中。
+Windows 与 Android 当前正式版本均为 **4.0.2**，内置模型 Skill 为 **v24**，版本号在设置中查看。本仓库发布安装包、APK、使用指南、公开模型 Skill、第三方资源声明和更新记录；程序源码不在此仓库中。
 
-## 4.0.1 启动修复
+## 当前更新 · 4.0.2
 
-修复 Windows 电脑名含中文或其他 Unicode 字符时，生成远程证书报 `DNSName` / `A-label` 而无法启动的问题。合法名称由程序自动转换，特殊名称保留 IP 与 localhost；不用改电脑名、配置或删除数据。原有电脑身份与手机授权保留。
+- **界面与动效**：保留原字体、字色和纸张配色，导航改为轻薄白色页签；页面、折叠、弹窗与反馈使用短过渡，兼容连续点击、键盘操作和减少动态效果。
+- **Neo 列表完整读取**：采样器与调度器从当前运行的 Neo API 获取，不再用固定兜底列表替代，也不会混入 ComfyUI 的选项；具体数量以实际内核为准。
+- **AI 交付分栏**：可用提示词写入正负提示词栏，对话解释设计内容与表达，保留输入焦点和下一条草稿。
+- **DS Skill v24**：原样同步最新八套独立模型规则，Windows、APK 与独立规则包一致；用户自建 Skill 保留。
+- **安卓酒馆会话删除**：确认后带当前版本号提交，删除后更新列表和会话记忆；取消保留，其他会话、角色与世界资料保留。
+- **继续保留启动修复**：中文电脑名、设备重连与授权、Neo 组件记忆、LoRA 和图库能力沿用已有修复。
 
-已经安装 4.0.0 的 Windows 用户请覆盖安装 4.0.1。手机没有此启动问题，本次无需重新安装 APK。
+[4.0.2 下载与说明](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.2) · [完整更新记录](CHANGELOG.md) · [v24 模型规则](skills/README.md)
 
 ## 4.0 带来了什么
 
@@ -37,7 +42,7 @@ Windows 当前正式版本 **4.0.1**；Android 保持 **4.0.0**，版本号在�
 
 ## 内置 AI：从想法到提示词
 
-![4.0 内置 AI 工作区](assets/screenshots/built-in-ai-4.png)
+![4.0 内置 AI 工作区](assets/screenshots/built-in-ai-402.png)
 
 内置 AI 接收中文描述，查询本地角色、标签与资源，再按当前绘图模型的 Skill 转换。左侧讲解设计与修改内容，右侧保留可复制、编辑或发送到生图的提示词；正向、负向与设计方案分别管理。
 
@@ -52,7 +57,7 @@ Windows 当前正式版本 **4.0.1**；Android 保持 **4.0.0**，版本号在�
 
 ## 提示词、角色与绘图资料
 
-![4.0 提示词工作区](assets/screenshots/prompt-workspace-4.png)
+![4.0 提示词工作区](assets/screenshots/prompt-workspace-402.png)
 
 | 模块 | 功能 |
 | --- | --- |
@@ -68,6 +73,8 @@ Windows 当前正式版本 **4.0.1**；Android 保持 **4.0.0**，版本号在�
 [角色与备份](docs/QUICK_START.md#角色配方保存与手动备份) · [NAI 法典](docs/NAI_CODEX.md)
 
 ## 模型、LoRA 与生图
+
+![4.0.2 连接生图与原生列表读取](assets/screenshots/generation-402.png)
 
 绘图模型规范负责**怎么写提示词**，NeoForge／ComfyUI／NovelAI API 负责**实际执行绘图**，两者分开选择。
 
@@ -108,9 +115,9 @@ WD14 需要把 **`model.onnx` 和配套 `selected_tags.csv` 放在同一个模�
 - Windows 安装支持自定义路径和桌面快捷方式；用户资料在安装目录之外，覆盖升级保留数据。
 - Android APK 面向 arm64 设备，覆盖安装保留本地资料；手机授权与凭据由平台安全区保护。Windows 与 Android 的图像资源、个人配置各自管理。
 - 软件默认安全模式，按软件说明切换；远程操作受电脑当前内容模式和设备权限约束。
-- Release 提供 SHA256 校验清单、安装包、APK 和可选 Skill 包。截图来自实际界面与隔离演示资料。
+- Release 提供 SHA256 校验清单、安装包、APK 和可选 v24 Skill 包。截图来自实际界面与隔离演示资料。
 
-[全部发行文件](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.1) · [更新记录](CHANGELOG.md) · [数据与隐私](docs/DATA_AND_PRIVACY.md) · [反馈](CONTRIBUTING.md)
+[全部发行文件](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.2) · [更新记录](CHANGELOG.md) · [数据与隐私](docs/DATA_AND_PRIVACY.md) · [反馈](CONTRIBUTING.md)
 
 ## 致谢与第三方资源
 

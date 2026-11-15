@@ -1,8 +1,8 @@
-# 模型 Skill 规范 · v15
+# 模型 Skill 规范 · v24
 
-八个模型或通道使用独立文件夹，软件切换模型时加载对应的默认规则。安装包已内置，也可下载独立的 mioha-model-skills-v15.zip。
+当前包修订：**2026-11-15-v24**。八套规则随 Windows 和 Android 4.0.2 内置，也可下载 [mioha-model-skills-v24.zip](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.2/mioha-model-skills-v24.zip)。独立规则包不是软件安装器，也不是绘图或反推模型。
 
-| 模型／通道 | 规则 |
+| 模型／通道 | 规则文件 |
 | --- | --- |
 | 光辉 Illustrious XL | [SKILL.md](illustrious/SKILL.md) |
 | NoobAI-XL | [SKILL.md](noob/SKILL.md) |
@@ -13,6 +13,6 @@
 | Krea 2 二次元 | [SKILL.md](krea-anime/SKILL.md) |
 | Krea 2 真人摄影 | [SKILL.md](krea-real/SKILL.md) |
 
-同一模型的二次元、真人通道分别选择，默认不会混用。自定义 Skill 继续在自己的模型目录管理。切换提示词规范不改变生图后端、已选权重或 LoRA。
+原始文件由维护者提供，本轮按原文件同步，未改写规则。源目录、Windows、手机版和独立包逐文件核对 SHA256，清单见 [manifest.json](manifest.json)。
 
-文件校验见 [manifest.json](manifest.json)。规则文本来自维护者提供的 v15 目录，保留原文件内容与哈希；模型权重与外部服务按各自说明配置。
+不同模型／通道各有独立目录，切换模型时使用对应规则；切换提示词规范不替代生图后端或实际权重。升级替换内置规则，自建模型和自定义 Skill 保留。

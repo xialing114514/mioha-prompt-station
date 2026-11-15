@@ -1,7 +1,7 @@
 {
   "pack": "mioha-model-skills",
-  "revision": "2026-11-13-v15",
-  "version": "13.0",
+  "revision": "2026-11-15-v24",
+  "version": "19.0",
   "structure": "directory/SKILL.md",
   "entries": [
     {
@@ -10,8 +10,8 @@
       "dir": "illustrious",
       "file": "illustrious/SKILL.md",
       "name": "光辉 Illustrious XL · 标签与画师串",
-      "version": "5.2",
-      "sha256": "74f57138d15bc346e8aaf2a5e998d25934bdb5b97c196d90e3605123223ef310"
+      "version": "5.3",
+      "sha256": "2c3c2d88bb1e5834e43fd901f82a22be127d6ae2d6210c02bed36dfed1498479"
     },
     {
       "family": "noob",
@@ -19,8 +19,8 @@
       "dir": "noob",
       "file": "noob/SKILL.md",
       "name": "NoobAI-XL · eps 与 v-pred 双版本",
-      "version": "1.1",
-      "sha256": "2d44d4381145284d3d40bcee55970e2887ca172ca6d8386ad9bfda8ec66ccac6"
+      "version": "1.2",
+      "sha256": "a0ad32c3be00b5a4cdec1a7039b098fd2afd4cef53e3ae45bedcdace4a77eb6c"
     },
     {
       "family": "nai",
@@ -28,8 +28,8 @@
       "dir": "nai",
       "file": "nai/SKILL.md",
       "name": "NovelAI V5 · 多角色与分镜",
-      "version": "5.1",
-      "sha256": "a5ba81d240dfa3c2e49e3f3f2dd6d628e33fcb5cb8233b35c1a210cbd7207773"
+      "version": "5.2",
+      "sha256": "70c27744b9efa365ec1aabd94e52db1a3cf0ee4c9383c8c1d27fbd7ee2050656"
     },
     {
       "family": "anima",
@@ -37,8 +37,8 @@
       "dir": "anima",
       "file": "anima/SKILL.md",
       "name": "Anima Base · Hybrid 混合写法",
-      "version": "5.2",
-      "sha256": "57efb983d687a191fed9fc21f4a7548157c452c75cc6b3e2e0f7fca0878bf179"
+      "version": "5.4",
+      "sha256": "2d56b484773c2c9da85ed6d54acab4f71797c66ddc892d479b97b64090712067"
     },
     {
       "family": "moss",
@@ -46,8 +46,8 @@
       "dir": "moss-anime",
       "file": "moss-anime/SKILL.md",
       "name": "MOSS-Image · 二次元通道",
-      "version": "5.1",
-      "sha256": "99667d7bc6cf0b5853cc43f9b600153c256b06c4277f359cd4b3960e76f98dc0"
+      "version": "5.2",
+      "sha256": "94a75dd9d606b4be5c7d6ffebbdf9deea24e1477c13791435e51792454914085"
     },
     {
       "family": "moss",
@@ -55,8 +55,8 @@
       "dir": "moss-real",
       "file": "moss-real/SKILL.md",
       "name": "MOSS-Image · 真人摄影通道",
-      "version": "5.1",
-      "sha256": "949812c49d8df310bda7841f98b05c6be03484fc651be6585ae93c68cbcc0eba"
+      "version": "5.2",
+      "sha256": "b449c792eaf4e1ff7a10ad04efd9323bd94614a173d7e77af6b9055b4a03075a"
     },
     {
       "family": "krea",
@@ -64,8 +64,8 @@
       "dir": "krea-anime",
       "file": "krea-anime/SKILL.md",
       "name": "Krea 2 · 二次元（风格 LoRA 主导）",
-      "version": "1.0",
-      "sha256": "072dbde1fe5c648e6bfca76a37c80203a4e25e98ff5f919a72bf8459bc75e562"
+      "version": "1.1",
+      "sha256": "09ac20f7a3cefbdaa861b537788fa679befedf4dc6c95142bb960ee0c6aae2e2"
     },
     {
       "family": "krea",
@@ -73,11 +73,19 @@
       "dir": "krea-real",
       "file": "krea-real/SKILL.md",
       "name": "Krea 2 · 真人摄影",
-      "version": "1.0",
-      "sha256": "3fded55f7e2d4be49072cdd29ff7c7ff3235eed3349b8bf9ce6e46a2937e4686"
+      "version": "1.1",
+      "sha256": "2274db394e07755fb6d8724495b12080c9595fff26ee31f34a553b4c7413051e"
     }
   ],
   "changes": [
+    "v24：八份统一加「内容尺度」——幼女/萝莉、猎奇/血腥/暴力、露骨性、NTR/调教/凌辱/兽交/触手/奸尸全部放行；原露骨度单行合并进该节。",
+    "v23：补回 anima 的露骨度规则（v19 重写时漏）；moss 两份补光影上限。GPT 加的分栏交付段未改动。",
+    "v21：Anima 采纳常用模板里可用的部分——分级标签、负向 score_1-3 / artist name / shiny skin；拒绝 very aesthetic / ultra detailed 堆叠与 score_7+score_9 同写。",
+    "v20：补 diealone0327 的标签库铁律与特殊主题旁路；全族加光影上限（1–2 主光 + 1 氛围光）；Krea 加去糖水三原则。",
+    "v19：Anima 并入三源（Mishir0 模板 / shuaixn / 星穹枢庭）——两条工作流分流、十槽顺序、数量控制 16–48、互斥表、身体部位堆叠上限、风格一致性。",
+    "v18：MOSS 两份改为自有表述，去掉外部署名与使用限制；规则按自己的写手体重写。",
+    "v17：MOSS 两份并入 Moeblack 的顺序铁律（光影先于人物、主角色第一段）与年龄骨相三档（幼女/少女/成年），补官方示例的标签顺序、中文长描述与 SLG 取值。",
+    "v16：借 prompt-workbench 的负面自适应思路——负面补 censored/mosaic censoring/bar censor/artist name，并写入「按画面删词」规则；illustrious/noob 加角色三锚点与风格词清单。",
     "v15：六份负面加入 extra toes / fused toes / missing toes；Krea 两份无负面通道，改为正向锚定 five fingers on each hand, five toes on each foot。",
     "v14：修正 Anima 画师规则——不吃画师串，删掉 @画师与 (@名字:权重)，改用风格描述词或 LoRA；示例同步更新。",
     "v13：八份改为可整段粘贴的写手指令（31–66 行）；Anima 补回质量词三分支（Base 写 score_7 / Aesthetic 删 score_* / Turbo 不写）；NAI 补回不写质量词与 Text: 规则；占位符规则写进每份。",

@@ -2,15 +2,15 @@
 
 [项目主页](../README.md) · [手机连接指南](MOBILE_REMOTE.md)
 
-## 4.0 当前界面
+## 4.0.2 当前界面
 
 截图来自实际程序，使用隔离演示资料；未展示个人凭据、可用配对码或私人创作内容。
 
 ### Windows 提示词与 AI
 
-![提示词工作区](../assets/screenshots/prompt-workspace-4.png)
+![提示词工作区](../assets/screenshots/prompt-workspace-402.png)
 
-![内置 AI](../assets/screenshots/built-in-ai-4.png)
+![内置 AI](../assets/screenshots/built-in-ai-402.png)
 
 ### 电脑远程连接与配对确认
 
@@ -21,6 +21,12 @@
 ### Android 手机版
 
 <img src="../assets/screenshots/phone-reconnect-4.png" width="360" alt="手机重新连接电脑与管理界面">
+
+### 连接生图与手机酒馆
+
+![Neo 内核选项与生图配置](../assets/screenshots/generation-402.png)
+
+<img src="../assets/screenshots/android-tavern-402.png" width="360" alt="Android 酒馆输入与对话界面，中性受控演示">
 
 ## 历史界面
 

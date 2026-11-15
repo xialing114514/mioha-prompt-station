@@ -4,7 +4,7 @@
 
 ## 下载与安装
 
-从 [最新 Release](https://github.com/xialing114514/mioha-prompt-station/releases/latest) 下载 `Mioha-Prompt-Station-版本号-Setup.exe`。`mioha-model-skills-v15.zip` 是独立规则包，不是软件安装器，也不是 WD14 权重。
+从 [最新 Release](https://github.com/xialing114514/mioha-prompt-station/releases/latest) 下载 `Mioha-Prompt-Station-版本号-Setup.exe`。`mioha-model-skills-v24.zip` 是独立规则包，不是软件安装器，也不是 WD14 权重。
 
 运行安装器，选择安装目录，按需创建桌面快捷方式。需要 Windows 10/11 x64 与 Microsoft Edge WebView2 Runtime。程序自带必要运行组件，普通用户不用安装 Python、Node.js，也不用打开命令行。
 
@@ -12,11 +12,11 @@
 
 ## Android 与手机连接
 
-4.0 提供独立 Android arm64 APK，下载 `Mioha-Android-4.0.0-arm64.apk`。覆盖安装保留本地资料；模型接口和凭据保存在自己的设备中。手机可以独立编辑和使用 AI，也可以配对电脑执行绘图。配对、回执、确认与重连见 [手机连接指南](MOBILE_REMOTE.md)。
+4.0 提供独立 Android arm64 APK，下载 `Mioha-Android-4.0.2-arm64.apk`。覆盖安装保留本地资料；模型接口和凭据保存在自己的设备中。手机可以独立编辑和使用 AI，也可以配对电脑执行绘图。配对、回执、确认与重连见 [手机连接指南](MOBILE_REMOTE.md)。
 
 ## 4.0.0 电脑端启动报 DNSName / A-label
 
-这是 4.0.0 对中文 Windows 电脑名处理的缺陷，已在 4.0.1 修复。请覆盖安装新版，不需要改电脑名，也不要删除个人资料、设备身份或证书文件。手机版 4.0.0 继续兼容。
+这是 4.0.0 对中文 Windows 电脑名处理的缺陷，已在 4.0.1 修复。请覆盖安装新版，不需要改电脑名，也不要删除个人资料、设备身份或证书文件。当前 Windows 与 Android 4.0.2 均保留该修复。
 
 ## 第一次进入
 

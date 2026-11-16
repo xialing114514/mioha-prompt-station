@@ -10,7 +10,7 @@ body:
     attributes:
       label: 软件版本
       description: 可在设置中查看
-      placeholder: 例如 0.2.2
+      placeholder: "例如 Windows 4.0.5 / Android 4.0.2"
     validations:
       required: true
   - type: dropdown
@@ -27,6 +27,9 @@ body:
         - NovelAI
         - WD14 或图片参数
         - Skill
+        - 图库与图片删除
+        - 创作实验室或酒馆
+        - 手机连接与远程
         - AI Bridge
         - 内容模式
         - 其他
@@ -51,7 +54,7 @@ body:
     id: environment
     attributes:
       label: 环境与补充材料
-      description: Windows、引擎、底模／LoRA、工作流类型、脱敏截图或必要的错误文本
+      description: Windows／Android 版本、引擎、底模／LoRA、工作流类型、脱敏截图或必要的错误文本
   - type: checkboxes
     id: privacy
     attributes:

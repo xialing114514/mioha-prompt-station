@@ -1,5 +1,56 @@
 # 界面截图
 
+[项目主页](../README.md) · [使用手册](README.md) · [手机指南](MOBILE_REMOTE.md)
+
+## PC 当前界面 · 4.0.5
+
+更新于 2026-11-16。截图使用实际 4.0.5 前端和独立演示资料；AI 为中性受控响应，图片删除示例使用测试文件。未展示个人凭据、有效配对码、私人创作或规则正文。
+
+### AI 讲解与提示词分栏
+
+![AI 选词](../assets/screenshots/built-in-ai-405.png)
+
+### 提示词编辑与权重
+
+![提示词编辑](../assets/screenshots/prompt-workspace-405.png)
+
+### 连接生图
+
+当前示例尚未连接绘图引擎，没有提交绘图任务。
+
+![连接生图](../assets/screenshots/generation-405.png)
+
+### 模型中心与 LoRA
+
+首次使用、尚未读取本地权重的界面。模型筛选与更多操作集中在工具栏。
+
+![模型中心](../assets/screenshots/model-center-405.png)
+
+![LoRA 资源](../assets/screenshots/lora-resources-405.png)
+
+### 创作实验室
+
+![提示词组合](../assets/screenshots/creative-lab-405.png)
+
+### 永久删除
+
+首次说明并记住确认，具体范围见 [图库指南](GALLERY.md)。
+
+![首次永久删除确认](../assets/screenshots/permanent-delete-405.png)
+
+## Android 当前界面 · 4.0.2
+
+本轮 PC 更新不改变 Android 版本。提示词站模式与酒馆模式各有管理页面，配对说明见 [手机连接](MOBILE_REMOTE.md)。
+
+<table><tr><td align="center"><img src="../assets/screenshots/phone-management-402.png" width="330" alt="Android 4.0.2 提示词站管理"><br>提示词站模式</td><td align="center"><img src="../assets/screenshots/phone-tavern-management-402.png" width="330" alt="Android 4.0.2 酒馆管理"><br>酒馆模式</td></tr></table>
+
+## 历史界面
+
+<details>
+<summary>4.0.4 及更早版本截图（点击展开，仅作版本记录）</summary>
+
+# 界面截图
+
 [项目主页](../README.md) · [手机连接指南](MOBILE_REMOTE.md) · [使用手册](README.md)
 
 ## PC 当前更新 · 4.0.4
@@ -261,5 +312,7 @@ Neo 实时预览没有可用首帧时显示等待占位；测试使用中立风�
 取消历史列表和独立新建入口，清空即删除当前内容并重新开始。普通聊天不要求返回绘图提示词。
 
 0.3.9 的 AI 与角色配方截图来自隔离的中性功能测试。模型清单和配方示例用于展示交互，实际模型数量随上游清单变化；未发送真实模型推理请求。
+
+</details>
 
 </details>

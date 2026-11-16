@@ -1,140 +1,133 @@
 # 梧桐提示词站
 
-**Windows 创作工作台 · Android 手机版 · 提示词与绘图协作**
+**把想画的画面，整理成可以直接使用、保存和反复调整的提示词。**
 
-用中文描述画面，让内置 AI 按绘图模型生成提示词；也可以手动选词、整理角色和画师串、管理模型与 LoRA，再连接绘图引擎生成图片。4.0 新增独立手机版：在手机编辑，在自己的电脑执行绘图，按需查看进度和结果。
+找词、拼画师串、试 LoRA、切换模型，再把参数抄到生图界面——这些重复操作可以放在同一个工作台里完成。梧桐提示词站以 Windows 本地使用为主，支持手动选词与 AI 辅助，也能用独立 Android 界面连接自己的电脑。
 
-[下载 Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.4/Mioha-Prompt-Station-4.0.4-Setup.exe) · [下载 Android APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.2/Mioha-Android-4.0.2-arm64.apk) · [快速上手](docs/QUICK_START.md) · [手机连接指南](docs/MOBILE_REMOTE.md) · [全部截图](docs/SCREENSHOTS.md)
+[Windows 4.0.5 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.5/Mioha-Prompt-Station-4.0.5-Setup.exe) · [Android 4.0.2 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.5/Mioha-Android-4.0.2-arm64.apk) · [快速上手](docs/QUICK_START.md) · [完整使用手册](docs/README.md) · [界面截图](docs/SCREENSHOTS.md)
 
-Windows 当前正式版本为 **4.0.4**；Android 为 **4.0.2**，内置模型 Skill 为 **v24**，版本号在设置中查看。本仓库发布安装包、APK、使用指南、公开模型 Skill、第三方资源声明和更新记录；程序源码不在此仓库中。
+![AI 讲解设计，右侧保留可用提示词](assets/screenshots/built-in-ai-405.png)
 
-## 当前更新 · 4.0.4
+*界面使用独立演示资料，AI 分栏为受控交互展示。[查看截图说明](docs/SCREENSHOTS.md)*
 
-- **生图按操作顺序整理**：模型、提示词和生成操作优先；参数、LoRA 与增强插件按需展开。
-- **插件更易操作**：读取当前 Neo 的参数和选项，一个开关启用；ADetailer 按单元展示检测模型与提示词，检测、蒙版和重绘分类收起。复杂控件可进入 Neo 原生工作区，扩展安装沿用原生管理。
-- **图库选择与删除**：多张导入、单选、多选、全选已加载图片、删除确认及撤销；支持 Shift 连选和键盘操作。参考素材批量删除保留原图。
-- **累计修复**：LoRA 双权重、有效工作流连线、加载错误反馈，以及 Windows 本地“画师与风格”列表导出。
-- **保留既有配置**：原字体、纸张配色、DS Skill v24、个人资料和手机授权保留。Android 本次保持 4.0.2。
+## 它能帮你做什么
 
-[4.0.4 下载与说明](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.4) · [完整更新记录](CHANGELOG.md) · [v24 模型规则](skills/README.md)
-
-![4.0.4 连接生图与折叠布局](assets/screenshots/generation-404.png)
-
-## 4.0 带来了什么
-
-- **独立手机界面**：提示词、AI 选词、绘图、图库和管理按触摸操作组织；可切换提示词工作台与创作酒馆。
-- **手机控制自己的电脑**：读取电脑实际模型、组件、LoRA、工作流与参数，修改配置后同步，点击生成才提交任务。
-- **局域网与 P2P**：电脑手动启用，首次配对弹窗确认；已授权手机在局域网可重新连接。异地可交换 P2P 连接码，或配置仅帮助建连的协调入口。
-- **连接有明确反馈**：收到回执后收起长连接信息；允许、拒绝和稍后处理就在确认窗口。旧手动连接需要新码时会直接引导，不再无反应。
-- **设备管理**：逐台授权与撤销，已撤销的历史记录可以删除；不会删除角色资料或绘图结果。
-- **延续原有创作能力**：内置 AI、模型专属 Skill、角色配方、本地风格库、NAI 在线法典、多 LoRA、WD14、图库、酒馆、分镜和外部 Agent 继续保留。
-
-![4.0.2 电脑远程连接页](assets/screenshots/remote-connection-402.png)
-
-## 选择适合的使用方式
-
-| 使用方式 | 可以做什么 | 需要什么 |
-| --- | --- | --- |
-| Windows 本地工作台 | 选词、内置 AI、资料与模型管理、连接生图、图像与创作工具 | Windows 10/11 x64、WebView2；按需连接绘图服务 |
-| Android 独立使用 | 手机上编辑提示词、调用 AI、管理自己的资料与创作酒馆；可配置手机直连 NAI | Android 7.0+ arm64，联网功能需网络与自己的服务配置 |
-| 手机连接电脑 | 使用电脑资源、配置与任务，读取进度和图片 | 电脑程序和绘图引擎运行，先在电脑手动启用并授权手机 |
-
-手机版不是 Windows 桌面镜像。电脑文件管理、引擎安装和部分高级生图字段仍由电脑完成，手机按接口声明的能力操作。
-
-## 内置 AI：从想法到提示词
-
-![4.0.2 内置 AI 工作区](assets/screenshots/built-in-ai-402.png)
-
-内置 AI 接收中文描述，查询本地角色、标签与资源，再按当前绘图模型的 Skill 转换。左侧讲解设计与修改内容，右侧保留可复制、编辑或发送到生图的提示词；正向、负向与设计方案分别管理。
-
-- 默认免费通道为 **NVIDIA: Nemotron 3 Ultra (free)**；也可使用自己的接口与模型。一键获取可用模型、测试当前表单，并按模型能力选择思考强度。
-- 支持多轮补充、可选联网查证、真实本地角色配方检索和模型规则切换。
-- 清空对话会删除当前消息并立即开始新对话，不保留 AI 工作区历史列表。
-- Anima、光辉 Illustrious、NoobAI、NovelAI、MOSS 二次元／真人、Krea 2 二次元／真人分别关联规则；自定义绘图模型拥有自己的 Skill 空间。
-
-内置 AI 调用在线服务或用户配置的模型，安装包不包含本地大语言模型权重。免费通道的速度、额度及可用性以提供方为准；程序不会用发布者或其他用户的 Key 代替你的配置。
-
-[内置 AI 使用指南](docs/BUILT_IN_AI.md) · [模型 Skill](skills/README.md)
-
-## 提示词、角色与绘图资料
-
-![4.0.2 提示词工作区](assets/screenshots/prompt-workspace-402.png)
-
-| 模块 | 功能 |
+| 你想做的事 | 在这里完成 |
 | --- | --- |
-| 提示词编辑器 | 中英检索、正负词框、直接编辑、拖动顺序、逐词权重；自然语言和特殊语法保持完整 |
-| 角色配方 | 中文名称优先、创建与编辑、分类管理；本地按磁盘空间保存，手动上传和下载服务器备份 |
-| 画师与风格 | 按模型保存画师串、权重、介绍、来源和预览；可使用原站链接或自己的封面 |
-| NAI 在线法典 | 接入原站词典，单画师／画风组筛选、搜索、分页、原站顺序与按需预览；可保存到本地风格库 |
-| 绘图资料中心 | 角色、画师、标签、素材、模型知识与来源管理；本地索引和在线来源各自清晰 |
-| 提示词工具 | 识别与中英翻译合为分页；自定义标签在选词中统一管理 |
+| 有画面想法，不知道怎么写词 | 用中文描述，AI 按目标绘图模型整理；左侧讲解设计，右侧给出提示词 |
+| 自己挑词、改权重、调顺序 | 正负词框直接编辑，按中英文检索，逐词调整与保存组合 |
+| 保存角色外貌和常用画风 | 本地角色配方、画师与风格库；NAI 法典条目可原样保存到本地 |
+| 管理模型和 LoRA，再试着出图 | 按 NeoForge／ComfyUI 区分资源，管理预览与触发词，连接引擎提交任务 |
+| 比较不同搭配、整理创作结果 | 提示词卡片、批量与画风实验、分镜、图库、图像处理和酒馆 |
+| 离开电脑后继续操作 | Android 独立编辑，或经授权连接自己的电脑，查看进度与结果 |
 
-角色配方以本地保存为准，不自动上传。服务器备份总容量为 **1 GB**，不是每人各 1 GB；网络或空间不足不会删除本地资料。
+## 下载与安装
 
-[角色与备份](docs/QUICK_START.md#角色配方保存与手动备份) · [NAI 法典](docs/NAI_CODEX.md)
+| 平台 | 当前版本 | 下载 |
+| --- | --- | --- |
+| Windows 10/11 · x64 | **4.0.5** | [Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.5/Mioha-Prompt-Station-4.0.5-Setup.exe) |
+| Android 7.0+ · arm64 | **4.0.2** | [Android APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.5/Mioha-Android-4.0.2-arm64.apk) |
+| 模型 Skill · 可选单独下载 | **v24** | [规则包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.5/mioha-model-skills-v24.zip) |
 
-## 模型、LoRA 与生图
+Windows 安装包包含程序运行组件，日常使用无需安装 Python 或 Node.js；电脑需要 WebView2 Runtime。规则已随软件附带，规则 ZIP 不是安装器。Android 本轮沿用 4.0.2，文件与原正式版一致。
 
-![4.0.2 连接生图工作区](assets/screenshots/generation-overview-402.png)
+已有版本可以退出程序后覆盖安装，个人资料和手机授权保留。安装包未使用发布者数字签名，下载来源和 SHA256 校验见 [4.0.5 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.5)。
 
-绘图模型规范负责**怎么写提示词**，NeoForge／ComfyUI／NovelAI API 负责**实际执行绘图**，两者分开选择。
+本仓库提供安装包、APK、公开模型规则和说明文档；程序源码暂未公开。
 
-- **NeoForge / SD-WebUI**：底模与组件记忆、多 LoRA、触发词联动、实时进度和预览，以及独立高清阶段参数。
-- **ComfyUI**：读取自己的权重与 LoRA，选择文件夹中的工作流，管理用途、参数映射与依赖检查；保留工作流原有加载链。
-- **NovelAI**：使用自己的 Token；独立加载本地画师串，提交时组合，不改写提示词编辑框。
-- **资源中心**：Neo 与 ComfyUI 分开读取并标注归属；支持信息获取、预览、触发词、分类、更新、批量与重复项管理。联网遵循配置的出口。
-- **图库与反推**：结果支持复制、保存、自适应预览、滚轮缩放、拖动、参数查看与发送。优先读图片元数据；无元数据时可使用自己提供的 WD14 模型。
+## 从第一条提示词开始
 
-WD14 需要把 **`model.onnx` 和配套 `selected_tags.csv` 放在同一个模型子文件夹**，然后扫描启用。只放权重无法完成标签映射；本程序不提供反推模型，无需启动 NeoForge。
+1. **选一种写法。** 在「AI 选词」选择要使用的绘图模型规范，例如 Anima、MOSS、光辉或 NAI；也可直接在「提示词选词」手动编辑。
+2. **描述画面。** 例如：“雨后的安静书店，窗边暖灯、木地板和绿植，没有人物和画面文字。”可用免费通道，也可填写自己的 AI 接口。
+3. **检查并调整。** 聊天区说明设计了什么，右侧是可复制、编辑、追加或替换到选词页的提示词。
+4. **需要出图时再连接引擎。** 进入「连接生图」，配置运行中的 NeoForge／ComfyUI，或使用自己的 NovelAI 凭据；检查模型、LoRA 和参数后点击生成。
 
-[模型与生图指南](docs/MODELS_AND_GENERATION.md) · [WD14 安装与排错](docs/WD14.md)
+内置 AI 的推理由所选在线服务或自己的模型承担；安装包不附带大语言模型与绘图权重。尚未连接绘图引擎时，也可以整理提示词、角色和画风资料。
 
-## 手机如何连接电脑
+[逐步安装与上手](docs/QUICK_START.md) · [配置 AI 接口](docs/BUILT_IN_AI.md) · [连接绘图引擎](docs/MODELS_AND_GENERATION.md)
 
-1. 电脑进入「连接与设置 → 远程连接」，手动启用；首次阅读说明并确认。每次重启仍保持关闭。
-2. 手机在管理页扫描或粘贴电脑连接码。手动 P2P 模式将手机回执交回电脑。
-3. 电脑弹出设备确认窗口，核对设备名称与权限，选择「允许配对」。
-4. 手机上修改提示词或选择资源会同步；用户明确点击生成后，任务才进入电脑队列。
-5. 同一局域网可使用「重新连接」恢复原授权；异地没有协调入口时，按提示更换新连接码。
+## 主要工作区
 
-<img src="assets/screenshots/phone-management-402.png" width="360" alt="4.0.2 手机版管理与电脑连接入口">
+### 提示词、角色与画师串
 
-**电脑就是业务服务器**。不传 Windows 桌面视频，不控制系统鼠标键盘。P2P 的 STUN 与可选协调服务只帮助建连，业务与图片走两端加密通道；不配置 TURN 中转。当前不内置公共协调入口，部分 NAT 或运营商网络可能无法穿透。
+正负提示词分开编辑，权重区同时显示词条与中文释义，长文本按内容排版。角色配方用于保存外貌设定；常用画师串、介绍、来源与封面保存在「画师与风格」。
 
-[完整连接与重连指南](docs/MOBILE_REMOTE.md)
+NAI 在线法典直接接入原站，按单画师／画风组筛选，保留原站顺序，词条与预览按需读取。点击「保存到本地」会保留原始画师串、权重、介绍和来源快照；封面可继续引用原站，也可换成自己的图片。NovelAI 生图另有画师串加载区，提交时组合，编辑框内容保持独立。
 
-## 更多创作与自动化
+[角色与配方](docs/QUICK_START.md#角色配方保存与手动备份) · [NAI 法典与本地风格](docs/NAI_CODEX.md)
 
-创作酒馆管理角色卡、世界书与创作会话；创作实验室支持提示词片段、变量组合、批量比较与风格候选。分镜保留项目、场景、画面和候选结果，图像工作台提供裁剪、转换、蒙版与兼容工作流编辑。
+### 模型、LoRA 与实际生图
 
-外部 AI Agent 可通过独立 Token、MCP／REST／SSE 查询资源、提交设计和调用授权业务。外部 AI 负责创意方案，内置 AI 按模型 Skill 转换表达；任务与权限通过现有业务流程管理。
+模型中心与资源页按引擎管理，搜索、分类、绘图模型筛选放在前面，下载、批量、更新与设置集中到「更多操作」。Neo 底模各自记忆文本编码器和 VAE；完整底模可使用自带组件。ComfyUI 沿用自己的工作流，NovelAI 使用自己的 Token。
 
-[创作工作台](docs/CREATIVE_WORKSPACE.md) · [Agent 接入](docs/AGENT.md)
+![连接生图：模型、提示词与生成操作优先](assets/screenshots/generation-405.png)
 
-## 下载、数据与支持
+参数、LoRA、高清与增强插件按需展开，任务执行时查看实际进度与预览。绘图模型规范决定如何写词，实际引擎与权重决定如何出图，分别设置。
 
-- Windows 安装支持自定义路径和桌面快捷方式；用户资料在安装目录之外，覆盖升级保留数据。
-- Android APK 面向 arm64 设备，覆盖安装保留本地资料；手机授权与凭据由平台安全区保护。Windows 与 Android 的图像资源、个人配置各自管理。
-- 软件默认安全模式，按软件说明切换；远程操作受电脑当前内容模式和设备权限约束。
-- Release 提供 SHA256 校验清单、安装包、APK 和可选 v24 Skill 包。当前截图来自 4.0.2 实际界面与隔离演示资料；旧版本图片在截图页中折叠保留。
+<details>
+<summary>查看模型中心与 LoRA 新界面</summary>
 
-[全部发行文件](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.4) · [更新记录](CHANGELOG.md) · [数据与隐私](docs/DATA_AND_PRIVACY.md) · [反馈](CONTRIBUTING.md)
+以下是首次使用、尚未读取权重的实际界面。
 
-## 致谢与第三方资源
+![4.0.5 模型中心](assets/screenshots/model-center-405.png)
 
-感谢柒月FIGO 的设计启发，感谢 **znso4-pa、四路至强超上天、百濑美月** 的 AI 技术支持，以及各开源项目作者与资料维护者。公开资料及图像保留来源，权利归相应作者与权利人。
+![4.0.5 LoRA 资源](assets/screenshots/lora-resources-405.png)
 
-[完整致谢](CREDITS.md) · [资源来源与使用声明](THIRD_PARTY_RESOURCES.md) · [支持开发](SUPPORT.md)
+</details>
 
-感谢每一份支持 ♡ 赞助完全自愿，不影响软件功能及使用权限。
+[模型、LoRA、插件与工作流](docs/MODELS_AND_GENERATION.md) · [WD14 反推安装](docs/WD14.md)
+
+### 从单张画面到一组创作
+
+在创作实验室把常用片段存成卡片，组合后查看最终正负提示词，再做批量或画风比较；分镜项目保存场景和候选图。图像工作台处理导入副本，创作酒馆管理角色卡、世界书与独立会话。图库集中浏览本机结果、查看参数和筛选。
+
+[创作实验室与酒馆](docs/CREATIVE_WORKSPACE.md) · [图库与图片删除](docs/GALLERY.md) · [外部 Agent 接入](docs/AGENT.md)
+
+## 用手机连接自己的电脑
+
+手机有独立触摸界面，可以本地编辑，也可以读取电脑上的模型、LoRA、工作流与任务。电脑进入「连接与设置 → 远程连接」手动启用，手机扫描或粘贴连接码，再在电脑弹窗中确认设备与权限。修改配置会同步，点击生成才提交任务。
+
+电脑承担业务服务，每次启动默认关闭远程。支持局域网与 WebRTC P2P；异地手动模式交换连接码，STUN 与可选协调入口帮助建连，不使用 TURN 中转。部分网络可能无法穿透，电脑和绘图引擎需保持运行。
+
+[手机安装、配对、重连与设备管理](docs/MOBILE_REMOTE.md)
+
+## 4.0.5 这次改了什么
+
+- **自定义 AI 请求兼容：** 连接测试与实际生成使用同一通道和当前思考设置；遇到明确的格式拒绝时自动协商流式／JSON，不用为常见兼容接口逐家填写请求头。服务端鉴权、额度和规则仍由提供方决定。
+- **图库永久删除：** 首次说明删除范围并记住确认，后续不再反复询问；删除图片文件，不保留到可撤销区。选定本机目录时，会删除该目录里的原文件。
+- **补齐页面 UI：** 模型中心、LoRA、创作实验室等统一页签、筛选和操作分组，保留原字体、字色与纸张配色。
+
+**升级不会自动清理旧版已删除图片。** 若要释放旧删除区的空间，使用图库中的专门清理入口。删除前请先查看 [图库说明](docs/GALLERY.md)。
+
+[完整更新记录](CHANGELOG.md) · [4.0.5 下载与校验](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.5)
+
+## 使用中需要查什么
+
+| 遇到的问题 | 看这里 |
+| --- | --- |
+| 安装、升级、第一次写词 | [快速上手](docs/QUICK_START.md) |
+| 免费模型、自定义 API、思考强度、HTTP 错误 | [内置 AI](docs/BUILT_IN_AI.md) |
+| 模型目录、VAE、LoRA、高清、插件、工作流 | [模型与生图](docs/MODELS_AND_GENERATION.md) |
+| 图片来源、多选、永久删除与旧删除区 | [图库](docs/GALLERY.md) |
+| 更多模块、备份、手机与常见问题 | [完整手册目录](docs/README.md) |
+
+个人资料保存在本机，覆盖升级保留数据。角色配方上传／下载备份由用户手动操作；在线 AI、资料来源与生图服务按所选功能联网。详见 [数据与隐私](docs/DATA_AND_PRIVACY.md)。
 
 <details>
 <summary>历史版本与旧界面（点击展开）</summary>
 
-0.3 系列包含组件记忆、v15 Skill、NAI 法典、本地风格库、LoRA 与预览修复等更新。当前下载与上手说明以 4.0 为准。
+- [4.0.4：生图操作与图库管理](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.4)
+- [4.0.2：Windows／Android 与 Skill v24](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.2)
+- [全部历史更新](CHANGELOG.md#历史版本) · [历史界面](docs/SCREENSHOTS.md#历史界面)
 
-[完整历史记录](CHANGELOG.md) · [历史截图](docs/SCREENSHOTS.md#历史界面)
+当前操作以本页和使用手册为准；旧版删除、工作模式和界面说明仅作版本记录。
 
 </details>
 
-第三方运行组件的原始许可证随发行包提供。Windows 的 PyAV 依赖使用 FFmpeg 动态库，相关源码、构建资料与许可证见 [同版本第三方源码包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.0/Mioha-4.0.0-FFmpeg-ThirdParty-Sources.zip)。
+## 致谢与支持
+
+感谢柒月FIGO 的设计启发，以及 **znso4-pa、四路至强超上天、百濑美月** 的 AI 技术支持，也感谢开源项目作者和资料维护者。
+
+[完整致谢](CREDITS.md) · [第三方来源与许可](THIRD_PARTY_RESOURCES.md) · [支持开发](SUPPORT.md) · [反馈与参与](CONTRIBUTING.md)
+
+赞助完全自愿，不影响软件功能与使用权限。第三方资源保留各自来源与权利；运行组件许可证随发行包提供，[FFmpeg 第三方源码与构建资料](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.5/Mioha-4.0.0-FFmpeg-ThirdParty-Sources.zip)与当前附件一同发布。

@@ -1,6 +1,6 @@
 # 模型 Skill 规范 · v24
 
-当前包修订：**2026-11-15-v24**。八套规则随 Windows 和 Android 4.0.2 内置，也可下载 [mioha-model-skills-v24.zip](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.2/mioha-model-skills-v24.zip)。独立规则包不是软件安装器，也不是绘图或反推模型。
+当前包修订：**2026-11-15-v24**。八套规则随 Windows 4.0.4 和 Android 4.0.2 内置，也可下载 [mioha-model-skills-v24.zip](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.2/mioha-model-skills-v24.zip)。独立规则包不是软件安装器，也不是绘图或反推模型。
 
 | 模型／通道 | 规则文件 |
 | --- | --- |

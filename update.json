@@ -1,15 +1,15 @@
 {
-  "version": "4.0.2",
-  "displayVersion": "4.0.2",
+  "version": "4.0.4",
+  "displayVersion": "4.0.4",
   "repository": "xialing114514/mioha-prompt-station",
   "releases": "https://github.com/xialing114514/mioha-prompt-station/releases",
-  "tag": "v4.0.2",
+  "tag": "v4.0.4",
   "platforms": [
     "windows-x64",
     "android-arm64"
   ],
   "platformVersions": {
-    "windows-x64": "4.0.2",
+    "windows-x64": "4.0.4",
     "android-arm64": "4.0.2"
   },
   "skillRevision": "2026-11-15-v24"

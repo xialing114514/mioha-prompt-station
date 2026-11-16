@@ -4,20 +4,21 @@
 
 用中文描述画面，让内置 AI 按绘图模型生成提示词；也可以手动选词、整理角色和画师串、管理模型与 LoRA，再连接绘图引擎生成图片。4.0 新增独立手机版：在手机编辑，在自己的电脑执行绘图，按需查看进度和结果。
 
-[下载 Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.2/Mioha-Prompt-Station-4.0.2-Setup.exe) · [下载 Android APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.2/Mioha-Android-4.0.2-arm64.apk) · [快速上手](docs/QUICK_START.md) · [手机连接指南](docs/MOBILE_REMOTE.md) · [全部截图](docs/SCREENSHOTS.md)
+[下载 Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.4/Mioha-Prompt-Station-4.0.4-Setup.exe) · [下载 Android APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.2/Mioha-Android-4.0.2-arm64.apk) · [快速上手](docs/QUICK_START.md) · [手机连接指南](docs/MOBILE_REMOTE.md) · [全部截图](docs/SCREENSHOTS.md)
 
-Windows 与 Android 当前正式版本均为 **4.0.2**，内置模型 Skill 为 **v24**，版本号在设置中查看。本仓库发布安装包、APK、使用指南、公开模型 Skill、第三方资源声明和更新记录；程序源码不在此仓库中。
+Windows 当前正式版本为 **4.0.4**；Android 为 **4.0.2**，内置模型 Skill 为 **v24**，版本号在设置中查看。本仓库发布安装包、APK、使用指南、公开模型 Skill、第三方资源声明和更新记录；程序源码不在此仓库中。
 
-## 当前更新 · 4.0.2
+## 当前更新 · 4.0.4
 
-- **界面与动效**：保留原字体、字色和纸张配色，导航改为轻薄白色页签；页面、折叠、弹窗与反馈使用短过渡，兼容连续点击、键盘操作和减少动态效果。
-- **Neo 列表完整读取**：采样器与调度器从当前运行的 Neo API 获取，不再用固定兜底列表替代，也不会混入 ComfyUI 的选项；具体数量以实际内核为准。
-- **AI 交付分栏**：可用提示词写入正负提示词栏，对话解释设计内容与表达，保留输入焦点和下一条草稿。
-- **DS Skill v24**：原样同步最新八套独立模型规则，Windows、APK 与独立规则包一致；用户自建 Skill 保留。
-- **安卓酒馆会话删除**：确认后带当前版本号提交，删除后更新列表和会话记忆；取消保留，其他会话、角色与世界资料保留。
-- **继续保留启动修复**：中文电脑名、设备重连与授权、Neo 组件记忆、LoRA 和图库能力沿用已有修复。
+- **生图按操作顺序整理**：模型、提示词和生成操作优先；参数、LoRA 与增强插件按需展开。
+- **插件更易操作**：读取当前 Neo 的参数和选项，一个开关启用；ADetailer 按单元展示检测模型与提示词，检测、蒙版和重绘分类收起。复杂控件可进入 Neo 原生工作区，扩展安装沿用原生管理。
+- **图库选择与删除**：多张导入、单选、多选、全选已加载图片、删除确认及撤销；支持 Shift 连选和键盘操作。参考素材批量删除保留原图。
+- **累计修复**：LoRA 双权重、有效工作流连线、加载错误反馈，以及 Windows 本地“画师与风格”列表导出。
+- **保留既有配置**：原字体、纸张配色、DS Skill v24、个人资料和手机授权保留。Android 本次保持 4.0.2。
 
-[4.0.2 下载与说明](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.2) · [完整更新记录](CHANGELOG.md) · [v24 模型规则](skills/README.md)
+[4.0.4 下载与说明](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.4) · [完整更新记录](CHANGELOG.md) · [v24 模型规则](skills/README.md)
+
+![4.0.4 连接生图与折叠布局](assets/screenshots/generation-404.png)
 
 ## 4.0 带来了什么
 
@@ -117,7 +118,7 @@ WD14 需要把 **`model.onnx` 和配套 `selected_tags.csv` 放在同一个模�
 - 软件默认安全模式，按软件说明切换；远程操作受电脑当前内容模式和设备权限约束。
 - Release 提供 SHA256 校验清单、安装包、APK 和可选 v24 Skill 包。当前截图来自 4.0.2 实际界面与隔离演示资料；旧版本图片在截图页中折叠保留。
 
-[全部发行文件](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.2) · [更新记录](CHANGELOG.md) · [数据与隐私](docs/DATA_AND_PRIVACY.md) · [反馈](CONTRIBUTING.md)
+[全部发行文件](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.4) · [更新记录](CHANGELOG.md) · [数据与隐私](docs/DATA_AND_PRIVACY.md) · [反馈](CONTRIBUTING.md)
 
 ## 致谢与第三方资源
 

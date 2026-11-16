@@ -2,7 +2,23 @@
 
 [项目主页](../README.md) · [手机连接指南](MOBILE_REMOTE.md) · [使用手册](README.md)
 
-## 当前界面 · 4.0.2
+## PC 当前更新 · 4.0.4
+
+更新于 2026-11-16。以下使用实际 4.0.4 前端与隔离资料；Neo 选项来自运行中的内核，没有提交绘图任务，图库展示中性示例图片。Android 继续使用 4.0.2，相关截图保留在下方。
+
+![生图主界面](../assets/screenshots/generation-404.png)
+
+<details>
+<summary>ADetailer 单元设置与图库多选</summary>
+
+![ADetailer](../assets/screenshots/adetailer-404.png)
+
+![图库选择与管理](../assets/screenshots/gallery-404.png)
+
+</details>
+
+## 4.0.2 其他页面与手机版
+
 
 更新于 2026-11-15。下面使用 4.0.2 的实际前端和隔离资料展示界面：电脑为 1440px 窗口，手机版为 390px 触摸布局。没有连接引擎、导入资料或配对时，会保留软件真实的初始状态，不填充虚构的任务和资源。
 

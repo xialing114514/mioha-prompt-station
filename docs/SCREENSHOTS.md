@@ -2,9 +2,38 @@
 
 [项目主页](../README.md) · [使用手册](README.md) · [手机指南](MOBILE_REMOTE.md)
 
-## PC 当前界面 · 4.0.5
+## PC 当前界面 · 4.0.6
 
-更新于 2026-11-16。截图使用实际 4.0.5 前端和独立演示资料；AI 为中性受控响应，图片删除示例使用测试文件。未展示个人凭据、有效配对码、私人创作或规则正文。
+更新于 2026-11-16。以下新增图片来自实际 4.0.6 界面与中性隔离演示资料，路径使用示例值，没有移动用户真实文件。未展示个人凭据、有效配对码、私人创作或规则正文。
+
+### LoRA 文件夹与紧凑工具栏
+
+![文件夹导航与分页](../assets/screenshots/lora-resources-406.png)
+
+### 移动 LoRA 与附带文件
+
+![移动到文件夹](../assets/screenshots/lora-folder-move-406.png)
+
+### 资源详情
+
+固定保存与取消，字段旁显示触发词自动带入说明。
+
+![资源详情](../assets/screenshots/lora-resource-details-406.png)
+
+### 模型中心
+
+![模型中心](../assets/screenshots/model-center-406.png)
+
+### 图库回填 LoRA
+
+图片与参数使用中性演示数据，未执行付费推理或生图。
+
+![图库回填后的生图页](../assets/screenshots/gallery-lora-replay-406.png)
+
+<details>
+<summary>其他工作区：沿用的 4.0.5 界面展示（点击展开）</summary>
+
+这些页面保留原有布局。AI 分栏为中性受控响应，图片删除示例使用测试文件。
 
 ### AI 讲解与提示词分栏
 
@@ -37,6 +66,8 @@
 首次说明并记住确认，具体范围见 [图库指南](GALLERY.md)。
 
 ![首次永久删除确认](../assets/screenshots/permanent-delete-405.png)
+
+</details>
 
 ## Android 当前界面 · 4.0.2
 

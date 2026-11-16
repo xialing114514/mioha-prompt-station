@@ -4,7 +4,7 @@
 
 找词、拼画师串、试 LoRA、切换模型，再把参数抄到生图界面——这些重复操作可以放在同一个工作台里完成。梧桐提示词站以 Windows 本地使用为主，支持手动选词与 AI 辅助，也能用独立 Android 界面连接自己的电脑。
 
-[Windows 4.0.5 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.5/Mioha-Prompt-Station-4.0.5-Setup.exe) · [Android 4.0.2 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.5/Mioha-Android-4.0.2-arm64.apk) · [快速上手](docs/QUICK_START.md) · [完整使用手册](docs/README.md) · [界面截图](docs/SCREENSHOTS.md)
+[Windows 4.0.6 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.6/Mioha-Prompt-Station-4.0.6-Setup.exe) · [Android 4.0.2 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.6/Mioha-Android-4.0.2-arm64.apk) · [快速上手](docs/QUICK_START.md) · [完整使用手册](docs/README.md) · [界面截图](docs/SCREENSHOTS.md)
 
 ![AI 讲解设计，右侧保留可用提示词](assets/screenshots/built-in-ai-405.png)
 
@@ -25,13 +25,13 @@
 
 | 平台 | 当前版本 | 下载 |
 | --- | --- | --- |
-| Windows 10/11 · x64 | **4.0.5** | [Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.5/Mioha-Prompt-Station-4.0.5-Setup.exe) |
-| Android 7.0+ · arm64 | **4.0.2** | [Android APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.5/Mioha-Android-4.0.2-arm64.apk) |
-| 模型 Skill · 可选单独下载 | **v24** | [规则包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.5/mioha-model-skills-v24.zip) |
+| Windows 10/11 · x64 | **4.0.6** | [Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.6/Mioha-Prompt-Station-4.0.6-Setup.exe) |
+| Android 7.0+ · arm64 | **4.0.2** | [Android APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.6/Mioha-Android-4.0.2-arm64.apk) |
+| 模型 Skill · 可选单独下载 | **v24** | [规则包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.6/mioha-model-skills-v24.zip) |
 
 Windows 安装包包含程序运行组件，日常使用无需安装 Python 或 Node.js；电脑需要 WebView2 Runtime。规则已随软件附带，规则 ZIP 不是安装器。Android 本轮沿用 4.0.2，文件与原正式版一致。
 
-已有版本可以退出程序后覆盖安装，个人资料和手机授权保留。安装包未使用发布者数字签名，下载来源和 SHA256 校验见 [4.0.5 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.5)。
+已有版本可以退出程序后覆盖安装，个人资料和手机授权保留。安装包未使用发布者数字签名，下载来源和 SHA256 校验见 [4.0.6 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.6)。
 
 本仓库提供安装包、APK、公开模型规则和说明文档；程序源码暂未公开。
 
@@ -58,20 +58,20 @@ NAI 在线法典直接接入原站，按单画师／画风组筛选，保留原�
 
 ### 模型、LoRA 与实际生图
 
-模型中心与资源页按引擎管理，搜索、分类、绘图模型筛选放在前面，下载、批量、更新与设置集中到「更多操作」。Neo 底模各自记忆文本编码器和 VAE；完整底模可使用自带组件。ComfyUI 沿用自己的工作流，NovelAI 使用自己的 Token。
+模型中心与资源页按引擎管理，搜索与绘图模型筛选靠近列表。LoRA 按真实文件夹显示“全部、根目录、用户目录”，支持子目录浏览、新建、改名及移动；同名预览图、视频与元数据随权重一起移动，已有同名文件不会覆盖。Neo 底模各自记忆文本编码器和 VAE；完整底模可使用自带组件。ComfyUI 沿用自己的工作流，NovelAI 使用自己的 Token。
 
 ![连接生图：模型、提示词与生成操作优先](assets/screenshots/generation-405.png)
 
 参数、LoRA、高清与增强插件按需展开，任务执行时查看实际进度与预览。绘图模型规范决定如何写词，实际引擎与权重决定如何出图，分别设置。
 
 <details>
-<summary>查看模型中心与 LoRA 新界面</summary>
+<summary>查看 4.0.6 文件夹管理与详情界面</summary>
 
-以下是首次使用、尚未读取权重的实际界面。
+使用独立中性资料演示，文件路径为示例。搜索、文件夹与分页紧邻列表；详情底部固定保存并退出和取消，点击空白可退出。
 
-![4.0.5 模型中心](assets/screenshots/model-center-405.png)
+![4.0.6 LoRA 文件夹与紧凑工具栏](assets/screenshots/lora-resources-406.png)
 
-![4.0.5 LoRA 资源](assets/screenshots/lora-resources-405.png)
+![4.0.6 资源详情与固定操作栏](assets/screenshots/lora-resource-details-406.png)
 
 </details>
 
@@ -91,15 +91,16 @@ NAI 在线法典直接接入原站，按单画师／画风组筛选，保留原�
 
 [手机安装、配对、重连与设备管理](docs/MOBILE_REMOTE.md)
 
-## 4.0.5 这次改了什么
+## 4.0.6 这次改了什么
 
-- **自定义 AI 请求兼容：** 连接测试与实际生成使用同一通道和当前思考设置；遇到明确的格式拒绝时自动协商流式／JSON，不用为常见兼容接口逐家填写请求头。服务端鉴权、额度和规则仍由提供方决定。
-- **图库永久删除：** 首次说明删除范围并记住确认，后续不再反复询问；删除图片文件，不保留到可撤销区。选定本机目录时，会删除该目录里的原文件。
-- **补齐页面 UI：** 模型中心、LoRA、创作实验室等统一页签、筛选和操作分组，保留原字体、字色与纸张配色。
+- **图库恢复 LoRA：** 发送图片参数到生图时替换原列表，保留模型／CLIP 双权重和触发词开关；无 LoRA 的图片清空旧项，ComfyUI 按有效输出连接链读取。
+- **真实文件夹整理：** 直接显示 Neo／CUI 的已有目录，支持新建、改名、移动 LoRA 与附带文件，删除空文件夹；资源介绍、触发词与身份保留。
+- **详情符合操作习惯：** 模态弹窗阻挡背景点击，底部固定“确认保存并退出”和“取消”，也可用 Esc 或点击空白退出。触发词说明放在输入框旁。
+- **列表更紧凑：** 搜索、模型筛选和文件夹集中到列表前，上下都有分页，切页回到顶部；选中资源才显示批量操作，完成任务提示可关闭。
 
-**升级不会自动清理旧版已删除图片。** 若要释放旧删除区的空间，使用图库中的专门清理入口。删除前请先查看 [图库说明](docs/GALLERY.md)。
+4.0.5 的接口兼容与图库永久删除继续保留。升级不自动移动现有 LoRA，也不自动清理旧版删除区；文件整理由用户明确操作。
 
-[完整更新记录](CHANGELOG.md) · [4.0.5 下载与校验](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.5)
+[完整更新记录](CHANGELOG.md) · [4.0.6 下载与校验](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.6) · [文件夹整理指南](docs/MODELS_AND_GENERATION.md#lora-文件夹管理) · [图库说明](docs/GALLERY.md)
 
 ## 使用中需要查什么
 
@@ -116,6 +117,7 @@ NAI 在线法典直接接入原站，按单画师／画风组筛选，保留原�
 <details>
 <summary>历史版本与旧界面（点击展开）</summary>
 
+- [4.0.5：接口兼容与页面完善](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.5)
 - [4.0.4：生图操作与图库管理](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.4)
 - [4.0.2：Windows／Android 与 Skill v24](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.2)
 - [全部历史更新](CHANGELOG.md#历史版本) · [历史界面](docs/SCREENSHOTS.md#历史界面)
@@ -130,4 +132,4 @@ NAI 在线法典直接接入原站，按单画师／画风组筛选，保留原�
 
 [完整致谢](CREDITS.md) · [第三方来源与许可](THIRD_PARTY_RESOURCES.md) · [支持开发](SUPPORT.md) · [反馈与参与](CONTRIBUTING.md)
 
-赞助完全自愿，不影响软件功能与使用权限。第三方资源保留各自来源与权利；运行组件许可证随发行包提供，[FFmpeg 第三方源码与构建资料](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.5/Mioha-4.0.0-FFmpeg-ThirdParty-Sources.zip)与当前附件一同发布。
+赞助完全自愿，不影响软件功能与使用权限。第三方资源保留各自来源与权利；运行组件许可证随发行包提供，[FFmpeg 第三方源码与构建资料](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.6/Mioha-4.0.0-FFmpeg-ThirdParty-Sources.zip)与当前附件一同发布。

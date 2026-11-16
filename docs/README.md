@@ -2,7 +2,7 @@
 
 [项目主页](../README.md) · [下载软件](https://github.com/xialing114514/mioha-prompt-station/releases/latest) · [问题反馈](https://github.com/xialing114514/mioha-prompt-station/issues/new/choose)
 
-本手册以 **Windows 4.0.5、Android 4.0.2、模型 Skill v24** 为准。第一次使用从 [快速上手](QUICK_START.md) 开始，后面按要做的事情查阅。
+本手册以 **Windows 4.0.6、Android 4.0.2、模型 Skill v24** 为准。第一次使用从 [快速上手](QUICK_START.md) 开始，后面按要做的事情查阅。
 
 ## 开始使用
 
@@ -25,8 +25,8 @@
 
 | 要做的事情 | 指南 |
 | --- | --- |
-| 扫描模型和 LoRA，连接引擎，配置 VAE、高清、插件和工作流 | [模型与生图](MODELS_AND_GENERATION.md) |
-| 浏览与筛选图片，多选、永久删除和清理旧删除区 | [图库](GALLERY.md) |
+| 按真实文件夹整理 LoRA、移动附带文件，连接引擎与配置工作流 | [模型与生图](MODELS_AND_GENERATION.md) |
+| 图片回填 LoRA、浏览与筛选、多选及永久删除 | [图库](GALLERY.md) |
 | 卡片组合、批量、风格比较、分镜、酒馆与图像处理 | [创作工作台](CREATIVE_WORKSPACE.md) |
 | 安装本地看图标签识别模型 | [WD14 安装与排错](WD14.md) |
 
@@ -38,4 +38,4 @@
 | 为外部 AI 配置 MCP／REST 与业务权限 | [Agent 接入](AGENT.md) |
 | 找到个人目录，备份与迁移，确认联网范围 | [数据与隐私](DATA_AND_PRIVACY.md) |
 
-4.0.5 的图库删除会移除图片文件，首次确认后记住选择；请在操作前看清来源。[更新记录](../CHANGELOG.md)中保留的旧版撤销删除说明已不适用于当前版本。
+当前图库删除会移除图片文件，首次确认后记住选择；请在操作前看清来源。[更新记录](../CHANGELOG.md)中保留的旧版撤销删除说明已不适用于当前版本。

@@ -2,11 +2,11 @@
 
 [手册目录](README.md) · [项目主页](../README.md)
 
-当前版本：**Windows 4.0.6 / Android 4.0.2 / Skill v24**。下面先完成 PC 的一次写词与生图；手机连接可以之后再配置。
+当前版本：**Windows 4.0.7 / Android 4.0.2 / Skill v24**。下面先完成 PC 的一次写词与生图；手机连接可以之后再配置。
 
 ## 1. 下载与安装
 
-从 [4.0.6 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.6) 下载 Windows 的 `Mioha-Prompt-Station-4.0.6-Setup.exe`，运行安装器，选择目录与快捷方式。
+从 [4.0.7 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.7) 下载 Windows 的 `Mioha-Prompt-Station-4.0.7-Setup.exe`，运行安装器，选择目录与快捷方式。
 
 - 需要 Windows 10/11 x64 和 Microsoft Edge WebView2 Runtime。
 - 安装包提供程序运行组件，普通使用无需安装 Python、Node.js 或打开命令行。
@@ -33,6 +33,8 @@
 
 免费通道的默认模型为 NVIDIA: Nemotron 3 Ultra (free)，可用性与额度由提供方决定。程序保留已保存的选择，不会在免费服务失败时自动使用你的自定义 Key。
 
+默认按 Enter 发送，Shift+Enter 换行；可在设置里切换为 Ctrl+Enter 发送。
+
 ### 自己选词和改权重
 
 进入「提示词选词」，按中文或英文搜索，选择正向／负向后点击词条。展开「调整权重与顺序」，选中词条调整数值或拖动排序；中文释义就在对应词条下面。常用组合可存为预设／存档。
@@ -50,6 +52,10 @@
 常见本机地址为 `http://127.0.0.1:7860` 和 `http://127.0.0.1:8188`，以引擎实际启动地址为准。
 
 点击「发送到生图」，核对提示词、模型、LoRA 和主要参数，然后生成。参数、LoRA、高清与增强插件按需展开，执行后查看进度和预览。[详细生图说明](MODELS_AND_GENERATION.md)
+
+### 生图时替换 LoRA 或取消
+
+展开「LoRA 与触发词」，选择已有项旁的「替换」即可试用新 LoRA；从空列表开始时用「添加 LoRA」。直接输入权重，停下后自动保存。已经提交的任务可以通过「取消生成」中止；[查看不同引擎的取消方式](MODELS_AND_GENERATION.md#取消生成)。
 
 ### 首次读取模型和 LoRA
 

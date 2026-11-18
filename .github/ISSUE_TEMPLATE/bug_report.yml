@@ -10,7 +10,7 @@ body:
     attributes:
       label: 软件版本
       description: 可在设置中查看
-      placeholder: "例如 Windows 4.0.6 / Android 4.0.2"
+      placeholder: "例如 Windows 4.0.7 / Android 4.0.2"
     validations:
       required: true
   - type: dropdown

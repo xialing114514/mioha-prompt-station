@@ -1,6 +1,25 @@
 # 更新记录
 
-## 当前版本 · 4.0.6 · 2026-11-16
+## 当前版本 · 4.0.7 · 2026-11-18
+
+Windows **4.0.7**；Android 保持 **4.0.2**；模型 Skill 保持 **v24**。
+
+- **连接生图的 LoRA：** 浮层支持按文件夹筛选、搜索和预览；选择后直接添加或替换指定项。替换保留模型／CLIP 权重和触发词开关；已加载项的权重直接编辑，停下输入后自动保存。
+- **取消生成：** ComfyUI 优先按任务号处理；NeoForge 加载组件后可直接中止采样或撤销排队。只支持原生中止时先核对正在运行的是本次任务，再请用户确认。NovelAI 已提交时可停止本地等待，服务端仍可能完成或计费。
+- **并行创作：** 生图时可以继续在 AI 选词里对话。已经提交的生图仍使用原任务的提示词和参数。
+- **首次发送：** 普通对话先检查系统提示词与已选 Skill；规则缺失时重新读取，仍无法准备则保留草稿。上游拒绝与规则加载失败分别提示。
+- **选词与聊天：** 权重区用当前 AI 模型补译待译词；AI 选词和创作酒馆支持粗体。默认 Enter 发送，可在设置切回 Ctrl+Enter。
+
+[4.0.7 下载与校验](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.7) · [生图使用说明](docs/MODELS_AND_GENERATION.md) · [AI 选词](docs/BUILT_IN_AI.md)
+
+## 历史版本
+
+以下内容记录各版本当时的行为，当前操作以手册为准。
+
+<details>
+<summary>4.0.6 · LoRA 文件夹与图库回填（点击展开）</summary>
+
+## 4.0.6 · 2026-11-16
 
 Windows **4.0.6**；Android 保持 **4.0.2**；模型 Skill 保持 **v24**。
 
@@ -28,9 +47,7 @@ Windows **4.0.6**；Android 保持 **4.0.2**；模型 Skill 保持 **v24**。
 
 [4.0.6 下载与校验](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.6) · [文件夹操作](docs/MODELS_AND_GENERATION.md#lora-文件夹管理) · [图库回填](docs/GALLERY.md#发送到生图与-lora-回填)
 
-## 历史版本
-
-以下内容记录各版本当时的行为，当前操作以手册为准。
+</details>
 
 <details>
 <summary>4.0.5 · 接口兼容与界面完善（点击展开）</summary>

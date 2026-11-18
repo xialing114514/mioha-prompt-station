@@ -6,6 +6,8 @@
 
 [Windows 4.0.7 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.7/Mioha-Prompt-Station-4.0.7-Setup.exe) · [Android 4.0.2 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.7/Mioha-Android-4.0.2-arm64.apk) · [快速上手](docs/QUICK_START.md) · [完整使用手册](docs/README.md) · [界面截图](docs/SCREENSHOTS.md)
 
+[图解教程 PDF（8 页）](docs/pdf/mioha-prompt-station-4.0.7-illustrated-guide.pdf) · [详细文字教程 PDF（12 页）](docs/pdf/mioha-prompt-station-4.0.7-user-guide.pdf)
+
 ![AI 讲解设计，右侧保留可用提示词](assets/screenshots/built-in-ai-405.png)
 
 *界面使用独立演示资料，AI 分栏为受控交互展示。[查看截图说明](docs/SCREENSHOTS.md)*

@@ -10,6 +10,8 @@
 | --- | --- |
 | 下载、安装、覆盖升级、写第一条提示词 | [快速上手](QUICK_START.md) |
 | 查看当前工作区的样子 | [界面截图](SCREENSHOTS.md) |
+| 按图找选词、生图、LoRA、图库与手机入口 | [图解教程 PDF（8 页）](pdf/mioha-prompt-station-4.0.7-illustrated-guide.pdf) |
+| 从安装到第一次生图，按步骤操作与排错 | [详细文字教程 PDF（12 页）](pdf/mioha-prompt-station-4.0.7-user-guide.pdf) |
 | 遇到启动、连接、模型或显示问题 | [常见问题](FAQ.md) |
 
 ## 写词与管理资料

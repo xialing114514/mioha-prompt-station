@@ -35,6 +35,8 @@
 用途：Danbooru 标签查询与图片预览。
 [原始地址：SAkizuki / DanbooruSearch](https://huggingface.co/spaces/SAkizuki/DanbooruSearch)
 
+- **Prompt All in One** 的中文分组用于核对标签超市分类。Copyright © 2023 Physton。[分类参考](https://github.com/Physton/sd-webui-prompt-all-in-one/blob/main/group_tags/zh_CN.yaml) · [MIT 许可证](https://github.com/Physton/sd-webui-prompt-all-in-one/blob/main/LICENSE)
+
 本项目对上述来源的资料进行整理、索引与检索，以提供统一的使用体验。各来源网站及其内容仍归原作者、维护者或相应权利人所有。
 
 第三方图片资源优先保留原始来源及链接。图片引用、缓存和展示均应遵循对应来源的使用规则与授权要求。

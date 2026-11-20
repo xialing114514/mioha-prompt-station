@@ -2,11 +2,11 @@
 
 [手册目录](README.md) · [项目主页](../README.md)
 
-当前版本：**Windows 4.0.7 / Android 4.0.2 / Skill v24**。下面先完成 PC 的一次写词与生图；手机连接可以之后再配置。
+当前版本为 **Windows 4.0.9 / Android 4.0.2 / Skill v24**。可以先在电脑上完成一次写词与生图，再配置手机连接。
 
 ## 1. 下载与安装
 
-从 [4.0.7 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.7) 下载 Windows 的 `Mioha-Prompt-Station-4.0.7-Setup.exe`，运行安装器，选择目录与快捷方式。
+下载 `Mioha-Prompt-Station-4.0.9-Setup.exe` 并运行，选择安装目录与快捷方式。[4.0.9 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.9)
 
 - 需要 Windows 10/11 x64 和 Microsoft Edge WebView2 Runtime。
 - 安装包提供程序运行组件，普通使用无需安装 Python、Node.js 或打开命令行。
@@ -38,6 +38,8 @@
 ### 自己选词和改权重
 
 进入「提示词选词」，按中文或英文搜索，选择正向／负向后点击词条。展开「调整权重与顺序」，选中词条调整数值或拖动排序；中文释义就在对应词条下面。常用组合可存为预设／存档。
+
+打开标签超市中的栏目后，搜索框只在所选栏目内找词。可以在「人物 → 五官与妆容 → 视线」找看向镜头的词，在「场景 → 家具 → 卫浴」找马桶和洗手池，或在「镜头 → 景深」找背景虚化。要跨栏查找时，切到顶栏的「全部」。
 
 「AI 选词 → 绘图模型」决定提示词写法；实际加载哪份权重，在生图页单独选择。[详细 AI 配置与排错](BUILT_IN_AI.md)
 

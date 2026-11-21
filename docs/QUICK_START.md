@@ -2,11 +2,11 @@
 
 [手册目录](README.md) · [项目主页](../README.md)
 
-当前版本为 **Windows 4.0.9 / Android 4.0.2 / Skill v24**。可以先在电脑上完成一次写词与生图，再配置手机连接。
+当前版本为 **Windows 4.0.10 / Android 4.0.9 / Skill v24**。可以先在电脑上完成一次写词与生图，再配置手机连接。
 
 ## 1. 下载与安装
 
-下载 `Mioha-Prompt-Station-4.0.9-Setup.exe` 并运行，选择安装目录与快捷方式。[4.0.9 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.9)
+下载 `Mioha-Prompt-Station-4.0.10-Setup.exe` 并运行，选择安装目录与快捷方式。[4.0.10 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.10)
 
 - 需要 Windows 10/11 x64 和 Microsoft Edge WebView2 Runtime。
 - 安装包提供程序运行组件，普通使用无需安装 Python、Node.js 或打开命令行。

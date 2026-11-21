@@ -4,7 +4,7 @@
 
 找词、拼画师串、试 LoRA、切换模型，再把参数抄到生图界面——这些重复操作可以放在同一个工作台里完成。梧桐提示词站以 Windows 本地使用为主，支持手动选词与 AI 辅助，也能用独立 Android 界面连接自己的电脑。
 
-[Windows 4.0.9 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.9/Mioha-Prompt-Station-4.0.9-Setup.exe) · [Android 4.0.2 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.9/Mioha-Android-4.0.2-arm64.apk) · [快速上手](docs/QUICK_START.md) · [完整使用手册](docs/README.md) · [界面截图](docs/SCREENSHOTS.md)
+[Windows 4.0.10 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.10/Mioha-Prompt-Station-4.0.10-Setup.exe) · [Android 4.0.9 下载](#下载与安装) · [快速上手](docs/QUICK_START.md) · [完整使用手册](docs/README.md) · [界面截图](docs/SCREENSHOTS.md)
 
 [4.0.7 图解教程 PDF（8 页）](docs/pdf/mioha-prompt-station-4.0.7-illustrated-guide.pdf) · [4.0.7 文字教程 PDF（12 页）](docs/pdf/mioha-prompt-station-4.0.7-user-guide.pdf)
 
@@ -27,13 +27,14 @@
 
 | 平台 | 当前版本 | 下载 |
 | --- | --- | --- |
-| Windows 10/11 · x64 | **4.0.9** | [Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.9/Mioha-Prompt-Station-4.0.9-Setup.exe) |
-| Android 7.0+ · arm64 | **4.0.2** | [Android APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.9/Mioha-Android-4.0.2-arm64.apk) |
-| 模型 Skill · 可选单独下载 | **v24** | [规则包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.9/mioha-model-skills-v24.zip) |
+| Windows 10/11 · x64 | **4.0.10** | [Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.10/Mioha-Prompt-Station-4.0.10-Setup.exe) |
+| Android 7.0+ · 64 位 ARM | **4.0.9** | [标准 APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.10/Mioha-Android-4.0.9-arm64.apk) |
+| Android 7.0+ · 32 位 ARM | **4.0.9** | [兼容 APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.10/Mioha-Android-4.0.9-armeabi-v7a.apk) |
+| 模型 Skill · 可选单独下载 | **v24** | [规则包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.10/mioha-model-skills-v24.zip) |
 
-Windows 安装包包含程序运行组件，日常使用无需安装 Python 或 Node.js；电脑需要 WebView2 Runtime。规则已随软件附带，规则 ZIP 不是安装器。Android 本轮沿用 4.0.2，文件与原正式版一致。
+Windows 安装包包含程序运行组件，电脑需要 WebView2 Runtime。模型规则随软件附带。Android 用户可按设备架构选择 APK，签名与既有发布版一致，可覆盖升级。
 
-已有版本可以退出程序后覆盖安装，个人资料和手机授权保留。安装包未使用发布者数字签名，下载来源和 SHA256 校验见 [4.0.9 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.9)。
+Windows 已有版本可以从托盘退出程序后覆盖安装，个人资料和手机授权保留。Windows 安装器的下载来源与 SHA256 校验见发行页。[4.0.10 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.10)
 
 本仓库提供安装包、APK、公开模型规则和说明文档；程序源码暂未公开。
 
@@ -93,13 +94,21 @@ NAI 在线法典直接接入原站，按单画师／画风组筛选，保留原�
 
 [手机安装、配对、重连与设备管理](docs/MOBILE_REMOTE.md)
 
-## 4.0.9 这次改了什么
+## 本次更新
 
-- **找词更方便。** 标签超市单列场景、环境、物品、画面和镜头。马桶与洗手池在「场景 → 家具 → 卫浴」，背景虚化在「镜头 → 景深」。
-- **常用词分得更细。** 人物可按发型、发色、瞳孔或视线查找。服饰区可分别浏览衣装和配饰，手持、手放在和抓握在表情与动作中各有筛选。54,409 个词条经整库核对，其中 659 个原先放在「其他」的词已归到更明确的栏目。
-- **图片反推使用已配置的视觉模型。** 支持 OpenAI 和 Anthropic 协议。图片写有生成参数时，程序优先读取原始参数。
+### Windows 4.0.10
 
-[4.0.9 下载与校验](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.9) · [完整更新记录](CHANGELOG.md) · [标签超市用法](docs/QUICK_START.md#自己选词和改权重)
+- 创作酒馆支持角色分类、备选开场白、最多六人的会话、自动轮换和指定发言。
+- 从会话中的角色状态查看或调整好感、攻略进度、心情、关系和称呼。行动选项可以直接发送或改写，自行输入的对白也参与关系结算。
+- 本地服务在切换页面后继续处理与保存回复，可开启完成后的托盘提醒。角色卡支持 PNG 和 JSON，世界书可与 Android 的世界树交换。
+
+### Android 4.0.9
+
+- 提示词选词同步电脑端的分类和中英文栏内检索，点词可以写入提示词。
+- 手机酒馆支持多人会话、剧情分支和关系状态，回复可在后台继续处理。
+- 修复 Android 7 旧版 WebView 的启动与点词问题。发行页提供 64 位 ARM 标准包和 32 位 ARM 兼容包。
+
+[完整更新记录](CHANGELOG.md) · [创作酒馆用法](docs/CREATIVE_WORKSPACE.md#多人会话与角色状态) · [标签超市用法](docs/QUICK_START.md#自己选词和改权重)
 
 ## 使用中需要查什么
 
@@ -132,4 +141,4 @@ NAI 在线法典直接接入原站，按单画师／画风组筛选，保留原�
 
 [完整致谢](CREDITS.md) · [第三方来源与许可](THIRD_PARTY_RESOURCES.md) · [支持开发](SUPPORT.md) · [反馈与参与](CONTRIBUTING.md)
 
-赞助完全自愿，不影响软件功能与使用权限。第三方运行组件的许可证随安装包提供。[FFmpeg 第三方源码与构建资料](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.9/Mioha-4.0.0-FFmpeg-ThirdParty-Sources.zip)
+赞助完全自愿，不影响软件功能与使用权限。第三方运行组件的许可证随安装包提供。[FFmpeg 第三方源码与构建资料](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.10/Mioha-4.0.0-FFmpeg-ThirdParty-Sources.zip)

@@ -4,7 +4,7 @@
 
 找词、拼画师串、试 LoRA、切换模型，再把参数抄到生图界面——这些重复操作可以放在同一个工作台里完成。梧桐提示词站以 Windows 本地使用为主，支持手动选词与 AI 辅助，也能用独立 Android 界面连接自己的电脑。
 
-[Windows 4.0.10 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.10/Mioha-Prompt-Station-4.0.10-Setup.exe) · [Android 4.0.9 下载](#下载与安装) · [快速上手](docs/QUICK_START.md) · [完整使用手册](docs/README.md) · [界面截图](docs/SCREENSHOTS.md)
+[Windows 4.0.11 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.11/Mioha-Prompt-Station-4.0.11-Setup.exe) · [Android 4.0.10 下载](#下载与安装) · [快速上手](docs/QUICK_START.md) · [完整使用手册](docs/README.md) · [界面截图](docs/SCREENSHOTS.md)
 
 [4.0.7 图解教程 PDF（8 页）](docs/pdf/mioha-prompt-station-4.0.7-illustrated-guide.pdf) · [4.0.7 文字教程 PDF（12 页）](docs/pdf/mioha-prompt-station-4.0.7-user-guide.pdf)
 
@@ -27,14 +27,14 @@
 
 | 平台 | 当前版本 | 下载 |
 | --- | --- | --- |
-| Windows 10/11 · x64 | **4.0.10** | [Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.10/Mioha-Prompt-Station-4.0.10-Setup.exe) |
-| Android 7.0+ · 64 位 ARM | **4.0.9** | [标准 APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.10/Mioha-Android-4.0.9-arm64.apk) |
-| Android 7.0+ · 32 位 ARM | **4.0.9** | [兼容 APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.10/Mioha-Android-4.0.9-armeabi-v7a.apk) |
-| 模型 Skill · 可选单独下载 | **v24** | [规则包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.10/mioha-model-skills-v24.zip) |
+| Windows 10/11 · x64 | **4.0.11** | [Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.11/Mioha-Prompt-Station-4.0.11-Setup.exe) |
+| Android 7.0+ · 64 位 ARM | **4.0.10** | [标准 APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.11/Mioha-Android-4.0.10-arm64.apk) |
+| Android 7.0+ · 32 位 ARM | **4.0.10** | [兼容 APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.11/Mioha-Android-4.0.10-armeabi-v7a.apk) |
+| 模型 Skill · 可选单独下载 | **v24** | [规则包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.11/mioha-model-skills-v24.zip) |
 
 Windows 安装包包含程序运行组件，电脑需要 WebView2 Runtime。模型规则随软件附带。Android 用户可按设备架构选择 APK，签名与既有发布版一致，可覆盖升级。
 
-Windows 已有版本可以从托盘退出程序后覆盖安装，个人资料和手机授权保留。Windows 安装器的下载来源与 SHA256 校验见发行页。[4.0.10 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.10)
+Windows 已有版本可以从托盘退出程序后覆盖安装，个人资料和手机授权保留。安装包的 SHA256 校验值见发行页。[4.0.11 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.11)
 
 本仓库提供安装包、APK、公开模型规则和说明文档；程序源码暂未公开。
 
@@ -96,19 +96,18 @@ NAI 在线法典直接接入原站，按单画师／画风组筛选，保留原�
 
 ## 本次更新
 
-### Windows 4.0.10
+### Windows 4.0.11
 
-- 创作酒馆支持角色分类、备选开场白、最多六人的会话、自动轮换和指定发言。
-- 从会话中的角色状态查看或调整好感、攻略进度、心情、关系和称呼。行动选项可以直接发送或改写，自行输入的对白也参与关系结算。
-- 本地服务在切换页面后继续处理与保存回复，可开启完成后的托盘提醒。角色卡支持 PNG 和 JSON，世界书可与 Android 的世界树交换。
+- NAI 生图可以按分类和来源找画师串，先看图，再点预览标题旁的「加入本次生图」。收起选择列表后仍能查看和移除已加入项。
+- 在「画师与风格」建分类或批量归类。绘图资料中心按在线词典、本地索引与本地导入分组显示来源。
+- 在「远程连接」开启服务并配对手机，电脑确认设备后即可使用。
 
-### Android 4.0.9
+### Android 4.0.10
 
-- 提示词选词同步电脑端的分类和中英文栏内检索，点词可以写入提示词。
-- 手机酒馆支持多人会话、剧情分支和关系状态，回复可在后台继续处理。
-- 修复 Android 7 旧版 WebView 的启动与点词问题。发行页提供 64 位 ARM 标准包和 32 位 ARM 兼容包。
+- 提示词页重排正负词切换、语法和搜索。复制、清空和发送集中在输入区下方。
+- 管理页可直接进入「连接我的电脑」。扫码时手机会尝试多个局域网地址，已经授权的设备也可以更新地址后重连。
 
-[完整更新记录](CHANGELOG.md) · [创作酒馆用法](docs/CREATIVE_WORKSPACE.md#多人会话与角色状态) · [标签超市用法](docs/QUICK_START.md#自己选词和改权重)
+[完整更新记录](CHANGELOG.md) · [NAI 画师串用法](docs/NAI_CODEX.md#nai-生图加载画师串) · [手机配对说明](docs/MOBILE_REMOTE.md)
 
 ## 使用中需要查什么
 

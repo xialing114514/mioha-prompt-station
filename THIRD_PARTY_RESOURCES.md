@@ -40,3 +40,8 @@
 ## 4.0 远程运行组件
 
 远程数据通道使用 aiortc、aioice、PyAV、pylibsrtp 等组件。Windows 的 PyAV 运行依赖包含动态 FFmpeg 及其他原生库，各自保持原许可证；发行包提供原始许可证和来源清单。[同版本源码与构建资料](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.0/Mioha-4.0.0-FFmpeg-ThirdParty-Sources.zip) 与安装包一同提供。上游：[aiortc](https://github.com/aiortc/aiortc)、[PyAV](https://github.com/PyAV-Org/PyAV)、[FFmpeg](https://ffmpeg.org/)。
+
+
+## Windows 4.0.28／Android 4.0.29
+
+[Windows 许可附件](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.28/Windows-ThirdPartyLicenses-4.0.28.zip) · [Android 许可与来源附件](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.28/Android-ThirdPartyLicenses-4.0.29.zip)。资源圆体保留 SIL OFL 1.1 文本；Android 附件保留 Genesis-Corridor-Gateway 的来源元数据及其未提供独立许可证的事实。

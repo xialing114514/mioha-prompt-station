@@ -2,7 +2,7 @@
 
 [项目主页](../README.md) · [下载软件](https://github.com/xialing114514/mioha-prompt-station/releases/latest) · [问题反馈](https://github.com/xialing114514/mioha-prompt-station/issues/new/choose)
 
-本手册以 **Windows 4.0.11、Android 4.0.10、模型 Skill v24** 为准。第一次使用可从 [快速上手](QUICK_START.md) 开始。
+本手册以 **Windows 4.0.28、Android 4.0.29、随应用附带的模型 Skill** 为准。第一次使用可从 [快速上手](QUICK_START.md) 开始。
 
 ## 开始使用
 

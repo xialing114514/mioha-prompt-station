@@ -1,18 +1,19 @@
 {
-  "version": "4.0.11",
-  "displayVersion": "4.0.11",
+  "version": "4.0.28",
+  "displayVersion": "4.0.28",
   "repository": "xialing114514/mioha-prompt-station",
   "releases": "https://github.com/xialing114514/mioha-prompt-station/releases",
-  "tag": "v4.0.11",
+  "tag": "v4.0.28",
   "platforms": [
     "windows-x64",
     "android-arm64",
     "android-armv7"
   ],
   "platformVersions": {
-    "windows-x64": "4.0.11",
-    "android-arm64": "4.0.10",
-    "android-armv7": "4.0.10"
+    "windows-x64": "4.0.28",
+    "android-arm64": "4.0.29",
+    "android-armv7": "4.0.29"
   },
-  "skillRevision": "2026-11-15-v24"
+  "skillRevision": "2026-11-23-v26",
+  "publicSkillRevision": "2026-11-15-v24"
 }

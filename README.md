@@ -2,15 +2,15 @@
 
 **把想画的画面，整理成可以直接使用、保存和反复调整的提示词。**
 
-找词、拼画师串、试 LoRA、切换模型，再把参数抄到生图界面——这些重复操作可以放在同一个工作台里完成。梧桐提示词站以 Windows 本地使用为主，支持手动选词与 AI 辅助，也能用独立 Android 界面连接自己的电脑。
+找词、拼画师串、试 LoRA、切换模型，再把参数抄到生图界面——这些重复操作可以放在同一个工作台里完成。梧桐提示词站以 Windows 本地使用为主，支持手动选词与 AI 辅助，Android 也可独立整理与生成，或经授权连接自己的电脑。
 
-[Windows 4.0.11 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.11/Mioha-Prompt-Station-4.0.11-Setup.exe) · [Android 4.0.10 下载](#下载与安装) · [快速上手](docs/QUICK_START.md) · [完整使用手册](docs/README.md) · [界面截图](docs/SCREENSHOTS.md)
+[Windows 4.0.28 下载](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.28/Mioha-Prompt-Station-4.0.28-Setup.exe) · [Android 4.0.29 下载](#下载与安装) · [快速上手](docs/QUICK_START.md) · [完整使用手册](docs/README.md) · [界面截图](docs/SCREENSHOTS.md)
 
 [4.0.7 图解教程 PDF（8 页）](docs/pdf/mioha-prompt-station-4.0.7-illustrated-guide.pdf) · [4.0.7 文字教程 PDF（12 页）](docs/pdf/mioha-prompt-station-4.0.7-user-guide.pdf)
 
 ![AI 讲解设计，右侧保留可用提示词](assets/screenshots/built-in-ai-405.png)
 
-*界面使用独立演示资料，AI 分栏为受控交互展示。[查看截图说明](docs/SCREENSHOTS.md)*
+*上图保留 4.0.5 历史界面，使用独立演示资料；AI 分栏为受控交互展示。[查看截图说明](docs/SCREENSHOTS.md)*
 
 ## 它能帮你做什么
 
@@ -27,14 +27,14 @@
 
 | 平台 | 当前版本 | 下载 |
 | --- | --- | --- |
-| Windows 10/11 · x64 | **4.0.11** | [Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.11/Mioha-Prompt-Station-4.0.11-Setup.exe) |
-| Android 7.0+ · 64 位 ARM | **4.0.10** | [标准 APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.11/Mioha-Android-4.0.10-arm64.apk) |
-| Android 7.0+ · 32 位 ARM | **4.0.10** | [兼容 APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.11/Mioha-Android-4.0.10-armeabi-v7a.apk) |
-| 模型 Skill · 可选单独下载 | **v24** | [规则包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.11/mioha-model-skills-v24.zip) |
+| Windows 10/11 · x64 | **4.0.28** | [Windows 安装包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.28/Mioha-Prompt-Station-4.0.28-Setup.exe) |
+| Android 7.0+ · 64 位 ARM | **4.0.29** | [标准 APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.28/Mioha-Android-4.0.29-arm64.apk) |
+| Android 7.0+ · 32 位 ARM | **4.0.29** | [兼容 APK](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.28/Mioha-Android-4.0.29-armeabi-v7a.apk) |
+| 历史公开 Skill · 可选 | **v24** | [规则包](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.11/mioha-model-skills-v24.zip) |
 
-Windows 安装包包含程序运行组件，电脑需要 WebView2 Runtime。模型规则随软件附带。Android 用户可按设备架构选择 APK，签名与既有发布版一致，可覆盖升级。
+Windows 安装包包含程序运行组件，电脑需要 WebView2 Runtime。当前模型规则随软件附带，历史公开 v24 ZIP 供单独查阅。Android 用户可按设备架构选择 APK，签名与既有发布版一致，可覆盖升级。
 
-Windows 已有版本可以从托盘退出程序后覆盖安装，个人资料和手机授权保留。安装包的 SHA256 校验值见发行页。[4.0.11 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.11)
+Windows 已有版本可以从托盘退出程序后覆盖安装，个人资料和手机授权保留。安装包的 SHA256 校验值见发行页。[PC 4.0.28／Android 4.0.29 发行页](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.28)
 
 本仓库提供安装包、APK、公开模型规则和说明文档；程序源码暂未公开。
 
@@ -82,7 +82,7 @@ NAI 在线法典直接接入原站，按单画师／画风组筛选，保留原�
 
 ### 从单张画面到一组创作
 
-在创作实验室把常用片段存成卡片，组合后查看最终正负提示词，再做批量或画风比较；分镜项目保存场景和候选图。图像工作台处理导入副本，创作酒馆管理角色卡、世界书与独立会话。图库集中浏览本机结果、查看参数和筛选。
+在图像工作台的创作实验页面把常用片段存成卡片，组合后查看最终正负提示词，再做批量或画风比较；分镜项目保存场景和候选图。图像工作台处理导入副本，创作酒馆管理角色卡、世界书与独立会话。图库集中浏览本机结果、查看参数和筛选。
 
 [创作实验室与酒馆](docs/CREATIVE_WORKSPACE.md) · [图库与图片删除](docs/GALLERY.md) · [外部 Agent 接入](docs/AGENT.md)
 
@@ -96,18 +96,28 @@ NAI 在线法典直接接入原站，按单画师／画风组筛选，保留原�
 
 ## 本次更新
 
-### Windows 4.0.11
+### Windows 4.0.28
 
-- NAI 生图可以按分类和来源找画师串，先看图，再点预览标题旁的「加入本次生图」。收起选择列表后仍能查看和移除已加入项。
-- 在「画师与风格」建分类或批量归类。绘图资料中心按在线词典、本地索引与本地导入分组显示来源。
-- 在「远程连接」开启服务并配对手机，电脑确认设备后即可使用。
+- NAI 全局与角色提示词独立编辑，整理正向、角色 UC、角色排序与站位，并修复把普通提示词片段误当作多个人物的问题。
+- 精准参考支持多图、文件夹、拖入、图库和预览入口；支持相应模型的高清修复与蒙版重绘，保留原图并在提交前检查兼容性。
+- AI 选词支持图片附件与模型能力检查，完善 Skill 文件夹、资料检索、结果收录、取消和失败草稿保留。
 
-### Android 4.0.10
+### Android 4.0.29
 
-- 提示词页重排正负词切换、语法和搜索。复制、清空和发送集中在输入区下方。
-- 管理页可直接进入「连接我的电脑」。扫码时手机会尝试多个局域网地址，已经授权的设备也可以更新地址后重连。
+- 手机界面整理为淡纸近白与资源圆体。聊天默认一行，随文字增长到上限后在框内滚动；正负编辑区、权重按钮、分类选中态和中英文标签重新对齐。
+- 对话页直接选择内置免费或自定义接口，再选模型；提示词结果页只保留结果操作。免费模型缺省思考强度按高发送，保留用户明确选择的低、中和关闭。
+- NAI 角色卡明确显示参与生成或已停用，折叠箭头独立居中。酒馆消息区独立滚动，输入区位于底部；键盘弹出时暂时收起关系信息卡，关闭后恢复。
 
-[完整更新记录](CHANGELOG.md) · [NAI 画师串用法](docs/NAI_CODEX.md#nai-生图加载画师串) · [手机配对说明](docs/MOBILE_REMOTE.md)
+[完整更新与验证范围](https://github.com/xialing114514/mioha-prompt-station/releases/tag/v4.0.28) · [手机用法](docs/MOBILE_REMOTE.md) · [酒馆工具](docs/CREATIVE_WORKSPACE.md)
+
+<details>
+<summary>Android 4.0.29 界面演示</summary>
+
+<img src="assets/screenshots/android-ai-429.png" width="320" alt="Android 4.0.29，模型来源可直接切换，输入默认单行">
+
+使用自编中性资料的浏览器界面演示；不是实体手机或真实模型效果截图。
+
+</details>
 
 ## 使用中需要查什么
 
@@ -140,4 +150,4 @@ NAI 在线法典直接接入原站，按单画师／画风组筛选，保留原�
 
 [完整致谢](CREDITS.md) · [第三方来源与许可](THIRD_PARTY_RESOURCES.md) · [支持开发](SUPPORT.md) · [反馈与参与](CONTRIBUTING.md)
 
-赞助完全自愿，不影响软件功能与使用权限。第三方运行组件的许可证随安装包提供。[FFmpeg 第三方源码与构建资料](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.10/Mioha-4.0.0-FFmpeg-ThirdParty-Sources.zip)
+赞助完全自愿，不影响软件功能与使用权限。第三方运行组件的许可证随安装包提供。[FFmpeg 第三方源码与构建资料](https://github.com/xialing114514/mioha-prompt-station/releases/download/v4.0.28/Mioha-4.0.0-FFmpeg-ThirdParty-Sources.zip)

@@ -83,3 +83,10 @@
 **感谢每一位为开源社区与 AI 绘画生态作出贡献的人。**
 
 - **[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)**：对话循环和内部 Agent 组合机制参考，移植提示词投影、请求头规范化与工具中断恢复代码。Copyright (c) 2026 DeepSeek，MIT 许可证；发行包保留原许可。
+
+
+## 当前发行附加说明
+
+- **Resource Han Rounded CN／资源圆体**：SIL Open Font License 1.1。字体原始文件与名称保留，许可随 Windows 和 Android 发行包附带。
+- **Genesis-Corridor-Gateway**：Android 可选 API 转换来源，维护者提供目录的版本标识为 v0.86／v8。提供目录未附独立 LICENSE／COPYING／NOTICE；来源元数据保留于 Android 许可附件，未声明已核实其开源许可。
+- **ElecKoi** 与 **dsh-tavern**：酒馆功能与交互设计参考。[ElecKoi](https://github.com/eleckoi/ElecKoi) · [dsh-tavern](https://github.com/flizzywine/dsh-tavern)。具体组件声明以发行包内许可与来源说明为准。
